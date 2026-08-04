@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Santa Monica Budget Explorer · FY 2025-26</title>
-<meta name="description" content="An independent, plain-language look at Santa Monica's adopted FY 2025-26 budget — where $796.6M comes from, where it goes, and what your household's share looks like.">
+<meta name="description" content="Santa Monica adopted a $796.6 million budget for FY 2025-26: 31 funds, 15 departments, $8,703 per resident. Where the money comes from, where it goes, and your household's share. Built by a resident, not the City.">
 <meta name="author" content="Independent community project (not affiliated with the City of Santa Monica)">
 <meta property="og:title" content="Santa Monica Budget Explorer · FY 2025-26">
-<meta property="og:description" content="Plain-language explainer of the City's adopted budget: money in, money out, and your household's share of services.">
+<meta property="og:description" content="$796.6 million adopted for FY 2025-26. Where it comes from, where it goes, and what a household's share works out to. Independent, not a City of Santa Monica site.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231B4965'/%3E%3Cpath d='M8 26 Q14 20 20 26 T32 26' stroke='%23FCD98A' stroke-width='2.5' fill='none'/%3E%3Ccircle cx='28' cy='14' r='4' fill='%23A9DCEA'/%3E%3C/svg%3E">
@@ -69,48 +69,49 @@ a{color:var(--brand);}
 .subnav a[aria-current="true"]{color:var(--brand);border-bottom-color:var(--coastal);}
 
 /* hero */
-.hero{background:linear-gradient(150deg,#12354B 0%,#1B4965 45%,#276e86 100%);color:#fff;padding:52px 0 40px;position:relative;overflow:hidden;}
+.hero{background:linear-gradient(150deg,#12354B 0%,#1B4965 45%,#276e86 100%);color:#fff;padding:36px 0 28px;position:relative;overflow:hidden;}
 .hero .glow{position:absolute;top:-90px;right:-60px;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,rgba(232,161,58,.5),transparent 65%);}
 .hero .wrap{position:relative;z-index:2;}
 .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#A9DCEA;}
-.hero h1{font-size:clamp(30px,5vw,44px);font-weight:700;margin:12px 0 12px;max-width:16ch;}
+.hero h1{font-size:clamp(30px,5vw,44px);font-weight:700;margin:0 0 10px;max-width:none;}
 .hero h1 .hl{color:#FCD98A;}
-.hero .lede{font-size:1.12rem;max-width:60ch;color:#E6EEF3;margin:0;}
-.hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.hero .lede{font-size:1.12rem;max-width:none;color:#E6EEF3;margin:0;}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
 .tag{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 13px;border-radius:var(--r-md);font-size:.9rem;font-weight:600;}
 .tag b{color:#FCD98A;}
 
 /* view toggle */
-.viewbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;margin:22px 0 4px;}
+.viewbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;margin:16px 0 4px;}
 .seg{display:inline-flex;background:var(--subtle);border:1px solid var(--bd);border-radius:var(--r-pill);padding:4px;}
 .seg button{border:0;background:transparent;color:var(--tx2);font-weight:600;font-size:.9rem;padding:9px 18px;border-radius:var(--r-pill);cursor:pointer;transition:all var(--dur);min-height:40px;}
 .seg button[aria-pressed="true"]{background:var(--card);color:var(--brand);box-shadow:var(--sh1);}
-.viewbar .hint{font-size:.9rem;color:var(--tx-mute);}
+.viewbar .hint{font-size:.9rem;color:var(--tx-mute);font-weight:600;}
+.view-explain{margin:0 0 4px;max-width:none;font-size:.95rem;color:var(--tx2);line-height:1.55;}
 
 /* sections & cards */
-section{padding:26px 0 6px;scroll-margin-top:130px;}#overview{scroll-margin-top:120px;}
-.sec-head{max-width:70ch;margin-bottom:8px;}
+section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:120px;}
+.sec-head{max-width:70ch;margin-bottom:4px;}
 .sec-head .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coastal-dark);}
-.sec-head h2{font-size:1.7rem;font-weight:700;margin:6px 0 8px;}
+.sec-head h2{font-size:1.7rem;font-weight:700;margin:4px 0 6px;}
 .sec-head p{font-size:1.05rem;color:var(--tx2);margin:0;}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:var(--sh1);padding:22px;margin-top:16px;}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:var(--sh1);padding:18px;margin-top:12px;}
 .card h3{font-size:1.15rem;font-weight:600;margin-bottom:2px;}
-.card .cap{font-size:.9rem;color:var(--tx-mute);margin:0 0 14px;}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.card .cap{font-size:.9rem;color:var(--tx-mute);margin:0 0 10px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .chart-box{position:relative;width:100%;}
 .h-tall{height:460px;}.h-med{height:360px;}.h-sm{height:300px;}
 
 /* KPI */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;}
-.kpi{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--coastal);border-radius:var(--r-md);padding:16px 18px;box-shadow:var(--sh1);}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;padding:0;}
+.kpi{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--coastal);border-radius:var(--r-md);padding:14px 16px;box-shadow:var(--sh1);}
 .kpi .l{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--tx-mute);}
 .kpi .v{font-size:1.85rem;font-weight:700;color:var(--tx);margin:5px 0 3px;line-height:1.05;}
 .kpi .f{font-size:.82rem;color:var(--tx-mute);font-weight:500;}
 .kpi .f.pos{color:var(--pos);font-weight:600;}.kpi .f.neg{color:var(--neg);font-weight:600;}
 
 /* note/callout */
-.note{display:flex;gap:11px;padding:14px 16px;border-radius:var(--r-md);border-left:4px solid var(--info);background:var(--info-soft);font-size:.92rem;color:var(--tx);margin-top:14px;}
+.note{display:flex;gap:11px;padding:12px 14px;border-radius:var(--r-md);border-left:4px solid var(--info);background:var(--info-soft);font-size:.92rem;color:var(--tx);margin-top:12px;}
 .note.warn{border-left-color:var(--warn);background:var(--warn-soft);}
 .note.pos{border-left-color:var(--pos);background:var(--pos-soft);}
 .note .ic{font-size:1.15rem;line-height:1.3;flex:none;}
@@ -164,7 +165,7 @@ input[type=range]{width:100%;accent-color:var(--coastal);height:26px;}
 .share-line{background:var(--card);border:1px dashed var(--bd-strong);border-radius:var(--r-sm);padding:12px 14px;font-size:.9rem;margin-top:14px;color:var(--tx2);}
 
 /* directory */
-.dir-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px;}
+.dir-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:10px;}
 .search{position:relative;flex:1;min-width:240px;}
 .search input{width:100%;height:48px;padding:0 42px 0 42px;border:1.5px solid var(--bd-input);border-radius:var(--r-pill);font-size:1rem;}
 .search input:focus{border-color:var(--brand);}
@@ -173,7 +174,7 @@ input[type=range]{width:100%;accent-color:var(--coastal);height:26px;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{border:1px solid var(--bd);background:var(--subtle);color:var(--tx2);font-size:.85rem;font-weight:600;padding:8px 14px;border-radius:var(--r-pill);cursor:pointer;min-height:40px;transition:all var(--dur);}
 .chip[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand);}
-.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:18px;}
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
 .dcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:18px;box-shadow:var(--sh1);transition:box-shadow var(--dur),transform var(--dur);display:flex;flex-direction:column;}
 .dcard:hover{box-shadow:var(--sh2);transform:translateY(-2px);}
 .dcard .top{display:flex;align-items:center;gap:9px;margin-bottom:8px;}
@@ -207,7 +208,7 @@ details .gbody{padding:0 4px 14px;color:var(--tx2);font-size:.95rem;}
 .gloss dt{font-weight:700;margin-top:10px;}
 .gloss dd{margin:2px 0 0;color:var(--tx2);}
 
-footer{background:var(--brand-dark);color:var(--tx-dark);margin-top:36px;padding:28px 0;font-size:.85rem;}
+footer{background:var(--brand-dark);color:var(--tx-dark);margin-top:24px;padding:22px 0;font-size:.85rem;}
 footer a{color:#A9DCEA;}
 footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 
@@ -225,6 +226,30 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 /* independent banner */
 .indie-banner{background:#FBF0D9;color:#5C3D00;border-bottom:1px solid #E8C97A;font-size:.88rem;padding:9px 0;text-align:center;font-weight:600;}
 .indie-banner a{color:#5C3D00;text-decoration:underline;}
+
+/* floating feedback */
+.fb-fab{position:fixed;right:0;top:50%;z-index:60;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);
+  border:0;border-radius:var(--r-sm) 0 0 var(--r-sm);background:var(--brand);color:#fff;font:inherit;font-weight:700;font-size:.9rem;
+  letter-spacing:.04em;padding:18px 12px;cursor:pointer;box-shadow:var(--sh2);min-height:44px;}
+.fb-fab:hover{background:var(--brand-hover);}
+.fb-fab:focus-visible{outline:3px solid #FCD98A;outline-offset:2px;}
+.feedback-modal{border:0;padding:0;max-width:min(420px,calc(100vw - 32px));width:100%;border-radius:var(--r-lg);box-shadow:var(--sh3);background:var(--card);color:var(--tx);}
+.feedback-modal::backdrop{background:rgba(18,53,75,.55);backdrop-filter:blur(2px);}
+.feedback-modal .about-modal-head{border-radius:var(--r-lg) var(--r-lg) 0 0;}
+.fb-form{padding:8px 22px 22px;display:flex;flex-direction:column;gap:14px;}
+.fb-form label{display:block;font-size:.88rem;font-weight:600;color:var(--tx2);margin-bottom:6px;}
+.fb-form input,.fb-form textarea{width:100%;border:1.5px solid var(--bd-input);border-radius:var(--r-sm);font:inherit;font-size:1rem;color:var(--tx);padding:11px 12px;background:var(--card);}
+.fb-form input:focus,.fb-form textarea:focus{border-color:var(--brand);outline:none;}
+.fb-form textarea{min-height:120px;resize:vertical;line-height:1.45;}
+.fb-form .btn{align-self:stretch;justify-content:center;}
+.fb-form .btn:disabled{opacity:.65;cursor:wait;}
+.fb-status{font-size:.92rem;padding:10px 12px;border-radius:var(--r-sm);display:none;}
+.fb-status.ok{display:block;background:var(--pos-soft);color:var(--pos);border-left:4px solid var(--pos);}
+.fb-status.err{display:block;background:var(--neg-soft);color:var(--neg);border-left:4px solid var(--neg);}
+.fb-hp{position:absolute;left:-9999px;height:0;overflow:hidden;}
+@media(max-width:760px){
+  .fb-fab{top:auto;bottom:18px;right:14px;writing-mode:horizontal-tb;transform:none;border-radius:var(--r-pill);padding:12px 16px;box-shadow:var(--sh3);}
+}
 .brand .mark{width:30px;height:30px;flex:none;border-radius:8px;}
 
 /* focus on dark surfaces */
@@ -256,7 +281,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   background:linear-gradient(90deg,transparent,var(--card));opacity:.9;}
 
 /* hero footnote */
-.hero .fine{font-size:.85rem;color:rgba(230,238,243,.75);margin-top:14px;max-width:62ch;}
+.hero .fine{font-size:.85rem;color:rgba(230,238,243,.75);margin-top:10px;max-width:none;}
 
 /* live region for copy */
 .sr-live{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
@@ -274,6 +299,23 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 @media(min-width:761px){
   .subnav::after{display:none;}
 }
+
+/* about modal */
+.about-modal{border:0;padding:0;max-width:min(920px,calc(100vw - 32px));width:100%;max-height:min(88vh,900px);border-radius:var(--r-lg);box-shadow:var(--sh3);background:var(--bg);color:var(--tx);}
+.about-modal::backdrop{background:rgba(18,53,75,.55);backdrop-filter:blur(2px);}
+.about-modal-panel{display:flex;flex-direction:column;max-height:min(88vh,900px);}
+.about-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 22px 14px;border-bottom:1px solid var(--bd);background:var(--card);position:sticky;top:0;z-index:1;}
+.about-modal-head .kicker{display:block;margin-bottom:4px;}
+.about-modal-head h2{font-size:1.35rem;margin:0;}
+.about-modal-close{flex:none;width:42px;height:42px;border:1.5px solid var(--bd-input);border-radius:var(--r-sm);background:var(--card);color:var(--tx);font-size:1.4rem;line-height:1;cursor:pointer;}
+.about-modal-close:hover{background:var(--subtle);}
+.about-modal-body{padding:8px 22px 22px;overflow:auto;-webkit-overflow-scrolling:touch;}
+.about-modal-body > .lede{color:var(--tx2);margin:12px 0 4px;font-size:1.02rem;}
+.about-modal .grid2{margin-top:8px;}
+.about-modal .card{margin-top:12px;}
+.subnav button.about-trigger{flex:none;color:var(--tx2);font-size:.9rem;font-weight:600;font-family:inherit;background:transparent;border:0;border-bottom:3px solid transparent;padding:13px 16px;cursor:pointer;white-space:nowrap;}
+.subnav button.about-trigger:hover{color:var(--tx);background:var(--subtle);}
+.indie-banner button.about-trigger{background:none;border:0;padding:0;font:inherit;font-weight:600;color:#5C3D00;text-decoration:underline;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -289,7 +331,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   </div>
 </header>
 <div class="indie-banner" role="note">
-  <div class="wrap">Independent community project — <strong>not</strong> an official City of Santa Monica website. · <a href="#about">About the numbers</a></div>
+  <div class="wrap">This is a resident-built site. It is <strong>not</strong> run by the City of Santa Monica. · <button type="button" class="about-trigger" onclick="openAbout()">About the numbers</button></div>
 </div>
 
 <nav class="subnav" aria-label="Section navigation">
@@ -297,9 +339,8 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <a href="#overview" aria-current="true">Overview</a>
     <a href="#money-in">Money in</a>
     <a href="#money-out">Money out</a>
-    <a href="#your-share">Your share</a>
     <a href="#departments">Departments</a>
-    <a href="#about">About the numbers</a>
+    <a href="#your-share">Your share</a>
   </div>
 </nav>
 
@@ -307,16 +348,14 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 <section class="hero" id="overview" aria-labelledby="hero-title">
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="eyebrow">Independent look at · Adopted Budget FY 2025-26</span>
-    <h1 id="hero-title">Santa Monica plans to spend <span class="hl">$796.6 million</span> this year. Here's where it goes.</h1>
-    <p class="lede">A plain-language look at how your city raises and spends money — from police and fire to buses, water, and libraries — and what your household's share looks like.</p>
+    <h1 id="hero-title">Santa Monica budgeted <span class="hl">$796.6 million</span> for the year that started July 1.</h1>
     <div class="tags">
       <span class="tag"><span aria-hidden="true">🗂️ </span><b>31</b> funds</span>
       <span class="tag"><span aria-hidden="true">🏢 </span><b>15</b> departments</span>
       <span class="tag"><span aria-hidden="true">👷 </span><b>2,147</b> staff (citywide)</span>
       <span class="tag"><span aria-hidden="true">🧍 </span><b>$8,703</b> per resident (all funds)</span>
     </div>
-    <p class="fine">$796.6M is the budget-book citywide total (net of transfers). Council later applied hiring-freeze savings that brought the reported adopted figure to about $793.3M — charts here follow the printed schedules.</p>
+    <p class="fine">$796.6M is the citywide total printed in the budget book, net of transfers between funds. Council later applied hiring-freeze savings that brought the widely reported figure down to about $793.3M. The charts here follow the printed schedules.</p>
   </div>
 </section>
 
@@ -329,13 +368,14 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     </div>
     <span class="hint" id="viewHint"></span>
   </div>
+  <p class="view-explain" id="viewExplain">The city keeps money in separate funds so dollars meant for one job are not spent on another. <strong>Whole city</strong> shows every fund together: police and parks alongside water, buses, the airport, and the rest. The <strong>General Fund</strong> is the flexible pot Council can steer, the money that pays for core services like police, fire, libraries, and parks. Water and bus money mostly stay in their own funds and cannot cover those services, which is why the switch is here.</p>
 
   <section class="kpis" id="kpis" aria-label="Headline figures"></section>
 
   <div class="card sankey-card">
-    <h2 style="font-size:1.15rem;font-weight:600;margin-bottom:2px"><span aria-hidden="true">🌊 </span>The flow of money</h2>
+    <h2 style="font-size:1.15rem;font-weight:600;margin-bottom:2px"><span aria-hidden="true">🌊 </span>Follow the money</h2>
     <p class="cap" id="sankeyCap"></p>
-    <p class="sankey-hint" aria-hidden="true">On a phone, the flow chart is shown as lists. Rotate or use a wider screen for the full diagram.</p>
+    <p class="sankey-hint" aria-hidden="true">On a phone this becomes two lists. Turn the phone sideways, or open it on a bigger screen, for the full diagram.</p>
     <div class="sankey-scroll" role="region" aria-label="Scrollable money-flow diagram" tabindex="0">
       <svg id="sankey" class="sankey" aria-label="Diagram of money flowing from revenue sources through the budget to spending categories"></svg>
     </div>
@@ -347,7 +387,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <div class="sec-head">
       <span class="kicker">Money in</span>
       <h2>Where the money comes from</h2>
-      <p>The city pays for services with many kinds of money: taxes, fees for services like water and buses, grants, and more. Hotel tax from visitors is one piece — about <strong>$68.6M</strong>, roughly 14% of General Fund revenue — alongside property tax, sales tax, and charges residents and businesses pay.</p>
+      <p>Taxes are only part of it. The city also bills for water, sewer, and trash, collects fares and grants for the buses, and charges for permits and parking. Hotel tax, paid mostly by visitors, brings in about <strong>$68.6M</strong>, roughly 14% of General Fund revenue.</p>
     </div>
     <div class="grid2">
       <div class="card">
@@ -358,10 +398,10 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       </div>
       <div class="card">
         <h3>Major General Fund taxes</h3>
-        <p class="cap">Property and sales tax are the two largest. Hotel tax and the others below are the main pieces of "Other Local Taxes."</p>
+        <p class="cap">Property and sales tax are the two biggest. The rest, starting with hotel tax, make up most of the line the budget calls "Other Local Taxes."</p>
         <div class="chart-box h-med"><canvas id="taxChart" role="img" aria-label="Major General Fund taxes bar chart"></canvas></div>
         <details class="chart-table"><summary>See this chart as a table</summary><div class="tbl-wrap" id="taxTable"></div></details>
-        <p class="help" style="margin-top:10px">The City keeps only about <strong>2%</strong> of the 10.25% sales-tax rate, and receives well under <strong>20%</strong> of a homeowner's property-tax bill — the rest funds the county, schools, and special districts.</p>
+        <p class="help" style="margin-top:10px">Most of what you pay never reaches City Hall. Of the 10.25% sales tax rung up at the register, the City keeps about <strong>2 points</strong>. Of a homeowner's property-tax bill, it gets well under <strong>20%</strong>. The rest goes to the county, the schools, and special districts.</p>
       </div>
     </div>
   </section>
@@ -375,7 +415,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     </div>
     <div class="card">
       <h3 id="spendTitle">Spending, biggest to smallest</h3>
-      <p class="cap" id="spendCap">Hover any bar for the exact amount and share. Use the toggle above to switch between the whole city and just the General Fund. Prefer a table? Open it below the chart.</p>
+      <p class="cap" id="spendCap">Hover a bar for the exact amount and share. The toggle above switches between the whole city and the General Fund alone. The same figures are in the table below.</p>
       <div class="chart-box h-tall"><canvas id="spendChart" role="img" aria-label="Spending breakdown bar chart"></canvas></div>
       <details class="chart-table"><summary>See this chart as a table</summary><div class="tbl-wrap" id="spendTable"></div></details>
       <div class="note" id="spendNote"><span class="ic" aria-hidden="true">💡</span><span></span></div>
@@ -390,12 +430,36 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     </div>
   </section>
 
+  <!-- DEPARTMENTS -->
+  <section id="departments">
+    <div class="sec-head">
+      <span class="kicker">Departments &amp; services</span>
+      <h2>Look up any city service</h2>
+      <p>Type what you are looking for, or filter by category. Each card gives the department's budget, its staffing, and what it actually does.</p>
+    </div>
+    <div class="dir-controls">
+      <div class="search" role="search">
+        <span class="mag" aria-hidden="true">🔍</span>
+        <label for="dirSearch" class="skip">Search departments and services</label>
+        <input id="dirSearch" type="search" placeholder="Search, e.g. 'trash', 'buses', 'parks', 'potholes'" oninput="renderDir()">
+        <button class="clr" id="dirClear" aria-label="Clear search" onclick="clearSearch()">×</button>
+      </div>
+    </div>
+    <div class="chips" id="dirChips" style="margin-top:12px" role="group" aria-label="Filter by category"></div>
+    <div id="dirCount" class="help" style="margin-top:12px" aria-live="polite"></div>
+    <div class="dir-grid" id="dirGrid"></div>
+    <div class="noresult" id="dirNone" hidden>
+      <p>Nothing matches "<span id="noneQ"></span>". Plain words work best: <strong>trash</strong> finds recycling, <strong>buses</strong> finds Big Blue Bus, <strong>potholes</strong> finds Public Works.</p>
+      <button class="btn ghost" onclick="clearSearch()">Clear search</button>
+    </div>
+  </section>
+
   <!-- YOUR SHARE -->
   <section id="your-share">
     <div class="sec-head">
       <span class="kicker">Your share</span>
       <h2>What does your household fund?</h2>
-      <p>Adjust the numbers below to see your household's share of city services. Remember: this is your <strong>share of spending</strong>, not a bill you personally pay.</p>
+      <p>Set your household size to see what slice of city spending it accounts for, and which services that slice buys.</p>
     </div>
     <div class="card">
       <div class="calc-grid">
@@ -412,14 +476,14 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
           <div class="field">
             <label for="home">Own your home? Add its value <span style="color:var(--tx-mute);font-weight:400">(optional)</span></label>
             <div class="money-input"><span>$</span><input id="home" type="text" inputmode="numeric" placeholder="e.g. 1,200,000" oninput="calc()" aria-describedby="homeHelp"></div>
-            <p class="help" id="homeHelp">Rough estimate only. Enter market value if you like — under Prop 13, long-time owners often have a much lower assessed value, so the City's actual take can be smaller.</p>
+            <p class="help" id="homeHelp">Market value is fine for a rough number. Under Prop 13, a long-time owner's assessed value is often far below market, so the City's actual take is usually smaller.</p>
           </div>
           <div class="field">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
               <input type="checkbox" id="incEnt" onchange="calc()" style="width:18px;height:18px;accent-color:var(--coastal)">
               Include enterprise services (buses, water, sewer…)
             </label>
-            <p class="help">Water, sewer, and trash are mostly paid by users through fees. Buses also rely heavily on grants and dedicated transit money — not just fares. Off by default so the default view matches General Fund services.</p>
+            <p class="help">Water, sewer, and trash are paid for mostly by the people who use them, and the buses run largely on grants and dedicated transit money rather than fares. Left off by default so the number matches General Fund services.</p>
           </div>
         </div>
         <div class="calc-out">
@@ -435,65 +499,83 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
           <span class="sr-live" id="copyLive" aria-live="polite"></span>
         </div>
       </div>
-      <div class="note" style="margin-top:18px"><span class="ic" aria-hidden="true">ℹ️</span><span><strong>How to read this:</strong> This tool shows the <em>share of services your household represents</em> (total spending ÷ everyone who lives here × your household size) — not what you personally hand over in taxes. Residents, visitors, and businesses all fund the city in different ways. It's an estimate for understanding, not a tax bill.</span></div>
+      <div class="note" style="margin-top:18px"><span class="ic" aria-hidden="true">ℹ️</span><span><strong>How to read this:</strong> the math is total spending ÷ 91,535 residents × your household size. That is a share of services, not your tax bill. Residents, visitors, and businesses all pay into the city on different terms.</span></div>
     </div>
   </section>
 
-  <!-- DEPARTMENTS -->
-  <section id="departments">
-    <div class="sec-head">
-      <span class="kicker">Departments &amp; services</span>
-      <h2>Look up any city service</h2>
-      <p>Search or browse to see what a department does, what it costs, and how many people it takes to run.</p>
-    </div>
-    <div class="dir-controls">
-      <div class="search" role="search">
-        <span class="mag" aria-hidden="true">🔍</span>
-        <label for="dirSearch" class="skip">Search departments and services</label>
-        <input id="dirSearch" type="search" placeholder="Search — e.g. 'trash', 'buses', 'parks', 'potholes'" oninput="renderDir()">
-        <button class="clr" id="dirClear" aria-label="Clear search" onclick="clearSearch()">×</button>
-      </div>
-    </div>
-    <div class="chips" id="dirChips" style="margin-top:12px" role="group" aria-label="Filter by category"></div>
-    <div id="dirCount" class="help" style="margin-top:12px" aria-live="polite"></div>
-    <div class="dir-grid" id="dirGrid"></div>
-    <div class="noresult" id="dirNone" hidden>
-      <p>No match for "<span id="noneQ"></span>". Try a plainer word — <strong>trash</strong> for recycling, <strong>buses</strong> for Big Blue Bus, or <strong>potholes</strong> for Public Works.</p>
-      <button class="btn ghost" onclick="clearSearch()">Clear search</button>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="sec-head">
-      <span class="kicker">About the numbers</span>
-      <h2>How this works &amp; where it comes from</h2>
-      <p>Every figure here comes from the City's adopted FY 2025-26 budget. Here's the plain-English glossary, the methodology, and the source.</p>
-    </div>
-    <div class="grid2">
-      <div class="card">
-        <h3>Budget words, in plain English</h3>
-        <div id="glossary" style="margin-top:6px"></div>
-      </div>
-      <div class="card">
-        <h3>Methodology &amp; sources</h3>
-        <p class="cap">What the numbers mean and how "your share" is calculated.</p>
-        <details open><summary>What year &amp; basis?</summary><div class="gbody">Figures are the <strong>adopted budget</strong> (the Council-approved plan) for fiscal year 2025-26, July 1 2025 – June 30 2026 — not final actual spending. Headline "whole city" totals are <strong>net</strong> of about $115M in interfund transfers ($796.6M spending). The fund list, balance trend, and flow diagram use <strong>gross</strong> amounts (~$912M spending / ~$930M revenue flows), so they show more. Both are real; they answer different questions.</div></details>
-        <details><summary>How is "your share" calculated?</summary><div class="gbody">We divide total spending by the city's population (91,535) to get a per-resident average, then multiply by your household size. It's an <em>average share of services</em>, not taxes you pay. Default view uses General Fund spending (~$5,291 per resident); turning on enterprise services uses the all-funds net total (~$8,703 per resident). The property-tax estimate takes the value you enter × the basic 1% rate × an illustrative ~14% city share; under Prop 13 assessed value can be much lower than market value. Excludes voter-approved parcel taxes and bonds.</div></details>
-        <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Services that largely pay for themselves through user fees — water, sewer, trash — are kept in separate <strong>enterprise funds</strong>, apart from the General Fund that covers police, fire, parks, and libraries. Big Blue Bus also uses fares, but relies heavily on grants and dedicated transit funding.</div></details>
-        <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, <em>FY 2025-27 Adopted Biennial Budget</em>: Revenue Summary by Category &amp; Fund (p.121), Expenditure Summary by Fund (p.155), Five-Year Expenditure Summary (p.157), Personnel by Fund (pp.218-219), Population (p.88). <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener">santamonica.gov → Budgets &amp; Annual Financial Reports</a>. Hotel / utility / business / parking tax breakouts are rounded estimates from the budget overview.</div></details>
-        <details><summary>Corrections &amp; contact</summary><div class="gbody">Spotted an error or have a suggestion? This is an independent resident project. Open an issue or send a note via the project repository if you have one, or ask the person who shared this link. Always verify against the City's published budget before relying on a figure for advocacy or reporting.</div></details>
-      </div>
-    </div>
-  </section>
+
 </div><!-- /.wrap -->
 </main>
 
+<dialog id="aboutDialog" class="about-modal" aria-labelledby="aboutTitle">
+  <div class="about-modal-panel">
+    <div class="about-modal-head">
+      <div>
+        <span class="kicker">About the numbers</span>
+        <h2 id="aboutTitle">How this works &amp; where it comes from</h2>
+      </div>
+      <button type="button" class="about-modal-close" onclick="closeAbout()" aria-label="Close">×</button>
+    </div>
+    <div class="about-modal-body">
+      <p class="lede">Every figure on this site comes out of the City's adopted FY 2025-26 budget. Below: what the words mean, how the math was done, and which pages the numbers came off.</p>
+      <div class="grid2">
+        <div class="card">
+          <h3>Budget words, translated</h3>
+          <div id="glossary" style="margin-top:6px"></div>
+        </div>
+        <div class="card">
+          <h3>Methodology &amp; sources</h3>
+          <p class="cap">What the numbers mean, and how "your share" was calculated.</p>
+          <details open><summary>What year &amp; basis?</summary><div class="gbody">These are <strong>adopted</strong> figures, the spending plan Council approved for July 1, 2025 through June 30, 2026. They are not actual spending; that will not be known until the books close. Citywide headline totals are <strong>net</strong> of about $115M in transfers between funds, which is the $796.6M. The fund list, the trend chart, and the flow diagram run on <strong>gross</strong> amounts, about $912M in spending against $930M in revenue flows, because they show money each time it moves. Both numbers are correct; they answer different questions.</div></details>
+          <details><summary>How is "your share" calculated?</summary><div class="gbody">Total spending divided by the city's population of 91,535, multiplied by your household size. That is an average share of services, not taxes anyone pays. The default uses General Fund spending, about $5,291 per resident. Checking the enterprise box switches to the net all-funds total, about $8,703 per resident. The property-tax line takes the value you type × the basic 1% rate × an illustrative 14% city share. Under Prop 13 the assessed value is often well below market, and the estimate leaves out voter-approved parcel taxes and bonds.</div></details>
+          <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Water, sewer, and trash charge their users directly, so the city keeps them in separate <strong>enterprise funds</strong>, walled off from the General Fund that pays for police, fire, parks, and libraries. A surplus in the water fund cannot hire a police officer. Big Blue Bus sits on the same side of that wall, though it leans on grants and dedicated transit money more than on fares.</div></details>
+          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, <em>FY 2025-27 Adopted Biennial Budget</em>: Revenue Summary by Category &amp; Fund (p.121), Expenditure Summary by Fund (p.155), Five-Year Expenditure Summary (p.157), Personnel by Fund (pp.218-219), Population (p.88). <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener">santamonica.gov → Budgets &amp; Annual Financial Reports</a>. Hotel / utility / business / parking tax breakouts are rounded estimates from the budget overview.</div></details>
+          <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<button type="button" class="fb-fab" id="fbFab" onclick="openFeedback()" aria-haspopup="dialog" aria-controls="feedbackDialog">Feedback</button>
+
+<dialog id="feedbackDialog" class="feedback-modal" aria-labelledby="feedbackTitle">
+  <div class="about-modal-panel">
+    <div class="about-modal-head">
+      <div>
+        <span class="kicker">Corrections &amp; ideas</span>
+        <h2 id="feedbackTitle">Send feedback</h2>
+      </div>
+      <button type="button" class="about-modal-close" onclick="closeFeedback()" aria-label="Close">×</button>
+    </div>
+    <form class="fb-form" id="feedbackForm" novalidate>
+      <p class="help" style="margin:0">Spot a wrong number, a confusing chart, or something missing? Say so. This goes to the person who built the site, not City Hall.</p>
+      <div>
+        <label for="fbName">Name <span style="font-weight:400;color:var(--tx-mute)">(optional)</span></label>
+        <input id="fbName" type="text" name="name" autocomplete="name" maxlength="120">
+      </div>
+      <div>
+        <label for="fbEmail">Email</label>
+        <input id="fbEmail" type="email" name="email" required autocomplete="email" maxlength="200" placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="fbMessage">Message</label>
+        <textarea id="fbMessage" name="message" required maxlength="5000" placeholder="What should change, and where on the page?"></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Santa Monica Budget Explorer feedback">
+      <div class="fb-hp" aria-hidden="true"><label>Company<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <div id="fbStatus" class="fb-status" role="status" aria-live="polite"></div>
+      <button type="submit" class="btn" id="fbSubmit">Send feedback</button>
+    </form>
+  </div>
+</dialog>
+
 <footer>
   <div class="wrap">
-    <p><strong>Santa Monica Budget Explorer</strong> — an independent, plain-language visualization of the City's adopted FY 2025-26 budget. Not affiliated with the City of Santa Monica.</p>
-    <p class="cite">Source: City of Santa Monica FY 2025-27 Adopted Biennial Budget. All figures are adopted budget amounts, not final actual spending. Charts use the budget document's schedules ($796.6M citywide net). After the book was printed, Council applied hiring-freeze savings that brought the commonly reported adopted citywide figure to about $793.3M.</p>
-    <p class="cite">"Your share" is an estimate for civic understanding, not a tax bill or official statement. Share of spending ≠ taxes you personally pay. Built August 2026.</p>
+    <p><strong>Santa Monica Budget Explorer</strong>, a resident-built breakdown of the City's adopted FY 2025-26 budget. Not affiliated with the City of Santa Monica.</p>
+    <p class="cite">Source: City of Santa Monica FY 2025-27 Adopted Biennial Budget. Every figure is an adopted budget amount, not final actual spending. Charts follow the schedules printed in the budget book, which put the citywide net total at $796.6M. Council applied hiring-freeze savings after the book went to print, bringing the commonly reported figure to about $793.3M.</p>
+    <p class="cite">"Your share" is an estimate, not a tax bill. Built August 2026. · <button type="button" class="about-trigger" onclick="openAbout()" style="background:none;border:0;padding:0;font:inherit;color:#A9DCEA;text-decoration:underline;cursor:pointer">About the numbers</button></p>
   </div>
 </footer>
 
@@ -554,29 +636,29 @@ const TOTALS={
 
 /* department directory */
 const DIR=[
-  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:128526829,fte:412.6,d:"Responds to 911 calls, patrols neighborhoods, and investigates crimes to keep residents and visitors safe."},
-  {n:"Fire",e:"🚒",t:"gf",cat:"safety",b:57416909,fte:142,d:"Fights fires and provides paramedic and emergency-medical response, plus fire-safety inspections and disaster readiness."},
-  {n:"Public Works",e:"🚧",t:"gf",cat:"everyday",b:59981290,fte:221,d:"Maintains streets, sidewalks, streetlights, and public buildings, and keeps the city's basic infrastructure running."},
-  {n:"Transportation",e:"🚦",t:"gf",cat:"everyday",b:27637417,fte:40.8,d:"The General Fund side of city mobility: traffic, parking, and planning that supports safe streets and the bus system."},
-  {n:"Housing & Human Services",e:"🏠",t:"gf",cat:"community",b:23548510,fte:71.5,d:"Runs housing programs, homelessness services, and grants to nonprofits that help residents with food, health, and social needs."},
-  {n:"Community Development",e:"🏗️",t:"gf",cat:"growth",b:19771851,fte:88,d:"Reviews building permits and plans, guides zoning and development, and shapes how the city grows and its economy."},
-  {n:"City Attorney",e:"⚖️",t:"gf",cat:"admin",b:15385987,fte:45.5,d:"The city's in-house lawyers: advises the government, defends it in lawsuits, and prosecutes certain local offenses."},
-  {n:"Information Services",e:"💻",t:"gf",cat:"admin",b:13205023,fte:53.4,d:"Runs the city's technology — networks, cybersecurity, data, and the public website and online services."},
-  {n:"Finance",e:"💰",t:"gf",cat:"admin",b:13109272,fte:55.5,d:"Manages the city's money: budgeting, accounting, billing, business licenses, and collecting taxes and fees."},
-  {n:"City Manager",e:"🏛️",t:"gf",cat:"admin",b:12980293,fte:58,d:"The city's chief executive office; carries out Council decisions and oversees day-to-day operations across departments."},
-  {n:"Library",e:"📚",t:"gf",cat:"community",b:11730813,fte:74.3,d:"Operates the public libraries — books, computers, internet access, programs, and community meeting space."},
-  {n:"Recreation & Arts",e:"🎭",t:"gf",cat:"community",b:10972806,fte:69.3,d:"Runs parks programs, recreation classes, youth and senior activities, aquatics, and community and cultural-arts events."},
-  {n:"Human Resources",e:"👥",t:"gf",cat:"admin",b:6765189,fte:27,d:"Hires and supports city employees — recruiting, benefits, training, and workplace policies."},
-  {n:"Records & Elections",e:"🗳️",t:"gf",cat:"admin",b:2627935,fte:13,d:"The City Clerk's office: keeps official records, runs city elections, and manages public-records requests and Council agendas."},
-  {n:"City Council",e:"🏛️",t:"gf",cat:"admin",b:896475,fte:2,d:"The elected officials who set city policy, pass laws, and adopt the budget. This budget covers the Council office itself."},
-  {n:"Big Blue Bus",e:"🚌",t:"ent",cat:"everyday",b:100899616,fte:null,d:"The city-run bus system serving Santa Monica and the Westside; funded mainly by fares, grants, and dedicated transit money."},
-  {n:"Water",e:"💧",t:"ent",cat:"everyday",b:50056013,fte:null,d:"Delivers safe drinking water and maintains pipes, wells, and treatment; paid for through your water bill."},
-  {n:"Resource Recovery & Recycling",e:"♻️",t:"ent",cat:"everyday",b:45691217,fte:null,d:"Collects trash, recycling, and organics and runs the city's waste programs; paid for through collection fees."},
-  {n:"Wastewater",e:"🚽",t:"ent",cat:"everyday",b:35305025,fte:null,d:"Carries away and treats sewage from sinks, toilets, and drains; paid for through sewer charges on your utility bill."},
-  {n:"Housing Authority",e:"🏘️",t:"ent",cat:"growth",b:31378075,fte:null,d:"Administers federal housing-voucher programs that help lower-income residents afford rent; funded largely by federal dollars."},
-  {n:"Airport",e:"✈️",t:"ent",cat:"everyday",b:21440078,fte:null,d:"Operates Santa Monica Airport, its leases and facilities; funded by airport fees and rents."},
-  {n:"Beach",e:"🏖️",t:"ent",cat:"community",b:18898840,fte:null,d:"Maintains and operates the public beach — facilities, parking, restrooms, and beach programs; funded by beach parking and fees."},
-  {n:"Pier",e:"🎡",t:"ent",cat:"community",b:8113121,fte:null,d:"Operates and maintains the Santa Monica Pier — leases, events, and upkeep; funded by pier revenues."}
+  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:128526829,fte:412.6,d:"Patrol, 911 response, and detectives. The single biggest department in the General Fund, by a wide margin."},
+  {n:"Fire",e:"🚒",t:"gf",cat:"safety",b:57416909,fte:142,d:"Puts out fires and runs the city's paramedics. Also does fire inspections and disaster planning."},
+  {n:"Public Works",e:"🚧",t:"gf",cat:"everyday",b:59981290,fte:221,d:"Streets, sidewalks, streetlights, and city buildings. Where pothole complaints land."},
+  {n:"Transportation",e:"🚦",t:"gf",cat:"everyday",b:27637417,fte:40.8,d:"Traffic signals, parking, and street planning. The General Fund side of getting around. The buses are budgeted separately."},
+  {n:"Housing & Human Services",e:"🏠",t:"gf",cat:"community",b:23548510,fte:71.5,d:"Housing programs, homelessness outreach, and grants to the nonprofits that handle food, health, and social services."},
+  {n:"Community Development",e:"🏗️",t:"gf",cat:"growth",b:19771851,fte:88,d:"Building permits, plan checks, and zoning. If anyone is putting up a building, this department signs off on it."},
+  {n:"City Attorney",e:"⚖️",t:"gf",cat:"admin",b:15385987,fte:45.5,d:"The city's lawyers. Advises Council and staff, defends the city when it gets sued, and prosecutes misdemeanors."},
+  {n:"Information Services",e:"💻",t:"gf",cat:"admin",b:13205023,fte:53.4,d:"City computers, networks, and cybersecurity, plus the public website and the online services behind it."},
+  {n:"Finance",e:"💰",t:"gf",cat:"admin",b:13109272,fte:55.5,d:"Budgeting, accounting, billing, business licenses, and collecting the taxes and fees. Writes the book this site is built on."},
+  {n:"City Manager",e:"🏛️",t:"gf",cat:"admin",b:12980293,fte:58,d:"The city's chief executive and staff. Carries out what Council decides and runs the departments day to day."},
+  {n:"Library",e:"📚",t:"gf",cat:"community",b:11730813,fte:74.3,d:"The Main Library and the branches. Books, computers, wifi, programs, and public meeting space."},
+  {n:"Recreation & Arts",e:"🎭",t:"gf",cat:"community",b:10972806,fte:69.3,d:"Parks programs, rec classes, pools, youth and senior activities, and the city's arts and cultural events."},
+  {n:"Human Resources",e:"👥",t:"gf",cat:"admin",b:6765189,fte:27,d:"Hiring, benefits, training, and labor relations for the city's workforce."},
+  {n:"Records & Elections",e:"🗳️",t:"gf",cat:"admin",b:2627935,fte:13,d:"The City Clerk's office. Runs city elections, keeps the official records, posts Council agendas, and fills public-records requests."},
+  {n:"City Council",e:"🏛️",t:"gf",cat:"admin",b:896475,fte:2,d:"The elected officials who set policy, pass ordinances, and vote the budget through. This line is the Council's own office."},
+  {n:"Big Blue Bus",e:"🚌",t:"ent",cat:"everyday",b:100899616,fte:null,d:"The city-owned bus system, running across Santa Monica and much of the Westside on fares, grants, and dedicated transit money."},
+  {n:"Water",e:"💧",t:"ent",cat:"everyday",b:50056013,fte:null,d:"Wells, pipes, treatment, and what comes out of the tap. Paid for on your water bill, not by taxes."},
+  {n:"Resource Recovery & Recycling",e:"♻️",t:"ent",cat:"everyday",b:45691217,fte:null,d:"Trash, recycling, and organics pickup, plus the city's waste programs. Paid for through collection fees."},
+  {n:"Wastewater",e:"🚽",t:"ent",cat:"everyday",b:35305025,fte:null,d:"The sewer system. Everything that leaves the building through a drain, and the treatment at the other end. Charged on your utility bill."},
+  {n:"Housing Authority",e:"🏘️",t:"ent",cat:"growth",b:31378075,fte:null,d:"Runs the federal housing vouchers that help lower-income renters stay housed. Mostly federal money passing through."},
+  {n:"Airport",e:"✈️",t:"ent",cat:"everyday",b:21440078,fte:null,d:"Operates Santa Monica Airport and its leases, on airport rents and fees rather than tax money."},
+  {n:"Beach",e:"🏖️",t:"ent",cat:"community",b:18898840,fte:null,d:"Keeps up the public beach: parking lots, restrooms, facilities, and beach programs. Parking and fees pay for it."},
+  {n:"Pier",e:"🎡",t:"ent",cat:"community",b:8113121,fte:null,d:"Runs the Santa Monica Pier, from tenant leases to events to deck repairs. Paid for out of pier revenue."}
 ];
 const CATS=[["safety","🚓 Public safety"],["everyday","🔧 Everyday services"],["community","🎭 Community & culture"],
   ["growth","🏗️ Housing & growth"],["admin","🏛️ Admin & governance"]];
@@ -590,22 +672,22 @@ const SYN={trash:"recycling",garbage:"recycling",recycle:"recycling",recycling:"
   taxes:"finance",tax:"finance",billing:"finance",water:"water",beach:"beach",pier:"pier",airport:"airport",
   elections:"records",vote:"records",voting:"records",clerk:"records"};
 
-const GLOSSARY=[["Fund","A separate pot of money the city keeps for a specific purpose, so dollars meant for one thing aren't spent on another."],
-  ["General Fund","The city's main, flexible pot that pays for core services like police, fire, parks, and libraries."],
-  ["Enterprise fund","A pot for a service that largely pays for itself through user fees — like water, sewer, or the buses."],
-  ["FTE","Full-time-equivalent: a way to count staffing. One FTE is one full-time job; two half-time workers = 1 FTE."],
-  ["Reserves","The city's savings account, kept for emergencies and to cover shortfalls."],
-  ["Structural deficit","When a government keeps planning to spend more than it regularly takes in, year after year — not just once."],
-  ["Transient Occupancy Tax (TOT)","The 'hotel tax' paid by people staying in hotels and short-term rentals — paid by visitors, not residents."],
-  ["Utility Users Tax (UUT)","A tax on utility bills like phone, gas, and electric that helps fund city services."],
-  ["Capital Improvement Program (CIP)","The city's plan for building and fixing big, long-lasting things — roads, buildings, parks, and pipes."],
-  ["Per-capita","A total divided by the number of residents, to give a rough 'per person' figure. It's an average, not what any one person pays."],
+const GLOSSARY=[["Fund","A walled-off account for one purpose. Money in a fund generally cannot be spent on anything else, no matter what the city needs elsewhere."],
+  ["General Fund","The main account, and the only large one Council can spend more or less freely. It pays for police, fire, parks, and libraries."],
+  ["Enterprise fund","An account for a service that bills its own users, like water, sewer, trash, or the buses. The fees stay with the service."],
+  ["FTE","Full-time equivalent, the standard way to count staff. One FTE is one full-time job, and two half-time workers also make one."],
+  ["Reserves","The city's savings. Held for emergencies and for years when spending runs past revenue."],
+  ["Structural deficit","A gap that is not a one-off. Regular spending sits above regular income, so the shortfall comes back every year until something changes."],
+  ["Transient Occupancy Tax (TOT)","The hotel tax. Charged on hotel and short-term-rental stays, so visitors pay most of it. Worth about $68.6M this year."],
+  ["Utility Users Tax (UUT)","A tax on phone, gas, and electric bills. It goes into the General Fund, so it can pay for anything."],
+  ["Capital Improvement Program (CIP)","The construction list: streets, pipes, buildings, parks. Kept apart from the day-to-day operating budget because the spending is one-time."],
+  ["Per-capita","A total divided by the 91,535 people who live here. An average, not what any one person pays."],
   ["Adopted vs. actual","'Adopted' is the budget the Council approved as a plan; 'actual' is what really gets spent. This tool shows adopted figures."],
   ["Fiscal year (FY)","The 12-month budgeting period. Santa Monica's runs July 1 to June 30, so 'FY 2025-26' means July 2025 through June 2026."],
-  ["All funds","Every pot of city money combined — General Fund plus enterprise, grant, and other special funds."],
+  ["All funds","Every city account added up: the General Fund plus the enterprise, grant, and restricted funds. Thirty-one of them this year."],
   ["Interfund transfer","Money moved from one city fund to another. Gross charts count both sides; net totals remove the double-count (~$115M this year)."],
   ["Gross vs. net","Gross is before removing transfers between funds; net is after. The headline $796.6M is net; the fund list and flow diagram are gross."],
-  ["Internal service fund","A fund that sells services inside the city (fleet, insurance, IT) to other departments — not usually a direct public-facing service."],
+  ["Internal service fund","A fund for things the city sells to itself, like the vehicle fleet, insurance, and IT. Departments pay into it; the public never sees it directly."],
   ["Special revenue fund","Money that can only be spent for a restricted purpose, often from a grant or dedicated tax."]];
 
 /* ===================== helpers ===================== */
@@ -657,8 +739,8 @@ function renderRevenue(){
   fillTable('revTable',[{t:'Source'},{t:'Amount',n:1},{t:'Share',n:1}],
     rows.map(r=>[r[0],fmt(r[1]),pct(r[1],total)]).concat([['Total',fmt(total),'100%']]));
   document.getElementById('revCap').textContent=(view==='all'
-    ?'All city revenue by source (net of transfers). Service charges plus a mix of taxes and grants.'
-    :'General Fund revenue. About three-quarters is local taxes; the rest is fees, fines, and charges.');
+    ?'All funds, net of transfers. Charges for services bring in more than any single tax.'
+    :'General Fund only. Local taxes account for roughly three-quarters of it. Fees, fines, and charges make up the rest.');
 }
 function renderTax(){
   const rows=[...TAXBREAK].sort((a,b)=>b[1]-a[1]);
@@ -676,35 +758,113 @@ function renderTax(){
   fillTable('taxTable',[{t:'Tax'},{t:'Amount',n:1},{t:'% of GF revenue',n:1},{t:'Notes'}],
     rows.map(r=>[r[0].replace(' ≈',''), (r[2]==='est'?'≈ ':'')+fmt(r[1]), pct(r[1],TAX_GF_DENOM), r[2]==='est'?'Rounded estimate':'Budget schedule']));
 }
+/* Break General Fund into colored stack segments for the all-funds chart */
+const GF_STACK_COLORS={
+  'Police':'#1B4965',
+  'Fire':'#B3261E',
+  'Public Works':'#C4703E',
+  'Non-Departmental / transfers':'#5E6E79',
+  'Transportation':'#2E8DA6',
+  'Other GF departments':'#7A5BA6'
+};
+const OTHER_FUND_COLOR='#8EB4C4';
+function gfStackParts(){
+  const named=['Police','Fire','Public Works','Transportation','Non-Departmental / transfers'];
+  const namedSet=new Set(named);
+  const parts=named.map(n=>{
+    const row=SPEND.gf.find(r=>r[0]===n);
+    if(!row) throw new Error('Missing GF row: '+n);
+    return [row[0],row[1]];
+  }).sort((a,b)=>b[1]-a[1]);
+  const other=SPEND.gf.filter(r=>!namedSet.has(r[0])).reduce((s,r)=>s+r[1],0);
+  parts.push(['Other GF departments',other]); // always last (rightmost)
+  return parts;
+}
+function gfColorFor(name){
+  if(GF_STACK_COLORS[name])return GF_STACK_COLORS[name];
+  if(name.startsWith('Non-Departmental'))return GF_STACK_COLORS['Non-Departmental / transfers'];
+  return '#2E8DA6';
+}
 function renderSpend(){
-  let rows=[...SPEND[view]].sort((a,b)=>b[1]-a[1]);
-  const fullRows=rows, total=rows.reduce((s,r)=>s+r[1],0);
-  // On narrow screens, collapse long all-funds list to top 8 + other
-  const narrow=window.matchMedia('(max-width:700px)').matches;
-  if(view==='all' && narrow && rows.length>9){
-    const top=rows.slice(0,8), rest=rows.slice(8).reduce((s,r)=>s+r[1],0);
-    rows=[...top,["All other funds",rest]];
-  }
   const canvas=document.getElementById('spendChart');
   if(charts.spend)charts.spend.destroy();
+  const narrow=window.matchMedia('(max-width:700px)').matches;
+
+  if(view==='all'){
+    let fundRows=[...SPEND.all].sort((a,b)=>b[1]-a[1]);
+    const fullFundRows=fundRows;
+    const total=fundRows.reduce((s,r)=>s+r[1],0);
+    const gfTotal=SPEND.gf.reduce((s,r)=>s+r[1],0);
+    const parts=gfStackParts();
+    if(narrow && fundRows.length>9){
+      const top=fundRows.slice(0,8), rest=fundRows.slice(8).reduce((s,r)=>s+r[1],0);
+      fundRows=[...top,['All other funds',rest]];
+    }
+    const labels=fundRows.map(r=>r[0]);
+    const isGF=n=>n.startsWith('General');
+    const datasets=parts.map(([name,amt])=>({
+      label:name,data:labels.map(lab=>isGF(lab)?amt:0),
+      backgroundColor:gfColorFor(name),borderRadius:3,borderSkipped:false,maxBarThickness:26,stack:'spend'
+    }));
+    datasets.push({
+      label:'Other funds',data:labels.map((lab,i)=>isGF(lab)?0:fundRows[i][1]),
+      backgroundColor:OTHER_FUND_COLOR,borderRadius:6,borderSkipped:false,maxBarThickness:26,stack:'spend'
+    });
+    charts.spend=new Chart(canvas,{type:'bar',
+      data:{labels,datasets},
+      options:{indexAxis:'y',maintainAspectRatio:false,animation:anim,
+        plugins:{
+          legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11},padding:8}},
+          tooltip:{padding:10,filter:item=>item.raw>0,callbacks:{
+            title:items=>{
+              const lab=items[0]?.label||'';
+              return isGF(lab)?'General Fund (by department)':lab;
+            },
+            label:c=>{
+              const shareOf=isGF(c.label)?gfTotal:total;
+              const ofWhat=isGF(c.label)?' of GF':' of gross';
+              return ` ${c.dataset.label}: ${fmt(c.raw)} · ${pct(c.raw,shareOf)}${ofWhat} · ≈ $${Math.round(c.raw/POP).toLocaleString()}/resident`;
+            },
+            footer:items=>{
+              if(!items.length||!isGF(items[0].label))return'';
+              return`GF total ${abbr(gfTotal)} · ${pct(gfTotal,total)} of gross`;
+            }
+          }}
+        },
+        scales:{
+          x:{stacked:true,ticks:{callback:v=>abbr(v)},grid:{color:'#EEF3F7'}},
+          y:{stacked:true,ticks:{font:{size:11},autoSkip:false},grid:{display:false}}
+        }}});
+    document.getElementById('spendTitle').textContent='By fund, gross of the ~$115M in transfers: '+abbr(total);
+    document.getElementById('spendCap').textContent='The General Fund bar is split into its main departments so you can see what that big block actually buys. Other funds stay one color each. Gross amounts, so a dollar moved between funds shows up twice; net those out and you get the headline $796.6M.';
+    canvasSummary(canvas,`Spending by fund totaling ${abbr(total)}. General Fund ${abbr(gfTotal)} split into ${parts.map(p=>p[0]+' '+abbr(p[1])).join('; ')}.`);
+    const tableRows=[
+      ...parts.map(([n,v])=>['General Fund · '+n,fmt(v),pct(v,total),'$'+Math.round(v/POP).toLocaleString()]),
+      ...fullFundRows.filter(r=>!r[0].startsWith('General')).map(r=>[r[0],fmt(r[1]),pct(r[1],total),'$'+Math.round(r[1]/POP).toLocaleString()]),
+      ['Total',fmt(total),'100%','']
+    ];
+    fillTable('spendTable',[{t:'Fund / department'},{t:'Amount',n:1},{t:'Share of gross',n:1},{t:'Per resident',n:1}],tableRows);
+    document.querySelector('#spendNote span:last-child').innerHTML=
+      'This chart adds up to about <strong>$912M</strong>. The headline <strong>$796.6M</strong> takes out roughly $115M that only moves from one city fund to another. The colored General Fund segments are the same departments you get in the General Fund-only view. Water and trash largely pay their own way through fees, and the buses lean on grants and dedicated transit money.';
+    return;
+  }
+
+  let rows=[...SPEND.gf].sort((a,b)=>b[1]-a[1]);
+  const fullRows=rows, total=rows.reduce((s,r)=>s+r[1],0);
   charts.spend=new Chart(canvas,{type:'bar',
     data:{labels:rows.map(r=>r[0]),datasets:[{data:rows.map(r=>r[1]),
-      backgroundColor:rows.map((r,i)=>r[0].startsWith('General')?'#1B4965':'#2E8DA6'),borderRadius:6,maxBarThickness:26,hoverBackgroundColor:'#E8A13A'}]},
+      backgroundColor:rows.map(r=>gfColorFor(r[0])),
+      borderRadius:6,maxBarThickness:26,hoverBackgroundColor:'#E8A13A'}]},
     options:{indexAxis:'y',maintainAspectRatio:false,animation:anim,
       plugins:{legend:{display:false},tooltip:{padding:10,callbacks:{label:c=>` ${fmt(c.raw)} · ${pct(c.raw,total)} · ≈ $${Math.round(c.raw/POP).toLocaleString()}/resident`}}},
       scales:{x:{ticks:{callback:v=>abbr(v)},grid:{color:'#EEF3F7'}},y:{ticks:{font:{size:11},autoSkip:false},grid:{display:false}}}}});
-  document.getElementById('spendTitle').textContent=(view==='all'
-    ?'Spending by fund (gross, before ~$115M transfers) — '+abbr(total)
-    :'General Fund spending by department — '+abbr(total));
-  document.getElementById('spendCap').textContent=(view==='all'
-    ?'Gross amounts by fund. The headline citywide total ($796.6M) is net after transfers. Hover a bar for exact dollars; table below for every fund.'
-    :'Hover a bar for exact dollars and share. Prefer a table? Open it below the chart.');
-  canvasSummary(canvas,`Spending totaling ${abbr(total)}. Top: ${fullRows.slice(0,3).map(r=>r[0]+' '+abbr(r[1])).join('; ')}.`);
-  fillTable('spendTable',[{t:view==='all'?'Fund':'Department'},{t:'Amount',n:1},{t:'Share',n:1},{t:'Per resident',n:1}],
+  document.getElementById('spendTitle').textContent='General Fund, by department: '+abbr(total);
+  document.getElementById('spendCap').textContent='Hover a bar for the exact amount and share. The full list is in the table below.';
+  canvasSummary(canvas,`General Fund spending totaling ${abbr(total)}. Top: ${fullRows.slice(0,3).map(r=>r[0]+' '+abbr(r[1])).join('; ')}.`);
+  fillTable('spendTable',[{t:'Department'},{t:'Amount',n:1},{t:'Share',n:1},{t:'Per resident',n:1}],
     fullRows.map(r=>[r[0],fmt(r[1]),pct(r[1],total),'$'+Math.round(r[1]/POP).toLocaleString()]).concat([['Total',fmt(total),'100%','']]));
-  document.querySelector('#spendNote span:last-child').innerHTML=(view==='all'
-    ?'Gross vs net: this chart sums to about <strong>$912M</strong>; the hero figure (<strong>$796.6M</strong>) removes ~$115M of money that simply moves between city funds. Water and trash mostly pay for themselves through fees; Big Blue Bus also depends on grants and dedicated transit money.'
-    :'"Non-Departmental / transfers" bundles citywide costs, debt, insurance, and money moved to other funds — it is not a single department.');
+  document.querySelector('#spendNote span:last-child').innerHTML=
+    '"Non-Departmental / transfers" is not a department. It bundles citywide costs, debt, insurance, and money shipped out to other funds.';
 }
 function renderTrend(){
   const t=TREND[view];
@@ -722,18 +882,18 @@ function renderTrend(){
           afterBody:it=>{const r=it[0].raw,e=it[1].raw,g=r-e;return (g>=0?'Surplus: ':'Gap: ')+signedAbbr(g);}}}},
       scales:{y:{ticks:{callback:v=>abbr(v)},grid:{color:'#EEF3F7'}},x:{grid:{display:false}}}}});
   document.getElementById('trendCap').textContent=(view==='all'
-    ?'Gross all-funds money in vs. out (before netting transfers). FY25-26 point (~$912M spending) is gross; the headline $796.6M is net. Earlier years mix actuals/revised; FY25-26+ are adopted plans.'
-    :'General Fund money in vs. out. Spending has run ahead of revenue, so the city draws on reserves.');
+    ?'All funds, gross. The FY25-26 spending point is about $912M before transfers are netted out; the headline $796.6M is the net figure. Earlier years mix actuals and revised budgets, and the last two are plans.'
+    :'General Fund money in against money out. Spending has run ahead of revenue, and reserves cover the difference.');
   const note=document.getElementById('gapNote');
   const gap=TOTALS[view].exp-TOTALS[view].rev;
   if(view==='all'){
     note.className='note pos';
     note.querySelector('.ic').textContent='✅';
-    note.querySelector('span:last-child').innerHTML='Across all funds, planned revenue exceeds planned spending by about <strong>'+abbr(TOTALS.all.rev-TOTALS.all.exp)+'</strong>. Much of that sits in restricted enterprise and grant funds and cannot pay for General Fund services — the General Fund itself still plans to spend <strong>'+abbr(TOTALS.gf.exp-TOTALS.gf.rev)+' more</strong> than it takes in.';
+    note.querySelector('span:last-child').innerHTML='Across all funds, planned revenue beats planned spending by about <strong>'+abbr(TOTALS.all.rev-TOTALS.all.exp)+'</strong>. Most of that is stuck in restricted enterprise and grant funds and cannot pay for General Fund services. Switch to the General Fund view and the picture flips: it plans to spend <strong>'+abbr(TOTALS.gf.exp-TOTALS.gf.rev)+' more</strong> than it takes in.';
   } else {
     note.className='note warn';
     note.querySelector('.ic').textContent='⚠️';
-    note.querySelector('span:last-child').innerHTML='This year the General Fund plans to spend about <strong>'+abbr(gap)+' more</strong> than it takes in, covering the difference from reserves. When this repeats year after year it is called a <strong>structural deficit</strong>.';
+    note.querySelector('span:last-child').innerHTML='The General Fund plans to spend about <strong>'+abbr(gap)+' more</strong> than it takes in this year and cover the difference from reserves. A gap that keeps coming back has a name: <strong>structural deficit</strong>.';
   }
   canvasSummary(canvas,'Five-year revenue versus spending. FY25-26 gap: '+signedAbbr(thisGap)+'.');
   fillTable('trendTable',[{t:'Year'},{t:'Revenue',n:1},{t:'Spending',n:1},{t:'Gap',n:1}],
@@ -784,8 +944,8 @@ function renderSankey(){
   const svg=document.getElementById('sankey');svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
   svg.innerHTML=`<defs>${defs}</defs>${rib}${nodes}${labels}`;
   document.getElementById('sankeyCap').textContent=(view==='all'
-    ?'Gross flows (about '+abbr(hub)+'), including ~$115M that moves between city funds. The headline budget ($796.6M) is the net figure after those transfers. Hover or tab a band to trace it.'
-    :'Sources flow into the General Fund and out to departments. Spending runs a little ahead of revenue, so a sliver flows in from reserves.');
+    ?'Gross flows of about '+abbr(hub)+', including roughly $115M that only shuffles between city funds. Strip those out and you get the headline $796.6M. Hover or tab a band to follow it.'
+    :'Money in on the left, departments on the right. Spending runs a little ahead of revenue, so a thin band comes in from reserves.');
   // Mobile list alternative
   const shortN=n=>n.replace('Charges for Services + transfers','Charges + transfers').replace('Non-Departmental / transfers','Non-Dept / transfers'); const rowHtml=(arr)=>arr.map(([n,v])=>`<div class="skm-row"><span class="n">${shortN(n)}</span><span class="v">${abbr(v)}</span></div>`).join('');
   document.getElementById('sankeyMobile').innerHTML=
@@ -806,7 +966,7 @@ function calc(){
   const incEnt=document.getElementById('incEnt').checked;
   const base=incEnt?TOTALS.all.exp:TOTALS.gf.exp;
   const perRes=base/POP,share=perRes*H;
-  document.getElementById('shareLbl').textContent=incEnt?"Your household's yearly share of ALL city services (net)":"Your household's yearly share of General Fund services";
+  document.getElementById('shareLbl').textContent=incEnt?"Your household's yearly share of all city services, net of transfers":"Your household's yearly share of General Fund services";
   countUp(document.getElementById('shareBig'),share,v=>'$'+Math.round(v).toLocaleString());
   document.getElementById('shareSub').textContent='About $'+Math.round(perRes).toLocaleString()+' per person × '+H+(H===1?' person':' people')+' = $'+Math.round(share).toLocaleString();
   let rows, heading;
@@ -823,7 +983,7 @@ function calc(){
     const top=scaled.slice(0,8), other=scaled.slice(8).reduce((s,r)=>s+r[1],0);
     rows=[...top.map(r=>[r[0],r[1]/POP*H])];
     if(other>0)rows.push(["All other funds",other/POP*H]);
-    heading='Your all-funds share (scaled to the net $796.6M total), by fund:';
+    heading='Your all-funds share, by fund, scaled to the net $796.6M total:';
   }
   // Round rows so they sum exactly to the headline share
   const rounded=rows.map(r=>[r[0],Math.round(r[1])]);
@@ -836,21 +996,21 @@ function calc(){
   const pb=document.getElementById('propBlock');
   if(homeRaw && +homeRaw>0){
     const hv=+homeRaw,base1=hv*0.01,cityShare=base1*0.14;
-    pb.innerHTML=`<div class="note" style="margin-top:14px"><span class="ic" aria-hidden="true">🏡</span><span>If <strong>$${hv.toLocaleString()}</strong> were the taxable assessed value, the basic 1% property tax is about <strong>$${Math.round(base1).toLocaleString()}</strong>. Of that, only roughly <strong>$1 in 7 — about $${Math.round(cityShare).toLocaleString()}/yr</strong> — reaches the City. Under Prop 13, long-time owners often have assessed values far below market price, so the City's take can be much smaller. <em>Rough estimate; excludes voter-approved parcel taxes and bonds.</em></span></div>`;
+    pb.innerHTML=`<div class="note" style="margin-top:14px"><span class="ic" aria-hidden="true">🏡</span><span>On an assessed value of <strong>$${hv.toLocaleString()}</strong>, the basic 1% property tax runs about <strong>$${Math.round(base1).toLocaleString()}</strong> a year. Roughly <strong>$1 in 7 of that, about $${Math.round(cityShare).toLocaleString()}</strong>, reaches the City. The rest goes to the county, the schools, and special districts. <em>Excludes voter-approved parcel taxes and bonds.</em></span></div>`;
   } else pb.innerHTML='';
   const police=SPEND.gf.find(r=>r[0]==='Police')[1];
   const fire=SPEND.gf.find(r=>r[0]==='Fire')[1];
   const lib=SPEND.gf.find(r=>r[0]==='Library')[1];
   lastShare={H,share:Math.round(share),incEnt,police:Math.round(police/POP*H),fire:Math.round(fire/POP*H),lib:Math.round(lib/POP*H)};
-  document.getElementById('shareLine').innerHTML=`<span aria-hidden="true">💬 </span><strong>Shareable:</strong> "My Santa Monica household's share of city services is about $${lastShare.share.toLocaleString()}/year — roughly $${lastShare.police.toLocaleString()} for police, $${lastShare.fire.toLocaleString()} for fire, and $${lastShare.lib.toLocaleString()} for libraries."`;
+  document.getElementById('shareLine').innerHTML=`<span aria-hidden="true">💬 </span><strong>Shareable:</strong> "My Santa Monica household's share of city services is about $${lastShare.share.toLocaleString()}/year, roughly $${lastShare.police.toLocaleString()} for police, $${lastShare.fire.toLocaleString()} for fire, and $${lastShare.lib.toLocaleString()} for libraries."`;
 }
 function copyShare(){
-  const txt=`My Santa Monica household's share of city services is about $${lastShare.share.toLocaleString()}/year — roughly $${lastShare.police.toLocaleString()} for police, $${lastShare.fire.toLocaleString()} for fire, and $${lastShare.lib.toLocaleString()} for libraries. (An estimate of share-of-spending, not a tax bill.)`;
+  const txt=`My Santa Monica household's share of city services is about $${lastShare.share.toLocaleString()}/year, roughly $${lastShare.police.toLocaleString()} for police, $${lastShare.fire.toLocaleString()} for fire, and $${lastShare.lib.toLocaleString()} for libraries. (An estimate of share-of-spending, not a tax bill.)`;
   const b=document.getElementById('copyBtn'), live=document.getElementById('copyLive');
   const reset=()=>setTimeout(()=>{b.innerHTML='<span aria-hidden="true">📋 </span>Copy my summary';if(live)live.textContent='';},1800);
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(txt).then(()=>{b.textContent='✓ Copied!';if(live)live.textContent='Summary copied to clipboard';reset();})
-      .catch(()=>{b.textContent='Copy failed';if(live)live.textContent='Could not copy — select the shareable text instead';reset();});
+      .catch(()=>{b.textContent='Copy failed';if(live)live.textContent='Could not copy, select the shareable text instead';reset();});
   } else {b.textContent='Copy unavailable';if(live)live.textContent='Clipboard unavailable';reset();}
 }
 
@@ -900,10 +1060,10 @@ function setView(v, push=true){
   view=v;
   document.getElementById('btnAll').setAttribute('aria-pressed',v==='all');
   document.getElementById('btnGF').setAttribute('aria-pressed',v==='gf');
-  document.getElementById('viewHint').textContent=v==='all'?'Everything the city does, across all 31 funds (headline totals are net of transfers).':'Just the flexible money that pays for core services.';
+  document.getElementById('viewHint').textContent=v==='all'?'Showing all 31 funds. Headline totals are net of transfers.':'Showing the General Fund only.';
   document.getElementById('moneyOutIntro').innerHTML=v==='all'
-    ?'Here is what the city plans to spend across every fund, biggest to smallest (gross of transfers).'
-    :'Public safety — Police and Fire — is the single biggest use of your flexible tax dollars.';
+    ?'Every fund, biggest to smallest. These are gross figures, so money moved between funds is still counted on both ends.'
+    :'Police and Fire together take just under 40 cents of every General Fund dollar.';
   if(push){
     try{const u=new URL(location.href);u.searchParams.set('view',v);history.replaceState(null,'',u);}catch(e){}
   }
@@ -917,9 +1077,78 @@ Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
   renderTax();renderChips();renderDir();calc();setView(start,false);
 })();
 
+/* about modal */
+const aboutDlg=document.getElementById('aboutDialog');
+let aboutReturnFocus=null;
+function openAbout(){
+  aboutReturnFocus=document.activeElement;
+  if(typeof aboutDlg.showModal==='function') aboutDlg.showModal();
+  else aboutDlg.setAttribute('open','');
+  try{const u=new URL(location.href);u.hash='about';history.replaceState(null,'',u);}catch(e){}
+  const closeBtn=aboutDlg.querySelector('.about-modal-close');
+  if(closeBtn) closeBtn.focus();
+}
+function closeAbout(){
+  if(typeof aboutDlg.close==='function') aboutDlg.close();
+  else aboutDlg.removeAttribute('open');
+  try{const u=new URL(location.href);u.hash='';history.replaceState(null,'',u.pathname+u.search);}catch(e){}
+  if(aboutReturnFocus && aboutReturnFocus.focus) aboutReturnFocus.focus();
+}
+aboutDlg.addEventListener('click',e=>{if(e.target===aboutDlg) closeAbout();});
+aboutDlg.addEventListener('cancel',e=>{e.preventDefault();closeAbout();});
+if(location.hash==='#about') openAbout();
+
+/* feedback modal + Formspree */
+const FB_ENDPOINT='https://formspree.io/f/mnpaandr';
+const fbDlg=document.getElementById('feedbackDialog');
+const fbForm=document.getElementById('feedbackForm');
+const fbStatus=document.getElementById('fbStatus');
+const fbSubmit=document.getElementById('fbSubmit');
+let fbReturnFocus=null;
+function openFeedback(){
+  fbReturnFocus=document.activeElement;
+  fbStatus.className='fb-status';fbStatus.textContent='';
+  if(typeof fbDlg.showModal==='function') fbDlg.showModal();
+  else fbDlg.setAttribute('open','');
+  const first=document.getElementById('fbEmail');
+  if(first) first.focus();
+}
+function closeFeedback(){
+  if(typeof fbDlg.close==='function') fbDlg.close();
+  else fbDlg.removeAttribute('open');
+  if(fbReturnFocus && fbReturnFocus.focus) fbReturnFocus.focus();
+}
+fbDlg.addEventListener('click',e=>{if(e.target===fbDlg) closeFeedback();});
+fbDlg.addEventListener('cancel',e=>{e.preventDefault();closeFeedback();});
+fbForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  fbStatus.className='fb-status';fbStatus.textContent='';
+  if(!fbForm.reportValidity()) return;
+  const data=new FormData(fbForm);
+  fbSubmit.disabled=true;fbSubmit.textContent='Sending…';
+  try{
+    const res=await fetch(FB_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:data});
+    const json=await res.json().catch(()=>({}));
+    if(res.ok){
+      fbForm.reset();
+      fbStatus.className='fb-status ok';
+      fbStatus.textContent='Got it. Thanks for writing in.';
+    } else {
+      const msg=(json.errors && json.errors.map(x=>x.message).join(' ')) || json.error || 'Could not send. Try again in a minute.';
+      fbStatus.className='fb-status err';
+      fbStatus.textContent=msg;
+    }
+  }catch(err){
+    fbStatus.className='fb-status err';
+    fbStatus.textContent='Could not reach the server. Check your connection and try again.';
+  }finally{
+    fbSubmit.disabled=false;fbSubmit.textContent='Send feedback';
+  }
+});
+
 /* scrollspy */
 if('IntersectionObserver' in window){
-  const navLinks=[...document.querySelectorAll('.subnav a')];
+  const navLinks=[...document.querySelectorAll('.subnav a[href^="#"]')];
   const secs=navLinks.map(a=>document.querySelector(a.getAttribute('href')));
   const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
     const id='#'+e.target.id;navLinks.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')===id?'true':'false'));}});},
