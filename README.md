@@ -38,10 +38,11 @@ If you want to split this into separate `styles.css` / `app.js` / `data.js` file
 
 ## Data & caveats
 
-- All four headline budget totals tie to the source budget document exactly.
-- Household calculator uses ~$5,291/resident × household size for share-of-spending.
-- The property-tax "city share" (~14%) and the hotel/utility/business/parking tax split are illustrative/rough and labeled as such in the UI.
+- Headline citywide total is **net** of ~$115M interfund transfers ($796.6M). Fund list, balance trend, and Sankey use **gross** figures and are labeled as such.
+- Household calculator defaults to General Fund (~$5,291/resident). Enterprise mode uses all-funds net (~$8,703/resident) with a fund breakdown scaled to that total.
+- Property-tax "city share" (~14%) and hotel/utility/business/parking tax splitouts are rounded estimates and labeled in the UI.
+- Independent project banner is shown above the fold; this is not an official City site.
 
 ## Accessibility
 
-Skip link, single H1, semantic landmarks, `aria-pressed`/`aria-live`, keyboard-focusable chart nodes, WCAG-AA contrast, and `prefers-reduced-motion` support.
+Skip link, single H1, semantic landmarks, chart table fallbacks, canvas `aria-label`s, keyboard-focusable Sankey nodes, `prefers-reduced-motion`, and a mobile list alternative for the Sankey.
