@@ -780,17 +780,17 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       <div class="engage-step">
         <p class="step-n">Step 1</p>
         <h3>Find the agenda</h3>
-        <p>Open <a href="https://www.santamonica.gov/gsp/meetings-and-agendas" target="_blank" rel="noopener">Meetings, Agendas &amp; Minutes</a> and look for budget, forecast, or CIP items. Staff reports and Attachment-style schedules live with the agenda packet.</p>
+        <p>Open <a href="https://www.santamonica.gov/gsp/meetings-and-agendas" target="_blank" rel="noopener noreferrer">Meetings, Agendas &amp; Minutes</a> and look for budget, forecast, or CIP items. Staff reports and Attachment-style schedules live with the agenda packet.</p>
       </div>
       <div class="engage-step">
         <p class="step-n">Step 2</p>
         <h3>Speak or write</h3>
-        <p>In person, by phone, or in writing — see <a href="https://www.santamonica.gov/process-explainers/how-to-participate-in-a-city-council-meeting" target="_blank" rel="noopener">How to participate</a>. Written comments: <a href="mailto:councilmtgitems@santamonica.gov">councilmtgitems@santamonica.gov</a> (put the agenda item in the subject line).</p>
+        <p>In person, by phone, or in writing — see <a href="https://www.santamonica.gov/process-explainers/how-to-participate-in-a-city-council-meeting" target="_blank" rel="noopener noreferrer">How to participate</a>. Written comments: <a href="mailto:councilmtgitems@santamonica.gov">councilmtgitems@santamonica.gov</a> (put the agenda item in the subject line).</p>
       </div>
       <div class="engage-step">
         <p class="step-n">Step 3</p>
         <h3>Check the source</h3>
-        <p>Before you cite a figure at Council, match it to the City’s PDFs on <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener">Budgets &amp; Annual Financial Reports</a>. This site is independent and can err.</p>
+        <p>Before you cite a figure at Council, match it to the City’s PDFs on <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">Budgets &amp; Annual Financial Reports</a>. This site is independent and can err.</p>
       </div>
     </div>
     <div class="engage-cal">
@@ -829,8 +829,8 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
           <p class="cap">What the numbers mean, and where they come from.</p>
           <details open><summary>What year &amp; basis?</summary><div class="gbody">These are <strong>adopted</strong> figures for this fiscal year (July 1, 2026 through June 30, 2027), as Council approved on June 23, 2026 - compared to last year's adopted plan (FY 2025-26). They are not actual spending; that will not be known until the books close. Citywide headline totals are <strong>net</strong> of about $118M in transfers between funds, which is the $908.8M (operating $798.4M + capital $110.4M). The fund list, the trend chart, and the flow diagram run on <strong>gross</strong> amounts because they show money each time it moves. Both numbers are correct; they answer different questions.</div></details>
           <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Water, sewer, and trash charge their users directly, so the city keeps them in separate <strong>enterprise funds</strong>, walled off from the General Fund that pays for police, fire, parks, and libraries. A surplus in the water fund cannot hire a police officer. Big Blue Bus sits on the same side of that wall, though it leans on grants and dedicated transit money more than on fares.</div></details>
-          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Local copies live under <code>sources/fy2026-27-adoption/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
-          <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
+          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Local copies live under <code>sources/fy2026-27-adoption/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
+          <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener noreferrer">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
         </div>
       </div>
     </div>
@@ -1580,6 +1580,13 @@ function setView(v, push=true){
 Chart.register(centerText);
 Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
 (function init(){
+  document.querySelectorAll('a[href]').forEach(a=>{
+    const href=a.getAttribute('href')||'';
+    if(/^https?:\/\//i.test(href)){
+      a.setAttribute('target','_blank');
+      a.setAttribute('rel','noopener noreferrer');
+    }
+  });
   let start='all';
   try{const q=new URL(location.href).searchParams.get('view');if(q==='gf'||q==='all')start=q;}catch(e){}
   const ve=document.getElementById('viewExplain');
