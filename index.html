@@ -668,7 +668,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       <p class="cap" id="revCap"></p>
       <div id="revChart" class="rev-viz" role="img" aria-label="Revenue by source"></div>
       <details class="chart-table"><summary>Table</summary><div class="tbl-wrap" id="revTable"></div></details>
-      <details class="more-tip" id="revTaxTip"><summary>Most of your tax bill isn’t City Hall</summary><div class="tip-body">Of the 10.25% sales tax, the City keeps about <strong>2%</strong>. Of a property-tax bill, well under <strong>20%</strong>. The rest goes to the county, schools, and special districts.</div></details>
+      <details class="more-tip" id="revTaxTip"><summary>Most of your tax bill isn’t City Hall</summary><div class="tip-body">Of the 10.75% sales tax, the City keeps about <strong>2%</strong> (some of that is earmarked for schools and housing). Of a property-tax bill, about <strong>14–17%</strong> comes to the City, depending on where in Santa Monica the property is. The rest goes to the county, schools, and special districts.</div></details>
     </div>
   </section>
 
@@ -885,7 +885,7 @@ if(typeof ResizeObserver==='undefined'){window.ResizeObserver=class{observe(){}u
 const RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 /* ===================== DATA (FY 2026-27 adopted June 23, 2026; prior = FY 2025-26 plan) ===================== */
-const POP=91535;
+const POP=91535; /* 2023 ACS estimate, printed in FY 2025-27 Adopted Biennial Budget */
 const XFER_NET=117556594; /* reimbursements & transfers netted from citywide totals */
 const CAT=['#1B4965','#E8A13A','#2E8DA6','#B3261E','#5B7F3A','#7A5BA6','#C4703E','#5E6E79',
   '#2F6E8F','#F0BE6E','#5FB0C4','#D06A5E','#7FA05A','#9E86C0','#D9946A','#8593A0'];
@@ -957,7 +957,7 @@ const SPEND_PREV={
     ["Gas Tax",5050216],["Information Technology",3203387],["Cemetery",2854459],["Stormwater",1688103],
     ["Community Dev. Block Grants",1114932],["Other small funds",1066812]]
 };
-const SANKEY_REV_ALL=[["Charges for Services + transfers",363045641],["Other Taxes",202983405],["Sales Taxes",166532369],
+const SANKEY_REV_ALL=[["Transfers + charges for services",363045641],["Other Taxes",202983405],["Sales Taxes",166532369],
   ["Intergovernmental / Grants",118053676],["Property Taxes",100004709],["Licenses & Permits",42860220],
   ["Investment / Rent",18374854],["Other",18052801],["Fines & Forfeitures",14288919]];
 const TREND={
@@ -985,8 +985,8 @@ const COVER=[
 
 /* department directory - GF operating from Attachment D; enterprise = op + CIP */
 const DIR=[
-  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:153025400,bPrev:128526829,fte:null,d:"Patrol, 911 response, and detectives. The single biggest department in the General Fund, by a wide margin."},
-  {n:"Fire",e:"🚒",t:"gf",cat:"safety",b:68924871,bPrev:57416909,fte:null,d:"Puts out fires and runs the city's paramedics. Also does fire inspections and disaster planning."},
+  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:153025400,bPrev:128526829,fte:null,d:"Patrol, 911 response, and detectives. About 28% of General Fund spending — the single biggest use of Council's flexible dollars."},
+  {n:"Fire",e:"🚒",t:"gf",cat:"safety",b:68924871,bPrev:57416909,fte:null,d:"Puts out fires and runs the city's paramedics. Also does fire inspections and disaster planning. With Police, about 41% of the General Fund."},
   {n:"Public Works",e:"🚧",t:"gf",cat:"everyday",b:77250110,bPrev:59981290,fte:null,d:"Streets, sidewalks, streetlights, and city buildings. Where pothole complaints land."},
   {n:"Transportation",e:"🚦",t:"gf",cat:"everyday",b:19893423,bPrev:27637417,fte:null,d:"Traffic signals, parking, and street planning. The General Fund side of getting around. The buses are budgeted separately."},
   {n:"Housing & Human Services",e:"🏠",t:"gf",cat:"community",b:26179813,bPrev:23548510,fte:null,d:"Housing programs, homelessness outreach, and grants to the nonprofits that handle food, health, and social services."},
@@ -1030,7 +1030,7 @@ const GLOSSARY=[["Fund","A walled-off account for one purpose. Money in a fund g
   ["Transient Occupancy Tax (TOT)","The hotel tax. Charged on hotel and short-term-rental stays, so visitors pay most of it. One of the biggest pieces inside Other Local Taxes."],
   ["Utility Users Tax (UUT)","A tax on phone, gas, and electric bills. It goes into the General Fund, so it can pay for anything."],
   ["Capital Improvement Program (CIP)","The construction list: streets, pipes, buildings, parks. Kept apart from the day-to-day operating budget because the spending is one-time."],
-  ["Per-capita","A total divided by the 91,535 people who live here. An average, not what any one person pays."],
+  ["Per-capita","A total divided by the 91,535 people who live here (2023 Census ACS estimate in the City budget book). An average, not what any one person pays."],
   ["Adopted vs. actual","'Adopted' is the budget the Council approved as a plan; 'actual' is what really gets spent. This tool shows adopted figures."],
   ["Fiscal year (FY)","The 12-month budgeting period. Santa Monica's runs July 1 to June 30, so 'FY 2026-27' (this year) means July 2026 through June 2027."],
   ["All funds","Every city account added up: the General Fund plus the enterprise, grant, and restricted funds. Thirty-one of them this year."],
@@ -1080,7 +1080,7 @@ function renderKPIs(){
     {l:view==='all'?'Total budget (net)':'General Fund spending',v:d.exp,f:abbr,foot:view==='all'?xferLbl:'Spending, this year',yoy:expY},
     {l:'Total revenue (net)',v:d.rev,f:abbr,foot:'Money coming in this year',yoy:revY},
     {l:'Revenue − spending',v:bal,f:signedAbbr,foot:bp?'Planned surplus (all funds)':'Drawn from reserves',cls:bp?'pos':'neg',yoy:balY},
-    {l:'Per resident',v:perCap,f:v=>'$'+Math.round(v).toLocaleString(),foot:view==='all'?'All funds · pop. 91,535':'General Fund only · pop. 91,535',yoy:perY}
+    {l:'Per resident',v:perCap,f:v=>'$'+Math.round(v).toLocaleString(),foot:view==='all'?'All funds · pop. 91,535 (2023 ACS)':'General Fund only · pop. 91,535 (2023 ACS)',yoy:perY}
   ];
   const box=document.getElementById('kpis');
   box.innerHTML=cards.map(c=>`<div class="kpi"><div class="l-row"><div class="l">${c.l}</div><div class="f ${c.cls||''}">${c.foot}</div></div><div class="v num" data-t="${c.v}">${c.f(0)}</div>${c.yoy?`<div class="yoy ${c.yoy.dir}">${c.yoy.text}</div>`:''}</div>`).join('');
@@ -1263,7 +1263,7 @@ function renderSpend(){
     fullRows=rows;
     total=rows.reduce((s,r)=>s+r.v,0);
     document.getElementById('spendTitle').textContent='General Fund · '+abbr(total);
-    document.getElementById('spendCap').textContent='Hover a row for what each department covers.';
+    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Hover a row for what each department covers.';
     fillTable('spendTable',[{t:'Department'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
@@ -1434,7 +1434,7 @@ function renderSankey(){
     ?abbr(hub)+' gross · ~$'+Math.round(XFER_NET/1e6)+'M is transfers · headline is $908.8M net'
     :'In on the left, departments on the right.');
   // Mobile list alternative
-  const shortN=n=>n.replace('Charges for Services + transfers','Charges + transfers').replace('Non-Departmental / transfers','Non-Dept / transfers'); const rowHtml=(arr)=>arr.map(([n,v])=>`<div class="skm-row"><span class="n">${shortN(n)}</span><span class="v">${abbr(v)}</span></div>`).join('');
+  const shortN=n=>n.replace('Transfers + charges for services','Transfers + fees').replace('Non-Departmental / transfers','Non-Dept / transfers'); const rowHtml=(arr)=>arr.map(([n,v])=>`<div class="skm-row"><span class="n">${shortN(n)}</span><span class="v">${abbr(v)}</span></div>`).join('');
   document.getElementById('sankeyMobile').innerHTML=
     `<div class="skm-col"><div class="skm-h">Money in</div>${rowHtml(sources)}</div>`+
     `<div class="skm-hub"><div class="big">${hubSub}</div><div style="opacity:.75;font-size:.85rem;margin-top:4px">${hubLabel}</div></div>`+
@@ -1590,7 +1590,7 @@ Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
   let start='all';
   try{const q=new URL(location.href).searchParams.get('view');if(q==='gf'||q==='all')start=q;}catch(e){}
   const ve=document.getElementById('viewExplain');
-  if(ve) ve.open=!window.matchMedia('(max-width:760px)').matches;
+  if(ve) ve.open=true;
   renderChips();renderDir();renderCover();setView(start,false);
 })();
 let _resizeT=null,_lastNarrow=window.matchMedia('(max-width:700px)').matches,_lastCover=window.matchMedia('(max-width:760px)').matches;
