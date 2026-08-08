@@ -1,0 +1,48 @@
+{
+  "cycle": "FY2025-27",
+  "city_index_url": "https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports",
+  "downloaded": "2026-08-08",
+  "note": "City-published PDFs. Site numbers remain hardcoded in index.html; these files are the audit trail.",
+  "documents": [
+    {
+      "file": "FY2024-26-Capital-Budget.pdf",
+      "role": "Capital improvement program (FY 2024-26 cycle)",
+      "source_url": "https://www.santamonica.gov/media/Finance/Budgets%20&%20Reports/2025/2025%20Capital%20Budget.pdf",
+      "bytes": 4754613,
+      "sha256": "5dbfc14e9e72b172bc4054511092d361b864a189a8f6faf79964a6689ce23da1",
+      "pages": 113,
+      "text_extract": "text/FY2024-26-Capital-Budget.txt",
+      "text_bytes": 264397
+    },
+    {
+      "file": "FY2025-27-Adopted-Biennial-Budget.pdf",
+      "role": "Adopted biennial budget book (narratives, fund summaries, revenue/spend tables)",
+      "source_url": "https://www.santamonica.gov/media/Finance/Budgets%20&%20Reports/FY%202025-27%20Adopted%20Biennial%20Budget..pdf",
+      "bytes": 15331753,
+      "sha256": "5fda8aa38d0087fece1a23722f4a68b7ae993f881c3abf74bc8bb0d38d7f86e8",
+      "pages": 359,
+      "text_extract": "text/FY2025-27-Adopted-Biennial-Budget.txt",
+      "text_bytes": 911598
+    },
+    {
+      "file": "FY2025-27-Operating-Budget-Line-Item.pdf",
+      "role": "Line-item operating detail by department/fund",
+      "source_url": "https://www.santamonica.gov/media/Finance/Budgets%20%26%20Reports/2026/2025-27%20Operating%20Budget%20Line%20Item.pdf",
+      "bytes": 17391809,
+      "sha256": "f754e0bb555b868417d33afeafa62abe0b2024f15bc5e886bf449c3996ae1895",
+      "pages": 684,
+      "text_extract": "text/FY2025-27-Operating-Budget-Line-Item.txt",
+      "text_bytes": 2704215
+    },
+    {
+      "file": "FY2025-27-Proposed-Biennial-Budget.pdf",
+      "role": "Proposed (pre-adoption) biennial budget book",
+      "source_url": "https://www.santamonica.gov/media/Finance/Budgets%20&%20Reports/FY_2025_2027_Proposed_Biennial_Budget_Digital.pdf",
+      "bytes": 17942920,
+      "sha256": "d320a2099cf48be4385365b8a13043fe90f4a0b718549b1b47d4f775b6235505",
+      "pages": 353,
+      "text_extract": "text/FY2025-27-Proposed-Biennial-Budget.txt",
+      "text_bytes": 915385
+    }
+  ]
+}
