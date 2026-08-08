@@ -242,71 +242,6 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .kpi .f.pos{color:var(--pos);font-weight:600;}.kpi .f.neg{color:var(--neg);font-weight:600;}
 .kpi .yoy{font-size:.78rem;margin-top:4px;font-weight:600;}
 .kpi .yoy.up{color:var(--pos);}.kpi .yoy.down{color:var(--neg);}.kpi .yoy.flat{color:var(--tx-mute);}
-/* change beats: graphic highlights */
-.change-beats{margin-top:16px;padding-top:4px;}
-.change-beats .cb-title{font-size:1.35rem;font-weight:700;margin:0 0 20px;}
-.change-beats .cb-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;
-  margin:0;padding:0;list-style:none;
-  border:1px solid var(--bd);border-radius:var(--r-lg);
-  background:
-    linear-gradient(180deg,rgba(46,141,166,.06),transparent 42%),
-    var(--card);
-  overflow:hidden;
-  box-shadow:var(--sh1);
-}
-.change-beats .cb-item{
-  position:relative;padding:26px 28px 28px;
-  display:grid;grid-template-rows:auto auto 1fr auto;gap:10px;
-  min-height:0;
-}
-.change-beats .cb-item:nth-child(odd){border-right:1px solid var(--bd);}
-.change-beats .cb-icon{
-  width:40px;height:40px;border-radius:12px;
-  display:grid;place-items:center;
-  background:var(--tint);color:var(--coastal-dark);
-}
-.change-beats .cb-icon svg{width:22px;height:22px;display:block;}
-.change-beats .cb-item.tone-up .cb-icon{background:var(--pos-soft);color:var(--pos);}
-.change-beats .cb-item.tone-down .cb-icon{background:var(--neg-soft);color:var(--neg);}
-.change-beats .cb-item.tone-neutral .cb-icon{background:var(--tint);color:var(--coastal-dark);}
-.change-beats .cb-kicker{
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--tx-mute);margin:0;
-}
-.change-beats .cb-figure{
-  font-size:clamp(2.05rem,4.2vw,2.75rem);font-weight:800;
-  color:var(--brand);letter-spacing:-.04em;line-height:1;
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;
-  margin:2px 0 0;min-height:1.15em;
-}
-.change-beats .cb-figure .unit{
-  font-size:.42em;font-weight:700;letter-spacing:-.02em;color:var(--brand);
-}
-.change-beats .cb-badge{
-  font-size:.78rem;font-weight:700;letter-spacing:.01em;word-spacing:.06em;
-  padding:6px 12px;border-radius:999px;
-  white-space:normal;line-height:1.35;
-  display:inline-flex;align-items:center;justify-content:center;
-  text-align:center;align-self:center;
-}
-.change-beats .cb-badge.up{color:var(--pos);background:var(--pos-soft);}
-.change-beats .cb-badge.down{color:var(--neg);background:var(--neg-soft);}
-.change-beats .cb-badge.neutral{color:var(--brand);background:var(--tint);}
-.change-beats .cb-lab{
-  font-size:.98rem;color:var(--tx2);margin:0;line-height:1.45;max-width:28rem;
-}
-.change-beats .cb-spark{position:absolute;right:18px;top:18px;opacity:.55;pointer-events:none;}
-.change-beats .cb-spark svg{display:block;}
-@media(max-width:700px){
-  .change-beats .cb-grid{grid-template-columns:1fr;}
-  .change-beats .cb-item{padding:22px 20px 24px;}
-  .change-beats .cb-item:nth-child(odd){border-right:0;}
-  .change-beats .cb-item:first-child{border-bottom:1px solid var(--bd);}
-  .change-beats .cb-lab{font-size:.95rem;}
-  .change-beats .cb-spark{display:none;}
-}
-.change-beats.lead-in{margin-top:18px;}
 .sec-head{max-width:42rem;margin-bottom:8px;}
 .sec-head p{font-size:.98rem;color:var(--tx2);margin:0;}
 .section-gap{margin-top:36px;padding-top:8px;}
@@ -560,7 +495,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#276e86"/><path d="M8 26 Q14 20 20 26 T32 26" stroke="#FCD98A" stroke-width="2.5" fill="none"/><circle cx="28" cy="14" r="4" fill="#A9DCEA"/></svg>
       Santa Monica Budget Explorer
     </span>
-    <span class="fy-pill">This year · FY 2026-27</span>
+    <span class="fy-pill">FY 2026-27</span>
   </div>
 </header>
 <div class="indie-banner" role="note">
@@ -570,7 +505,6 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 <nav class="subnav" aria-label="Section navigation">
   <div class="wrap" id="subnav">
     <a href="#overview" aria-current="true">Overview</a>
-    <a href="#changes">Changes</a>
     <a href="#money-in">Money in</a>
     <a href="#money-out">Money out</a>
     <a href="#balanced">Balanced?</a>
@@ -587,49 +521,6 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <h1 id="hero-title">Where does Santa Monica's<br><span class="hl">$908.8 million</span> go?</h1>
   </div>
 </section>
-
-<div class="wrap" id="content-wrap">
-
-  <!-- CHANGES -->
-  <section class="change-beats section-gap lead-in" id="changes" aria-labelledby="change-beats-title">
-    <h2 id="change-beats-title" class="cb-title">Highlights from the FY 2026-27 budget</h2>
-    <ul class="cb-grid">
-      <li class="cb-item tone-neutral">
-        <div class="cb-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 20h18"/><path d="M5 20V10l4-3 4 3v10"/><path d="M13 20V7l3-2 3 2v13"/><path d="M7 13h2M15 11h2"/>
-          </svg>
-        </div>
-        <p class="cb-kicker">Citywide spending</p>
-        <div class="cb-figure">$908.8<span class="unit">M</span> <span class="cb-badge neutral">+$112M vs last year</span></div>
-        <p class="cb-lab">14% more than last year’s plan — a fact, not a grade.</p>
-        <div class="cb-spark" aria-hidden="true">
-          <svg width="88" height="36" viewBox="0 0 88 36" fill="none">
-            <path d="M2 30 C18 28, 22 18, 34 16 S52 22, 62 10 S78 6, 86 4" stroke="#1B4965" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="86" cy="4" r="3" fill="#1B4965"/>
-          </svg>
-        </div>
-      </li>
-      <li class="cb-item tone-down">
-        <div class="cb-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z"/><path d="M3 10l2.2-4.4A2 2 0 0 1 7 4.5h10a2 2 0 0 1 1.8 1.1L21 10"/><path d="M12 14v2"/>
-          </svg>
-        </div>
-        <p class="cb-kicker">General Fund gap</p>
-        <div class="cb-figure">$35.6<span class="unit">M</span> <span class="cb-badge down">pulled from reserves</span></div>
-        <p class="cb-lab">About $19.9M is capital; ~$15.7M is day-to-day ops — covered from reserves, not new tax rates.</p>
-        <div class="cb-spark" aria-hidden="true">
-          <svg width="88" height="36" viewBox="0 0 88 36" fill="none">
-            <path d="M2 8 C16 10, 24 18, 36 20 S54 16, 64 26 S78 30, 86 32" stroke="#B3261E" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="86" cy="32" r="3" fill="#B3261E"/>
-          </svg>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-</div><!-- /.wrap intro -->
 
 <section class="view-band" id="viewBand" data-view="all" aria-label="Explore by budget view">
 <div class="wrap">
