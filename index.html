@@ -133,8 +133,9 @@ a{color:var(--brand);}
 .view-band .sec-head .kicker{color:var(--view-accent-deep);}
 .view-band-label{text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--view-accent-deep);margin:12px 0 0;}
 
-.view-explain{margin:10px 0 8px;padding:20px 22px;background:var(--view-soft);border:1px solid color-mix(in srgb, var(--view-accent) 28%, #fff);border-left:4px solid var(--view-accent);border-radius:var(--r-md);display:grid;gap:14px;box-shadow:var(--sh1);}
+.view-explain{margin:10px 0 8px;padding:20px 22px;background:var(--view-soft);border:1px solid color-mix(in srgb, var(--view-accent) 28%, #fff);border-left:4px solid var(--view-accent);border-radius:var(--r-md);display:block;box-shadow:var(--sh1);}
 .view-explain .ve-body{display:grid;gap:14px;}
+.view-explain:not([open]) > .ve-body{display:none;}
 .view-explain .ve-row{display:grid;grid-template-columns:minmax(8.5rem,10rem) 1fr;gap:10px 18px;align-items:baseline;}
 .view-explain .ve-lab{font-size:.88rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--view-accent-deep);}
 .view-explain .ve-txt{font-size:1.12rem;color:var(--tx);line-height:1.5;margin:0;font-weight:500;}
@@ -162,15 +163,17 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .rev-viz .rev-total{font-size:clamp(1.7rem,3vw,2.15rem);font-weight:800;color:var(--brand);letter-spacing:-.03em;line-height:1;}
 .rev-viz .rev-total-sub{font-size:.88rem;font-weight:600;color:var(--tx-mute);}
 .rev-mosaic{display:flex;height:28px;border-radius:999px;overflow:hidden;background:var(--subtle2);box-shadow:inset 0 0 0 1px rgba(16,42,64,.06);}
-.rev-mosaic > button{border:0;padding:0;margin:0;height:100%;cursor:default;transition:filter .15s;min-width:3px;}
+.rev-mosaic > button{border:0;padding:0;margin:0;height:100%;cursor:pointer;transition:filter .15s;min-width:3px;}
 .rev-mosaic > button:hover,.rev-mosaic > button:focus-visible{filter:brightness(1.1);}
 .rev-list{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
-.rev-list li{display:grid;grid-template-columns:minmax(0,1.4fr) auto auto minmax(72px,90px);gap:10px 14px;align-items:center;padding:10px 10px;border-radius:10px;cursor:default;transition:background .15s;position:relative;}
+.rev-list li{display:grid;grid-template-columns:minmax(0,1.4fr) auto auto minmax(72px,90px);gap:10px 14px;align-items:center;padding:10px 10px;border-radius:10px;cursor:pointer;transition:background .15s;position:relative;}
 .rev-list li:hover,.rev-list li:focus-visible{background:var(--subtle);outline:none;}
 .rev-list .name{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--tx);min-width:0;}
+.rev-list .name .label{min-width:0;}
 .rev-list .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 2px #fff;}
 .rev-list .amt{font-weight:700;font-variant-numeric:tabular-nums;color:var(--tx);text-align:right;}
 .rev-list .share{font-weight:700;font-variant-numeric:tabular-nums;color:var(--view-accent-deep,var(--coastal-dark));text-align:right;}
+.rev-list .yoy{font-size:.75rem;font-weight:600;margin-left:6px;}
 .rev-list .yoy.up{color:var(--pos);}.rev-list .yoy.down{color:var(--neg);}.rev-list .yoy.flat{color:var(--tx-mute);}
 .rev-list .track{height:6px;background:var(--subtle2);border-radius:999px;overflow:hidden;}
 .rev-list .track > i{display:block;height:100%;border-radius:999px;width:0;transition:width .7s cubic-bezier(.2,0,0,1);}
@@ -181,15 +184,17 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .spend-viz .spend-total{font-size:clamp(1.7rem,3vw,2.15rem);font-weight:800;color:var(--brand);letter-spacing:-.03em;line-height:1;}
 .spend-viz .spend-total-sub{font-size:.88rem;font-weight:600;color:var(--tx-mute);}
 .spend-mosaic{display:flex;height:28px;border-radius:999px;overflow:hidden;background:var(--subtle2);box-shadow:inset 0 0 0 1px rgba(16,42,64,.06);}
-.spend-mosaic > button{border:0;padding:0;margin:0;height:100%;cursor:default;transition:filter .15s;min-width:3px;box-shadow:inset -1px 0 0 rgba(255,255,255,.35);}
+.spend-mosaic > button{border:0;padding:0;margin:0;height:100%;cursor:pointer;transition:filter .15s;min-width:3px;box-shadow:inset -1px 0 0 rgba(255,255,255,.35);}
 .spend-mosaic > button:hover,.spend-mosaic > button:focus-visible{filter:brightness(1.1);}
 .spend-list{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
-.spend-list li{display:grid;grid-template-columns:minmax(0,1.6fr) auto auto minmax(88px,120px);gap:10px 14px;align-items:center;padding:10px 10px;border-radius:10px;cursor:default;transition:background .15s;}
+.spend-list li{display:grid;grid-template-columns:minmax(0,1.6fr) auto auto minmax(88px,120px);gap:10px 14px;align-items:center;padding:10px 10px;border-radius:10px;cursor:pointer;transition:background .15s;}
 .spend-list li:hover,.spend-list li:focus-visible{background:var(--subtle);outline:none;}
 .spend-list .name{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--tx);min-width:0;}
+.spend-list .name .label{min-width:0;}
 .spend-list .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 2px #fff;}
 .spend-list .amt{font-weight:700;font-variant-numeric:tabular-nums;color:var(--tx);text-align:right;}
 .spend-list .share{font-weight:700;font-variant-numeric:tabular-nums;color:var(--view-accent-deep,var(--coastal-dark));text-align:right;}
+.spend-list .yoy{font-size:.75rem;font-weight:600;margin-left:6px;}
 .spend-list .yoy.up{color:var(--pos);}.spend-list .yoy.down{color:var(--neg);}.spend-list .yoy.flat{color:var(--tx-mute);}
 .spend-list .track{height:8px;background:var(--subtle2);border-radius:999px;overflow:hidden;}
 .spend-list .track > i{display:block;height:100%;border-radius:999px;width:0;transition:width .7s cubic-bezier(.2,0,0,1);}
@@ -207,11 +212,15 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .spend-tip .st-blurb{margin:0;color:rgba(244,248,251,.88);font-size:.86rem;line-height:1.45;font-weight:500;}
 @media(max-width:560px){
   .spend-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;padding:12px 8px;}
-  .spend-list .name{grid-area:name;}
+  .spend-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
+  .spend-list .name .label{flex:1 1 auto;min-width:0;}
+  .spend-list .name .yoy{display:block;width:100%;margin:2px 0 0 20px;}
   .spend-list .share{grid-area:share;}
   .spend-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
   .spend-list .track{grid-area:track;}
   .spend-tip{max-width:min(280px,calc(100vw - 40px));}
+  .spend-mosaic{height:36px;}
+  .spend-mosaic > button{min-width:8px;}
 }
 .rev-tip{
   position:absolute;z-index:8;min-width:240px;max-width:320px;
@@ -228,11 +237,15 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .rev-tip .rt-note{margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font-size:.8rem;color:rgba(244,248,251,.7);}
 @media(max-width:560px){
   .rev-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;padding:12px 8px;}
-  .rev-list .name{grid-area:name;}
+  .rev-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
+  .rev-list .name .label{flex:1 1 auto;min-width:0;}
+  .rev-list .name .yoy{display:block;width:100%;margin:2px 0 0 20px;}
   .rev-list .share{grid-area:share;}
   .rev-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
   .rev-list .track{grid-area:track;}
   .rev-tip{max-width:min(280px,calc(100vw - 40px));}
+  .rev-mosaic{height:36px;}
+  .rev-mosaic > button{min-width:8px;}
 }
 .chart-box{position:relative;width:100%;min-width:0;}
 .h-tall{height:460px;}.h-med{height:360px;}.h-sm{height:300px;}
@@ -289,7 +302,7 @@ svg.sankey.dim .ribbon{opacity:.09 !important;}svg.sankey.dim .ribbon.hot{opacit
 .search .mag{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--tx-mute);}
 .search .clr{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:var(--subtle);width:30px;height:30px;border-radius:50%;cursor:pointer;color:var(--tx2);display:none;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;}
-.chip{border:1px solid var(--bd);background:var(--subtle);color:var(--tx2);font-size:.85rem;font-weight:600;padding:8px 14px;border-radius:var(--r-pill);cursor:pointer;min-height:40px;transition:all var(--dur);}
+.chip{border:1px solid var(--bd);background:var(--subtle);color:var(--tx2);font-size:.85rem;font-weight:600;padding:10px 14px;border-radius:var(--r-pill);cursor:pointer;min-height:44px;transition:all var(--dur);}
 .chip[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand);}
 .dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
 .dcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:18px;box-shadow:var(--sh1);transition:box-shadow var(--dur),transform var(--dur);display:flex;flex-direction:column;content-visibility:auto;contain-intrinsic-size:auto 280px;}
@@ -386,10 +399,8 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .chart-table .tbl-wrap{max-height:none;}
   .cover-chart-wrap{display:none;}
   .cover-list{display:block;}
-  .fab-stack{top:auto;bottom:18px;right:14px;transform:none;flex-direction:column-reverse;gap:10px;}
-  .fb-fab,.tip-fab{writing-mode:horizontal-tb;transform:none;width:48px;height:48px;padding:0;border-radius:50%;box-shadow:var(--sh3);font-size:0;letter-spacing:0;}
-  .fb-fab::before{content:"💬";font-size:1.25rem;line-height:48px;}
-  .tip-fab::before{content:"☕";font-size:1.25rem;line-height:48px;}
+  .chip{min-height:44px;padding:10px 14px;}
+  .chips{position:relative;}
 }
 @media(min-width:761px){
   .view-explain > summary{display:none;}
@@ -416,6 +427,16 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .fb-fab:focus-visible,.tip-fab:focus-visible{outline:3px solid #FCD98A;outline-offset:2px;}
 .fab-stack.is-hidden{opacity:0;pointer-events:none;}
 .fab-stack{transition:opacity .2s ease;}
+@media(max-width:760px){
+  .fab-stack{top:auto;bottom:18px;right:14px;transform:none;flex-direction:column-reverse;gap:10px;}
+  .fb-fab,.tip-fab{
+    writing-mode:horizontal-tb;transform:none;
+    width:48px;height:48px;min-width:48px;min-height:48px;padding:0;
+    border-radius:50%;box-shadow:var(--sh3);font-size:0;letter-spacing:0;
+  }
+  .fb-fab::before{content:"💬";font-size:1.25rem;line-height:1;}
+  .tip-fab::before{content:"☕";font-size:1.25rem;line-height:1;}
+}
 .feedback-modal{border:0;padding:0;max-width:min(420px,calc(100vw - 32px));width:100%;border-radius:var(--r-lg);box-shadow:var(--sh3);background:var(--card);color:var(--tx);}
 .feedback-modal::backdrop{background:rgba(18,53,75,.55);backdrop-filter:blur(2px);}
 .feedback-modal .about-modal-head{border-radius:var(--r-lg) var(--r-lg) 0 0;}
@@ -457,8 +478,9 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .sankey-hint{display:none;font-size:.82rem;color:rgba(255,255,255,.65);margin:0 0 8px;}
 
 /* subnav scroll cue */
-.subnav::after{content:"";position:absolute;top:0;right:0;bottom:0;width:28px;pointer-events:none;
-  background:linear-gradient(90deg,transparent,var(--card));opacity:.9;}
+.subnav::after{content:"";position:absolute;top:0;right:0;bottom:0;width:40px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--card));opacity:1;}
+.subnav .wrap{scroll-padding-inline:8px;}
 
 /* hero footnote */
 .hero .fine{font-size:.85rem;color:rgba(230,238,243,.75);margin-top:10px;max-width:none;}
@@ -467,10 +489,12 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .sankey-scroll{display:none;}
   .sankey-mobile{display:block;}
   .sankey-hint{display:block;}
+  .flow-cap{display:none;}
   .subnav::after{display:block;}
 }
 @media(min-width:761px){
   .subnav::after{display:none;}
+  .sankey-hint{display:none;}
 }
 
 /* about modal */
@@ -480,7 +504,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .about-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 22px 14px;border-bottom:1px solid var(--bd);background:var(--card);position:sticky;top:0;z-index:1;}
 .about-modal-head .kicker{display:block;margin-bottom:4px;}
 .about-modal-head h2{font-size:1.35rem;margin:0;}
-.about-modal-close{flex:none;width:42px;height:42px;border:1.5px solid var(--bd-input);border-radius:var(--r-sm);background:var(--card);color:var(--tx);font-size:1.4rem;line-height:1;cursor:pointer;}
+.about-modal-close{flex:none;width:44px;height:44px;border:1.5px solid var(--bd-input);border-radius:var(--r-sm);background:var(--card);color:var(--tx);font-size:1.4rem;line-height:1;cursor:pointer;}
 .about-modal-close:hover{background:var(--subtle);}
 .about-modal-body{padding:8px 22px 22px;overflow:auto;-webkit-overflow-scrolling:touch;}
 .about-modal-body > .lede{color:var(--tx2);margin:12px 0 4px;font-size:1.02rem;}
@@ -488,7 +512,8 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .about-modal .card{margin-top:12px;}
 .subnav button.about-trigger{flex:none;color:var(--tx2);font-size:.9rem;font-weight:600;font-family:inherit;background:transparent;border:0;border-bottom:3px solid transparent;padding:13px 16px;cursor:pointer;white-space:nowrap;}
 .subnav button.about-trigger:hover{color:var(--tx);background:var(--subtle);}
-.indie-banner button.about-trigger{background:none;border:0;padding:0;font:inherit;font-weight:600;color:#5C3D00;text-decoration:underline;cursor:pointer;}
+.indie-banner button.about-trigger{background:none;border:0;padding:8px 4px;min-height:44px;font:inherit;font-weight:600;color:#5C3D00;text-decoration:underline;cursor:pointer;}
+footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:center;min-height:44px;padding:6px 2px;}
 </style>
 </head>
 <body>
@@ -564,7 +589,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       <p class="cap" id="revCap"></p>
       <div id="revChart" class="rev-viz" role="img" aria-label="Revenue by source"></div>
       <details class="chart-table"><summary>Table</summary><div class="tbl-wrap" id="revTable"></div></details>
-      <details class="more-tip" id="revTaxTip"><summary>Most of your tax bill isn’t City Hall</summary><div class="tip-body">Of the 10.75% sales tax, the City keeps about <strong>2%</strong> (some of that is earmarked for schools and housing). Of a property-tax bill, about <strong>14–17%</strong> comes to the City, depending on where in Santa Monica the property is. The rest goes to the county, schools, and special districts.</div></details>
+      <details class="more-tip" id="revTaxTip"><summary>Most of your tax bill isn’t City Hall</summary><div class="tip-body">Of the 10.75% sales tax, the City keeps about <strong>2%</strong> (some of that is earmarked for schools and housing). Of a property-tax bill, about <strong>14-17%</strong> comes to the City, depending on where in Santa Monica the property is. The rest goes to the county, schools, and special districts.</div></details>
     </div>
   </section>
 
@@ -604,11 +629,11 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <div class="sec-head">
       <span class="kicker">Flow</span>
       <h2>Follow the money</h2>
-      <p>Left = money in. Right = money out.</p>
+      <p class="flow-cap">Left = money in. Right = money out.</p>
     </div>
     <div class="card sankey-card">
       <p class="cap" id="sankeyCap"></p>
-      <p class="sankey-hint" aria-hidden="true">On a phone this becomes two lists.</p>
+      <p class="sankey-hint">On a phone this becomes stacked lists: money in, then money out.</p>
       <div class="sankey-scroll" role="region" aria-label="Scrollable money-flow diagram" tabindex="0">
         <svg id="sankey" class="sankey" aria-label="Diagram of money flowing from revenue sources through the budget to spending categories"></svg>
       </div>
@@ -670,7 +695,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <div class="sec-head">
       <span class="kicker">Take part</span>
       <h2 id="engage-title">Make your voice count</h2>
-      <p>This page explains the numbers. City Hall still decides them — here’s when and how to weigh in.</p>
+      <p>This page explains the numbers. City Hall still decides them. Here’s when and how to weigh in.</p>
     </div>
     <div class="engage-grid">
       <div class="engage-step">
@@ -681,7 +706,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
       <div class="engage-step">
         <p class="step-n">Step 2</p>
         <h3>Speak or write</h3>
-        <p>In person, by phone, or in writing — see <a href="https://www.santamonica.gov/process-explainers/how-to-participate-in-a-city-council-meeting" target="_blank" rel="noopener noreferrer">How to participate</a>. Written comments: <a href="mailto:councilmtgitems@santamonica.gov">councilmtgitems@santamonica.gov</a> (put the agenda item in the subject line).</p>
+        <p>In person, by phone, or in writing: see <a href="https://www.santamonica.gov/process-explainers/how-to-participate-in-a-city-council-meeting" target="_blank" rel="noopener noreferrer">How to participate</a>. Written comments: <a href="mailto:councilmtgitems@santamonica.gov">councilmtgitems@santamonica.gov</a> (put the agenda item in the subject line).</p>
       </div>
       <div class="engage-step">
         <p class="step-n">Step 3</p>
@@ -692,10 +717,10 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
     <div class="engage-cal">
       <h3>Budget calendar rhythm</h3>
       <ol>
-        <li><strong>Jan–Feb / Mar–Apr</strong> — Five-year forecast and priority-setting (best early leverage).</li>
-        <li><strong>May</strong> — Study session on the proposed budget or mid-cycle adjustments.</li>
-        <li><strong>June</strong> — Public hearing and adoption for the coming fiscal year.</li>
-        <li><strong>October</strong> — Prior-year wrap-up / year-end review.</li>
+        <li><strong>Jan-Feb / Mar-Apr</strong>: Five-year forecast and priority-setting (best early leverage).</li>
+        <li><strong>May</strong>: Study session on the proposed budget or mid-cycle adjustments.</li>
+        <li><strong>June</strong>: Public hearing and adoption for the coming fiscal year.</li>
+        <li><strong>October</strong>: Prior-year wrap-up / year-end review.</li>
       </ol>
       <p class="fine">Pattern from the City’s biennial budget calendar. FY 2026-27 was adopted June 23, 2026; the next full biennial cycle starts with forecast and priorities in early 2027.</p>
     </div>
@@ -881,7 +906,7 @@ const COVER=[
 
 /* department directory - GF operating from Attachment D; enterprise = op + CIP */
 const DIR=[
-  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:153025400,bPrev:128526829,fte:null,d:"Patrol, 911 response, and detectives. About 28% of General Fund spending — the single biggest use of Council's flexible dollars."},
+  {n:"Police",e:"🚓",t:"gf",cat:"safety",b:153025400,bPrev:128526829,fte:null,d:"Patrol, 911 response, and detectives. About 28% of General Fund spending, the single biggest use of Council's flexible dollars."},
   {n:"Fire",e:"🚒",t:"gf",cat:"safety",b:68924871,bPrev:57416909,fte:null,d:"Puts out fires and runs the city's paramedics. Also does fire inspections and disaster planning. With Police, about 41% of the General Fund."},
   {n:"Public Works",e:"🚧",t:"gf",cat:"everyday",b:77250110,bPrev:59981290,fte:null,d:"Streets, sidewalks, streetlights, and city buildings. Where pothole complaints land."},
   {n:"Transportation",e:"🚦",t:"gf",cat:"everyday",b:19893423,bPrev:27637417,fte:null,d:"Traffic signals, parking, and street planning. The General Fund side of getting around. The buses are budgeted separately."},
@@ -961,6 +986,51 @@ function fillTable(id,headers,rows){
     '</tr></thead><tbody>'+rows.map(r=>`<tr>${r.map((c,i)=>`<td${headers[i]&&headers[i].n?' class="n"':''}>${c}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
 }
 function canvasSummary(canvas,text){if(canvas)canvas.setAttribute('aria-label',text);}
+function finePointer(){return window.matchMedia('(hover:hover) and (pointer:fine)').matches;}
+function bindRowTips(box, tipEl, showTip, ...targets){
+  if(!box||!tipEl)return;
+  if(box._tipCleanup) box._tipCleanup();
+  const ac=new AbortController(), signal=ac.signal;
+  const hideTip=()=>{tipEl.classList.remove('show'); delete tipEl.dataset.i;};
+  const bind=el=>{
+    if(!el)return;
+    el.addEventListener('mouseenter',e=>{
+      if(!finePointer())return;
+      const t=e.target.closest('[data-i]');if(!t)return;
+      tipEl.dataset.i=t.dataset.i;
+      showTip(+t.dataset.i,t);
+    },{signal});
+    el.addEventListener('mousemove',e=>{
+      if(!finePointer()||!tipEl.classList.contains('show'))return;
+      const t=e.target.closest('[data-i]');if(!t)return;
+      tipEl.dataset.i=t.dataset.i;
+      showTip(+t.dataset.i,t);
+    },{signal});
+    el.addEventListener('mouseleave',()=>{if(finePointer()) hideTip();},{signal});
+    el.addEventListener('focusin',e=>{
+      const t=e.target.closest('[data-i]');if(!t)return;
+      tipEl.dataset.i=t.dataset.i;
+      showTip(+t.dataset.i,t);
+    },{signal});
+    el.addEventListener('focusout',e=>{
+      if(!el.contains(e.relatedTarget)) hideTip();
+    },{signal});
+    el.addEventListener('click',e=>{
+      const t=e.target.closest('[data-i]');if(!t)return;
+      if(finePointer())return;
+      e.preventDefault();
+      if(tipEl.classList.contains('show') && tipEl.dataset.i===t.dataset.i) hideTip();
+      else{tipEl.dataset.i=t.dataset.i; showTip(+t.dataset.i,t);}
+    },{signal});
+  };
+  targets.forEach(bind);
+  document.addEventListener('pointerdown',e=>{
+    if(!tipEl.classList.contains('show'))return;
+    if(box.contains(e.target))return;
+    hideTip();
+  },{signal});
+  box._tipCleanup=()=>ac.abort();
+}
 
 function countUp(el,target,f){if(RM){el.textContent=f(target);return;}
   const dur=800,t0=performance.now();function s(now){const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=f(target*e);if(k<1)requestAnimationFrame(s);}requestAnimationFrame(s);}
@@ -1005,9 +1075,9 @@ function renderRevenue(){
   }).join('');
   const list=rows.map((r,i)=>{
     const share=pct(r.v,total), y=yoyParts(r.v,r.prev);
-    const yoy=y?`<span class="yoy ${y.dir}" style="font-size:.75rem;font-weight:600;margin-left:6px" title="Category mix estimated; year-over-year change is approximate">~${signedAbbr(y.d)}</span>`:'';
+    const yoy=y?`<span class="yoy ${y.dir}" title="Category mix estimated; year-over-year change is approximate">~${signedAbbr(y.d)}</span>`:'';
     return `<li data-i="${i}" tabindex="0">
-      <span class="name"><span class="dot" style="background:${colors[i]}"></span><span>${r.n}${yoy}</span></span>
+      <span class="name"><span class="dot" style="background:${colors[i]}"></span><span class="label">${r.n}</span>${yoy}</span>
       <span class="amt">${abbr(r.v)}</span>
       <span class="share">${share}</span>
       <span class="track" aria-hidden="true"><i style="background:${colors[i]}" data-w="${(r.v/total)*100}"></i></span>
@@ -1045,33 +1115,15 @@ function renderRevenue(){
     tipEl.style.left=left+'px';
     tipEl.style.top=top+'px';
   };
-  const hideTip=()=>{if(tipEl) tipEl.classList.remove('show');};
-  const bind=el=>{
-    el.addEventListener('mouseenter',e=>{
-      const t=e.target.closest('[data-i]');if(!t)return;
-      showTip(+t.dataset.i,t);
-    });
-    el.addEventListener('mousemove',e=>{
-      const t=e.target.closest('[data-i]');if(!t||!tipEl.classList.contains('show'))return;
-      showTip(+t.dataset.i,t);
-    });
-    el.addEventListener('mouseleave',hideTip);
-    el.addEventListener('focusin',e=>{
-      const t=e.target.closest('[data-i]');if(!t)return;
-      showTip(+t.dataset.i,t);
-    });
-    el.addEventListener('focusout',hideTip);
-  };
-  bind(document.getElementById('revMosaic'));
-  bind(document.getElementById('revList'));
+  bindRowTips(box, tipEl, showTip, document.getElementById('revMosaic'), document.getElementById('revList'));
   fillTable('revTable',[{t:'Source'},{t:'This year (est.)',n:1},{t:'Share',n:1},{t:'vs last year (approx)',n:1}],
     rows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?'~'+y.text:'-'];})
       .concat([['Total',fmt(total),'100%','']]));
   const tip=document.getElementById('revTaxTip');
   if(tip) tip.hidden=view!=='gf';
   document.getElementById('revCap').innerHTML=(view==='all'
-    ?'All funds, net of transfers. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals — treat individual dollars and year-over-year changes as approximate.'
-    :'General Fund by source. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals — treat individual dollars and year-over-year changes as approximate.');
+    ?'All funds, net of transfers. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. Tap or hover a row for what each line means.'
+    :'General Fund by source. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. Tap or hover a row for what each line means.');
 }
 /* Break General Fund into colored stack segments for the all-funds chart */
 function shortBarLabel(label, chartW){
@@ -1149,7 +1201,7 @@ function renderSpend(){
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,r.gf?'General Fund':'Other fund',fmt(r.v),pct(r.v,total),y?y.text:'-'];})
         .concat([['Total','',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
-    if(sn) sn.innerHTML='Hover a row for what each line covers. Both the gross chart and the net headline are correct; they answer different questions.';
+    if(sn) sn.innerHTML='Tap or hover a row for what each line covers. Both the gross chart and the net headline are correct; they answer different questions.';
     const snBox=document.getElementById('spendNote');
     if(snBox){snBox.classList.remove('warn');const ic=snBox.querySelector('.ic');if(ic)ic.textContent='💡';}
   }else{
@@ -1159,7 +1211,7 @@ function renderSpend(){
     fullRows=rows;
     total=rows.reduce((s,r)=>s+r.v,0);
     document.getElementById('spendTitle').textContent='General Fund · '+abbr(total);
-    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Hover a row for what each department covers.';
+    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Tap or hover a row for what each department covers.';
     fillTable('spendTable',[{t:'Department'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
@@ -1177,9 +1229,9 @@ function renderSpend(){
   const list=rows.map((r,i)=>{
     const color=rowColor(r,i);
     const share=pct(r.v,total), y=yoyParts(r.v,r.prev);
-    const yoy=y?`<span class="yoy ${y.dir}" style="font-size:.75rem;font-weight:600;margin-left:6px">${signedAbbr(y.d)}</span>`:'';
+    const yoy=y?`<span class="yoy ${y.dir}">${signedAbbr(y.d)}</span>`:'';
     return `<li data-i="${i}" tabindex="0">
-      <span class="name"><span class="dot" style="background:${color}"></span><span>${r.n}${yoy}</span></span>
+      <span class="name"><span class="dot" style="background:${color}"></span><span class="label">${r.n}</span>${yoy}</span>
       <span class="amt">${abbr(r.v)}</span>
       <span class="share">${share}</span>
       <span class="track" aria-hidden="true"><i style="background:${color}" data-w="${(r.v/total)*100}"></i></span>
@@ -1221,17 +1273,7 @@ function renderSpend(){
     tipEl.style.left=left+'px';
     tipEl.style.top=top+'px';
   };
-  const hideTip=()=>{if(tipEl) tipEl.classList.remove('show');};
-  const bind=el=>{
-    if(!el)return;
-    el.addEventListener('mouseenter',e=>{const t=e.target.closest('[data-i]');if(t)showTip(+t.dataset.i,t);});
-    el.addEventListener('mousemove',e=>{const t=e.target.closest('[data-i]');if(t&&tipEl.classList.contains('show'))showTip(+t.dataset.i,t);});
-    el.addEventListener('mouseleave',hideTip);
-    el.addEventListener('focusin',e=>{const t=e.target.closest('[data-i]');if(t)showTip(+t.dataset.i,t);});
-    el.addEventListener('focusout',hideTip);
-  };
-  bind(document.getElementById('spendMosaic'));
-  bind(document.getElementById('spendList'));
+  bindRowTips(box, tipEl, showTip, document.getElementById('spendMosaic'), document.getElementById('spendList'));
 }
 function renderTrend(){
   const t=TREND[view];
@@ -1486,7 +1528,7 @@ Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
   let start='all';
   try{const q=new URL(location.href).searchParams.get('view');if(q==='gf'||q==='all')start=q;}catch(e){}
   const ve=document.getElementById('viewExplain');
-  if(ve) ve.open=true;
+  if(ve) ve.open=!window.matchMedia('(max-width:760px)').matches;
   renderChips();renderDir();renderCover();setView(start,false);
 })();
 let _resizeT=null,_lastNarrow=window.matchMedia('(max-width:700px)').matches,_lastCover=window.matchMedia('(max-width:760px)').matches;
