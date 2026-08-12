@@ -263,6 +263,19 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .sec-head{max-width:42rem;margin-bottom:8px;}
 .sec-head p{font-size:.98rem;color:var(--tx2);margin:0;}
 .section-gap{margin-top:36px;padding-top:8px;}
+.debt-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:12px;}
+.debt-grid .card{margin-top:0;}
+.debt-stack{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0;}
+.debt-stack li{display:flex;justify-content:space-between;gap:14px;align-items:baseline;font-size:.92rem;padding:8px 0;border-bottom:1px solid var(--bd);color:var(--tx2);}
+.debt-stack li span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--tx);white-space:nowrap;}
+.debt-stack li.total{border-bottom:0;font-weight:700;color:var(--tx);padding-top:10px;}
+.debt-stack li.total span:last-child{font-size:1.05rem;}
+.debt-hero{font-size:clamp(1.6rem,3vw,2rem);font-weight:800;color:var(--brand);letter-spacing:-.03em;line-height:1;margin:4px 0 2px;}
+.debt-split{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:.9rem;color:var(--tx2);}
+.debt-split b{color:var(--tx);font-weight:700;}
+.debt-series{margin-top:12px;padding-top:10px;border-top:1px solid var(--bd);}
+.debt-series summary{cursor:pointer;font-weight:600;color:var(--brand);font-size:.92rem;}
+@media (max-width:700px){.debt-grid{grid-template-columns:1fr;}}
 details.more-tip{margin-top:10px;font-size:.9rem;color:var(--tx2);}
 details.more-tip summary{cursor:pointer;font-weight:600;color:var(--brand);}
 details.more-tip .tip-body{margin-top:8px;line-height:1.45;}
@@ -539,6 +552,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
     <a href="#money-out">Money out</a>
     <a href="#balanced">Balanced?</a>
     <a href="#flow">Flow</a>
+    <a href="#debt">Debt</a>
     <a href="#services">Services</a>
     <a href="#engage">Engage</a>
   </div>
@@ -639,6 +653,17 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
       </div>
       <div class="sankey-mobile" id="sankeyMobile" aria-live="polite"></div>
     </div>
+  </section>
+
+  <!-- DEBT -->
+  <section id="debt" class="section-gap">
+    <div class="sec-head">
+      <span class="kicker">Debt</span>
+      <h2>What the city owes</h2>
+      <p>"Still owed" is the outstanding principal the city still owes. "Paid this year" is what the city pays on debt out of its budget.</p>
+    </div>
+    <div class="debt-grid" id="debtPanel"></div>
+    <div class="note" id="debtNote"><span class="ic" aria-hidden="true">💡</span><span id="debtNoteBody"></span></div>
   </section>
 </div>
 </section><!-- /.view-band -->
@@ -750,7 +775,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
           <p class="cap">What the numbers mean, and where they come from.</p>
           <details open><summary>What year &amp; basis?</summary><div class="gbody">These are <strong>adopted</strong> figures for this fiscal year (July 1, 2026 through June 30, 2027), as Council approved on June 23, 2026 - compared to last year's adopted plan (FY 2025-26). They are not actual spending; that will not be known until the books close. Citywide headline totals are <strong>net</strong> of about $118M in transfers between funds, which is the $908.8M (operating $798.4M + capital $110.4M). The fund list, the trend chart, and the flow diagram run on <strong>gross</strong> amounts because they show money each time it moves. Both numbers are correct; they answer different questions.</div></details>
           <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Water, sewer, and trash charge their users directly, so the city keeps them in separate <strong>enterprise funds</strong>, walled off from the General Fund that pays for police, fire, parks, and libraries. A surplus in the water fund cannot hire a police officer. Big Blue Bus sits on the same side of that wall, though it leans on grants and dedicated transit money more than on fares.</div></details>
-          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Local copies live under <code>sources/fy2026-27-adoption/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
+          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Outstanding debt and the debt-service schedule come from that biennial book's debt appendix (as of June 30, 2024 for amounts still owed). Local copies live under <code>sources/fy2026-27-adoption/</code> and <code>sources/fy2025-27/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
           <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener noreferrer">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
         </div>
       </div>
@@ -855,7 +880,8 @@ const SPEND={
     ["Housing & Human Services",26179813],["Transportation",19893423],["Community Development",19556164],
     ["City Attorney",17009890],["City Manager",16523666],["Information Services",14639824],["Finance",14359632],
     ["Library",14068683],["Recreation & Arts",11595483],["Human Resources",9154298],
-    ["Records & Elections",3792698],["City Council",954498],["Non-Departmental / transfers",78142046]],
+    ["Records & Elections",3792698],["City Council",954498],
+    ["Debt service",14707482],["Non-Departmental / transfers",63434564]],
   all:[["General Fund",545070499],["Big Blue Bus",128881676],["Water",57378808],
     ["Resource Recovery & Recycling",48319594],["Wastewater",31492664],["Housing Authority",31702732],
     ["Vehicle Management",19657827],["Airport",20833007],["Pier",19151807],["Beach Recreation",19080253],
@@ -869,7 +895,8 @@ const SPEND_PREV={
     ["Transportation",27637417],["Housing & Human Services",23548510],["Community Development",19771851],
     ["City Attorney",15385987],["Information Services",13205023],["Finance",13109272],["City Manager",12980293],
     ["Library",11730813],["Recreation & Arts",10972806],["Human Resources",6765189],
-    ["Records & Elections",2627935],["City Council",896475],["Non-Departmental / transfers",79714995]],
+    ["Records & Elections",2627935],["City Council",896475],
+    ["Debt service",14704832],["Non-Departmental / transfers",65010163]],
   all:[["General Fund",484271594],["Big Blue Bus",100899616],["Water",50056013],
     ["Resource Recovery & Recycling",45691217],["Wastewater",35305025],["Housing Authority",31378075],
     ["Misc. Grants",22314492],["Airport",21440078],["Vehicle Management",20438154],["Beach Recreation",18898840],
@@ -877,6 +904,25 @@ const SPEND_PREV={
     ["Risk Management",8655761],["Pier",8113121],["Clean Beaches / Ocean Tax",6110672],["Bus Insurance",5905882],
     ["Gas Tax",5050216],["Information Technology",3203387],["Cemetery",2854459],["Stormwater",1688103],
     ["Community Dev. Block Grants",1114932],["Other small funds",1066812]]
+};
+/* Debt appendix: FY 2025-27 Adopted Biennial Budget. Outstanding as of June 30, 2024; service = FY 2026-27 schedule. */
+const DEBT={
+  asOf:'June 30, 2024',
+  outstanding:[
+    {n:'Lease revenue bonds (General Fund-backed)',v:147575000},
+    {n:'Water revenue bonds',v:69145000},
+    {n:'State Water Board loan',v:52068703}
+  ],
+  outstandingTotal:268788703,
+  gf:{principal:7490000,interest:7217482,total:14707482},
+  water:{principal:2963091,interest:2903232,total:5866323},
+  gfSeries:[
+    {n:'City Services Building (2017)',v:4418200},
+    {n:'City Yards (2021)',v:3438000},
+    {n:'Lease revenue 2021A',v:2651200},
+    {n:'Downtown Fire Station (2018)',v:2145638},
+    {n:'Civic Center Parking (2015)',v:2054444}
+  ]
 };
 const SANKEY_REV_ALL=[["Transfers + charges for services",363045641],["Other Taxes",202983405],["Sales Taxes",166532369],
   ["Intergovernmental / Grants",118053676],["Property Taxes",100004709],["Licenses & Permits",42860220],
@@ -959,7 +1005,9 @@ const GLOSSARY=[["Fund","A walled-off account for one purpose. Money in a fund g
   ["Gross vs. net","Gross is before removing transfers between funds; net is after. This year's headline $908.8M is net; the fund list and flow diagram are gross."],
   ["Internal service fund","A fund for things the city sells to itself, like the vehicle fleet, insurance, and IT. Departments pay into it; the public never sees it directly."],
   ["Special revenue fund","Money that can only be spent for a restricted purpose, often from a grant or dedicated tax."],
-  ["Measure GS","Real-estate transfer tax on high-value sales. First $10M/year to Santa Monica-Malibu schools; next $40M to affordable housing and homelessness prevention."]];
+  ["Measure GS","Real-estate transfer tax on high-value sales. First $10M/year to Santa Monica-Malibu schools; next $40M to affordable housing and homelessness prevention."],
+  ["Debt service","The year's payments on borrowed money: principal plus interest."],
+  ["Outstanding debt","How much principal is still owed. Different from this year's debt-service payments."]];
 
 /* ===================== helpers ===================== */
 const fmt=n=>(n<0?"−":"")+"$"+Math.abs(Math.round(n)).toLocaleString();
@@ -1131,6 +1179,7 @@ function shortBarLabel(label, chartW){
   const short={
     'Resource Recovery & Recycling':'Recycling & trash',
     'Non-Departmental / transfers':'Non-dept / transfers',
+    'Debt service':'Debt service',
     'Housing & Human Services':'Housing & HHS',
     'Community Development':'Community Dev.',
     'Information Services':'Info. Services',
@@ -1148,7 +1197,8 @@ function shortBarLabel(label, chartW){
   return short[label]||(label.length>22?label.replace(' & ',' &\n'):label);
 }
 const SPEND_EXPLAIN={
-  'Non-Departmental / transfers':'Citywide costs that are not one department: debt service, insurance pools, and money moved to other funds.',
+  'Debt service':'Scheduled principal and interest on General Fund-backed lease revenue bonds for this year.',
+  'Non-Departmental / transfers':'Citywide costs that are not one department: insurance pools, transfers to other funds, and other shared costs. Debt service is broken out on its own line.',
   'Measure GS':'Real-estate transfer tax on high-value sales. First $10M/year goes to Santa Monica-Malibu schools; the next $40M to affordable housing and homelessness prevention (above $50M: 80% housing, 20% schools).',
   'Workers\' Comp Insurance':'The internal fund that pays worker injury claims and related costs across city departments.',
   'Stormwater':'Storm drains, runoff projects, and water-quality work, mostly from dedicated stormwater fees and grants.',
@@ -1215,7 +1265,7 @@ function renderSpend(){
     fillTable('spendTable',[{t:'Department'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
-    if(sn) sn.innerHTML='"Non-Departmental / transfers" covers citywide costs, debt, insurance, and money moved to other funds - not one department.';
+    if(sn) sn.innerHTML='"Debt service" is scheduled principal and interest on General Fund-backed bonds. "Non-Departmental / transfers" is the rest of the citywide costs and money moved to other funds - not one department.';
     const snBox=document.getElementById('spendNote');
     if(snBox){snBox.classList.remove('warn');const ic=snBox.querySelector('.ic');if(ic)ic.textContent='💡';}
   }
@@ -1501,6 +1551,46 @@ function renderCover(){
 document.getElementById('glossary').innerHTML='<dl class="gloss" style="margin:0">'+
   GLOSSARY.map(([t,d])=>`<dt>${t}</dt><dd>${d}</dd>`).join('')+'</dl>';
 
+/* ===================== debt ===================== */
+function renderDebt(){
+  const panel=document.getElementById('debtPanel');
+  const note=document.getElementById('debtNoteBody');
+  if(!panel)return;
+  const gfOnly=view==='gf';
+  const svcTotal=gfOnly?DEBT.gf.total:(DEBT.gf.total+DEBT.water.total);
+  const svcP=gfOnly?DEBT.gf.principal:(DEBT.gf.principal+DEBT.water.principal);
+  const svcI=gfOnly?DEBT.gf.interest:(DEBT.gf.interest+DEBT.water.interest);
+  const owedRows=gfOnly
+    ?DEBT.outstanding.filter(r=>r.n.indexOf('General Fund')!==-1)
+    :DEBT.outstanding;
+  const owedTotal=owedRows.reduce((s,r)=>s+r.v,0);
+  const stack=rows=>rows.map(r=>`<li><span>${r.n}</span><span class="num">${abbr(r.v)}</span></li>`).join('')+
+    `<li class="total"><span>Total</span><span class="num">${abbr(rows.reduce((s,r)=>s+r.v,0))}</span></li>`;
+  const seriesHtml=DEBT.gfSeries.map(r=>`<li><span>${r.n}</span><span class="num">${abbr(r.v)}</span></li>`).join('');
+  panel.innerHTML=`
+    <div class="card">
+      <h3>Still owed</h3>
+      <p class="cap">Outstanding principal as of ${DEBT.asOf}</p>
+      <div class="debt-hero num">${abbr(owedTotal)}</div>
+      <ul class="debt-stack">${stack(owedRows)}</ul>
+    </div>
+    <div class="card">
+      <h3>Paid this year</h3>
+      <p class="cap">${gfOnly?'General Fund debt service for FY 2026-27':'Debt service for FY 2026-27 (General Fund + Water)'}</p>
+      <div class="debt-hero num">${abbr(svcTotal)}</div>
+      <div class="debt-split"><span>Principal <b class="num">${abbr(svcP)}</b></span><span>Interest <b class="num">${abbr(svcI)}</b></span></div>
+      ${gfOnly?'':`<ul class="debt-stack" style="margin-top:12px"><li><span>General Fund</span><span class="num">${abbr(DEBT.gf.total)}</span></li><li><span>Water Fund</span><span class="num">${abbr(DEBT.water.total)}</span></li></ul>`}
+      <details class="debt-series"><summary>General Fund bond payments this year</summary>
+        <ul class="debt-stack">${seriesHtml}<li class="total"><span>GF total</span><span class="num">${abbr(DEBT.gf.total)}</span></li></ul>
+      </details>
+    </div>`;
+  if(note){
+    note.innerHTML=gfOnly
+      ?'This is the cash leaving the General Fund for bond payments. The ~'+abbr(DEBT.outstandingTotal)+' citywide figure (as of '+DEBT.asOf+') is under Whole City. Outstanding debt is a stock; debt service is this year\'s flow.'
+      :'Outstanding debt is how leveraged the city is (as of '+DEBT.asOf+', from the FY 2025-27 adopted budget appendix). Debt service is this year\'s principal and interest. The rest of this page uses the June 23, 2026 adoption for FY 2026-27.';
+  }
+}
+
 /* ===================== view + init ===================== */
 function setView(v, push=true){
   view=v;
@@ -1513,7 +1603,7 @@ function setView(v, push=true){
   if(push){
     try{const u=new URL(location.href);u.searchParams.set('view',v);history.replaceState(null,'',u);}catch(e){}
   }
-  renderKPIs();renderSankey();renderRevenue();renderSpend();renderTrend();
+  renderKPIs();renderSankey();renderRevenue();renderSpend();renderTrend();renderDebt();
 }
 Chart.register(centerText);
 Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
