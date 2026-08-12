@@ -210,6 +210,55 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .spend-tip.show{opacity:1;visibility:visible;transform:none;}
 .spend-tip .st-name{font-weight:700;font-size:.95rem;margin:0 0 6px;color:#fff;}
 .spend-tip .st-blurb{margin:0;color:rgba(244,248,251,.88);font-size:.86rem;line-height:1.45;font-weight:500;}
+.spend-tip .st-cta{
+  display:inline-block;margin-top:10px;padding:0;border:0;background:none;
+  color:#A9DCEA;font:inherit;font-size:.82rem;font-weight:700;
+  text-decoration:underline;cursor:pointer;pointer-events:auto;
+}
+.spend-tip .st-cta:hover,.spend-tip .st-cta:focus-visible{color:#fff;}
+/* Non-Departmental thematic breakdown */
+.nondept-panel{
+  margin-top:14px;padding:0;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:var(--subtle);overflow:hidden;
+}
+.nondept-panel > summary{
+  list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;color:var(--tx);
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.nondept-panel > summary::-webkit-details-marker{display:none;}
+.nondept-panel > summary::after{content:"▾";color:var(--tx-mute);font-weight:800;}
+.nondept-panel[open] > summary::after{content:"▴";}
+.nondept-panel > summary:hover{background:rgba(16,42,64,.03);}
+.nondept-panel .nd-sum-amt{font-variant-numeric:tabular-nums;color:var(--brand);font-weight:800;}
+.nondept-panel .nd-est{font-weight:600;color:var(--tx-mute);font-size:.88em;}
+.nondept-panel .nd-body{padding:0 16px 16px;}
+.nondept-panel .nd-cap{margin:0 0 12px;font-size:.9rem;color:var(--tx2);line-height:1.5;}
+.nondept-panel .nd-callout{
+  margin:0 0 12px;padding:10px 12px;border-radius:8px;
+  background:rgba(232,161,58,.12);border:1px solid rgba(232,161,58,.35);
+  font-size:.86rem;color:var(--tx);line-height:1.45;font-weight:600;
+}
+.nondept-list{list-style:none;margin:0;padding:0;display:grid;gap:4px;}
+.nondept-list li{
+  display:grid;grid-template-columns:minmax(0,1.4fr) auto auto minmax(72px,100px);
+  gap:8px 12px;align-items:center;padding:10px 8px;border-radius:8px;
+}
+.nondept-list li:nth-child(odd){background:rgba(255,255,255,.55);}
+.nondept-list .nd-name{font-weight:600;color:var(--tx);min-width:0;}
+.nondept-list .nd-amt{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;}
+.nondept-list .nd-share{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;color:var(--view-accent-deep,var(--coastal-dark));}
+.nondept-list .nd-track{height:8px;background:var(--subtle2);border-radius:999px;overflow:hidden;}
+.nondept-list .nd-track > i{display:block;height:100%;border-radius:999px;background:var(--brand);}
+.nondept-list .nd-blurb{grid-column:1/-1;margin:-2px 0 4px;font-size:.84rem;color:var(--tx-mute);line-height:1.45;}
+.nondept-panel .nd-foot{margin:12px 0 0;font-size:.82rem;color:var(--tx-mute);line-height:1.5;}
+@media(max-width:560px){
+  .nondept-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;}
+  .nondept-list .nd-name{grid-area:name;}
+  .nondept-list .nd-share{grid-area:share;}
+  .nondept-list .nd-amt{grid-area:amt;text-align:left;}
+  .nondept-list .nd-track{grid-area:track;}
+  .nondept-list .nd-blurb{grid-column:1/-1;}
+}
 @media(max-width:560px){
   .spend-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;padding:12px 8px;}
   .spend-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
@@ -366,6 +415,84 @@ svg.sankey.dim .ribbon{opacity:.09 !important;}svg.sankey.dim .ribbon.hot{opacit
 .engage-cal li{margin:4px 0;}
 .engage-cal .fine{font-size:.85rem;color:var(--tx-mute);margin:10px 0 0;}
 @media(max-width:900px){.engage-grid{grid-template-columns:1fr;}}
+
+/* over-time mirror chart */
+.overtime{
+  margin-top:48px;padding:42px 0 36px;
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 10%,rgba(232,161,58,.22),transparent 55%),
+    radial-gradient(ellipse 55% 50% at 8% 90%,rgba(46,141,166,.28),transparent 50%),
+    linear-gradient(165deg,#0E2A3A 0%,#12354B 42%,#1B4965 100%);
+  color:#F4F8FB;position:relative;overflow:hidden;
+  border-block:1px solid rgba(169,220,234,.18);
+}
+.overtime .sec-head{max-width:40rem;}
+.overtime .sec-head .kicker{color:#A9DCEA;}
+.overtime .sec-head h2{color:#fff;}
+.overtime .sec-head p{color:rgba(244,248,251,.78);}
+.overtime-stage{margin-top:18px;position:relative;}
+.overtime-readout{
+  display:grid;grid-template-columns:1.2fr repeat(3,minmax(0,1fr));gap:12px;
+  margin-bottom:18px;align-items:end;
+}
+.overtime-readout .yr-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9DCEA;margin:0 0 4px;}
+.overtime-readout .yr-name{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin:0;color:#fff;}
+.overtime-readout .yr-kind{display:inline-block;margin-top:6px;font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:var(--r-pill);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#E6EEF3;}
+.overtime-readout .stat{padding:10px 12px;border-radius:var(--r-md);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);}
+.overtime-readout .stat .l{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(244,248,251,.62);margin:0 0 4px;}
+.overtime-readout .stat .v{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:0;line-height:1.1;}
+.overtime-readout .stat.in .v{color:#7DDBA3;}
+.overtime-readout .stat.out .v{color:#F0A39A;}
+.overtime-readout .stat.gap .v.pos{color:#FCD98A;}
+.overtime-readout .stat.gap .v.neg{color:#F0A39A;}
+.overtime-chart-wrap{position:relative;width:100%;}
+.overtime-chart-wrap svg{width:100%;height:auto;display:block;overflow:visible;}
+.ot-col{cursor:pointer;}
+.ot-col .ot-hit{fill:transparent;}
+.ot-col .ot-bar{transform-box:fill-box;transform-origin:center bottom;transform:scaleY(0);opacity:.35;
+  transition:transform .9s var(--ease),opacity .9s var(--ease),filter .25s var(--ease);}
+.ot-col .ot-bar.out{transform-origin:center top;}
+.overtime.is-ready .ot-col .ot-bar{transform:scaleY(1);opacity:1;}
+.overtime.is-ready .ot-col[data-i="0"] .ot-bar{transition-delay:.05s;}
+.overtime.is-ready .ot-col[data-i="1"] .ot-bar{transition-delay:.12s;}
+.overtime.is-ready .ot-col[data-i="2"] .ot-bar{transition-delay:.19s;}
+.overtime.is-ready .ot-col[data-i="3"] .ot-bar{transition-delay:.26s;}
+.overtime.is-ready .ot-col[data-i="4"] .ot-bar{transition-delay:.33s;}
+.overtime.is-settled .ot-col .ot-bar{transition:opacity .25s var(--ease),filter .25s var(--ease);transition-delay:0s;}
+.ot-col:not(.is-active):not(:hover) .ot-bar{opacity:.55;}
+.overtime.is-ready .ot-col.is-active .ot-bar,.overtime.is-ready .ot-col:hover .ot-bar{opacity:1;filter:brightness(1.08);}
+.ot-col.is-active .ot-year{fill:#fff;font-weight:800;}
+.ot-col .ot-year{fill:rgba(244,248,251,.7);font-size:13px;font-weight:700;}
+.ot-col .ot-kind{fill:rgba(169,220,234,.75);font-size:10.5px;font-weight:600;letter-spacing:.04em;}
+.ot-col .ot-tip{fill:rgba(244,248,251,.55);font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;}
+.ot-col.is-active .ot-tip{fill:#E6EEF3;}
+.ot-mid{stroke:rgba(255,255,255,.22);stroke-width:1;stroke-dasharray:4 5;}
+.ot-axis-label{fill:rgba(169,220,234,.7);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.ot-gap-dot{stroke-width:2;}
+.overtime-legend{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:14px;font-size:.88rem;color:rgba(244,248,251,.78);}
+.overtime-legend .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px;}
+.overtime-legend .sw.in{background:linear-gradient(180deg,#5BC48A,#1E7A46);}
+.overtime-legend .sw.out{background:linear-gradient(180deg,#E07A72,#B3261E);}
+.overtime-cap{margin:10px 0 0;font-size:.85rem;color:rgba(244,248,251,.58);max-width:46rem;line-height:1.45;}
+.overtime .chart-table{border-top-color:rgba(255,255,255,.15);}
+.overtime .chart-table summary{color:#A9DCEA;}
+.overtime .chart-table summary::after{color:rgba(244,248,251,.5);}
+.overtime table{width:100%;border-collapse:collapse;font-size:.88rem;color:#E6EEF3;}
+.overtime th,.overtime td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;}
+.overtime th{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:#A9DCEA;}
+.overtime td.n,.overtime th.n{text-align:right;font-variant-numeric:tabular-nums;}
+.overtime :focus-visible{outline:3px solid #FCD98A;outline-offset:2px;}
+#over-time{scroll-margin-top:130px;}
+@media(max-width:760px){
+  .overtime{padding:32px 0 28px;margin-top:36px;}
+  .overtime-readout{grid-template-columns:1fr 1fr;gap:10px;}
+  .overtime-readout .yr-block{grid-column:1/-1;}
+  .overtime-readout .yr-name{font-size:1.2rem;}
+  .overtime-readout .stat .v{font-size:1.1rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ot-col .ot-bar{transform:none;opacity:1;transition:none;}
+}
 
 /* table */
 table{width:100%;border-collapse:collapse;font-size:.9rem;}
@@ -555,6 +682,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
     <a href="#debt">Debt</a>
     <a href="#services">Services</a>
     <a href="#engage">Engage</a>
+    <a href="#over-time">Over time</a>
   </div>
 </nav>
 
@@ -618,6 +746,10 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
       <p class="cap" id="spendCap"></p>
       <div id="spendChart" class="spend-viz" role="img" aria-label="Spending breakdown"></div>
       <p class="spend-rollup" id="spendRollup" hidden></p>
+      <details class="nondept-panel" id="nonDeptPanel">
+        <summary><span>What’s inside Non-Departmental <span class="nd-est">(estimated mix)</span></span><span class="nd-sum-amt" id="nonDeptSumAmt"></span></summary>
+        <div class="nd-body" id="nonDeptBody"></div>
+      </details>
       <details class="chart-table"><summary>Table</summary><div class="tbl-wrap" id="spendTable"></div></details>
       <div class="note warn" id="spendNote"><span class="ic" aria-hidden="true">⚠️</span><span id="spendNoteBody"></span></div>
     </div>
@@ -675,7 +807,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
     <div class="sec-head">
       <span class="kicker">Services</span>
       <h2>Look up a city service</h2>
-      <p>Search or filter. Each card shows this year’s spending.</p>
+      <p>Search or filter. Each card is a department or office total for this year - not an individual salary.</p>
     </div>
     <div class="dir-controls">
       <div class="search" role="search">
@@ -752,6 +884,31 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
   </section>
 
 </div><!-- /.wrap -->
+
+  <!-- OVER TIME -->
+  <section class="overtime" id="over-time" aria-labelledby="overtime-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Five-year detail</span>
+        <h2 id="overtime-title">Money in and out over time</h2>
+        <p>From the City’s five-year revenue and expenditure schedules. Tap a year to compare the gap.</p>
+      </div>
+      <div class="overtime-stage">
+        <div class="overtime-readout" id="otReadout" aria-live="polite"></div>
+        <div class="overtime-chart-wrap">
+          <svg id="otChart" viewBox="0 0 1120 460" role="img" aria-label="Money in versus money out across five fiscal years"></svg>
+        </div>
+        <div class="overtime-legend" aria-hidden="true">
+          <span><span class="sw in"></span>Money in (revenue)</span>
+          <span><span class="sw out"></span>Money out (spending)</span>
+          <span>Bars grow from the center line · dotted line = zero gap</span>
+        </div>
+        <p class="overtime-cap" id="otCap"></p>
+        <details class="chart-table"><summary>Table</summary><div class="tbl-wrap" id="otTable"></div></details>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <dialog id="aboutDialog" class="about-modal" aria-labelledby="aboutTitle">
@@ -775,7 +932,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
           <p class="cap">What the numbers mean, and where they come from.</p>
           <details open><summary>What year &amp; basis?</summary><div class="gbody">These are <strong>adopted</strong> figures for this fiscal year (July 1, 2026 through June 30, 2027), as Council approved on June 23, 2026 - compared to last year's adopted plan (FY 2025-26). They are not actual spending; that will not be known until the books close. Citywide headline totals are <strong>net</strong> of about $118M in transfers between funds, which is the $908.8M (operating $798.4M + capital $110.4M). The fund list, the trend chart, and the flow diagram run on <strong>gross</strong> amounts because they show money each time it moves. Both numbers are correct; they answer different questions.</div></details>
           <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Water, sewer, and trash charge their users directly, so the city keeps them in separate <strong>enterprise funds</strong>, walled off from the General Fund that pays for police, fire, parks, and libraries. A surplus in the water fund cannot hire a police officer. Big Blue Bus sits on the same side of that wall, though it leans on grants and dedicated transit money more than on fares.</div></details>
-          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Outstanding debt and the debt-service schedule come from that biennial book's debt appendix (as of June 30, 2024 for amounts still owed). Local copies live under <code>sources/fy2026-27-adoption/</code> and <code>sources/fy2025-27/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
+          <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Outstanding debt and the debt-service schedule come from that biennial book’s debt appendix (as of June 30, 2024 for amounts still owed). Local copies live under <code>sources/fy2026-27-adoption/</code> and <code>sources/fy2025-27/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
           <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener noreferrer">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
         </div>
       </div>
@@ -878,10 +1035,10 @@ function revExplain(name){
 const SPEND={
   gf:[["Police",153025400],["Public Works",77250110],["Fire",68924871],
     ["Housing & Human Services",26179813],["Transportation",19893423],["Community Development",19556164],
-    ["City Attorney",17009890],["City Manager",16523666],["Information Services",14639824],["Finance",14359632],
+    ["City Attorney's Office",17009890],["City Manager's Office",16523666],["Information Services",14639824],["Finance",14359632],
     ["Library",14068683],["Recreation & Arts",11595483],["Human Resources",9154298],
-    ["Records & Elections",3792698],["City Council",954498],
-    ["Debt service",14707482],["Non-Departmental / transfers",63434564]],
+    ["Records & Elections",3792698],["City Council Office",954498],
+    ["Debt service",14707482],["Non-Departmental",43536064],["General Fund capital",19898500]],
   all:[["General Fund",545070499],["Big Blue Bus",128881676],["Water",57378808],
     ["Resource Recovery & Recycling",48319594],["Wastewater",31492664],["Housing Authority",31702732],
     ["Vehicle Management",19657827],["Airport",20833007],["Pier",19151807],["Beach Recreation",19080253],
@@ -893,10 +1050,10 @@ const SPEND={
 const SPEND_PREV={
   gf:[["Police",128526829],["Public Works",59981290],["Fire",57416909],
     ["Transportation",27637417],["Housing & Human Services",23548510],["Community Development",19771851],
-    ["City Attorney",15385987],["Information Services",13205023],["Finance",13109272],["City Manager",12980293],
+    ["City Attorney's Office",15385987],["Information Services",13205023],["Finance",13109272],["City Manager's Office",12980293],
     ["Library",11730813],["Recreation & Arts",10972806],["Human Resources",6765189],
-    ["Records & Elections",2627935],["City Council",896475],
-    ["Debt service",14704832],["Non-Departmental / transfers",65010163]],
+    ["Records & Elections",2627935],["City Council Office",896475],
+    ["Debt service",14704832],["Non-Departmental",48929334],["General Fund capital",16080829]],
   all:[["General Fund",484271594],["Big Blue Bus",100899616],["Water",50056013],
     ["Resource Recovery & Recycling",45691217],["Wastewater",35305025],["Housing Authority",31378075],
     ["Misc. Grants",22314492],["Airport",21440078],["Vehicle Management",20438154],["Beach Recreation",18898840],
@@ -905,6 +1062,18 @@ const SPEND_PREV={
     ["Gas Tax",5050216],["Information Technology",3203387],["Cemetery",2854459],["Stormwater",1688103],
     ["Community Dev. Block Grants",1114932],["Other small funds",1066812]]
 };
+/* Non-Departmental operating mix (excl. debt, which is its own spend line). Line-item Budget Plan accounts scaled to Attachment D Non-Dept minus GF debt service = $43,536,064. */
+const NONDEPT_TOTAL=43536064;
+const NONDEPT_BUCKETS=[
+  {n:"Schools (SMMUSD)",v:28351398,d:"Transaction & Use Tax payments to Santa Monica-Malibu schools, plus the joint-use agreement for school facilities and afterschool playtime."},
+  {n:"Benefits & labor",v:6387606,d:"OPEB prefunding (net of trust reimbursements), MOU contingency, and citywide salary-savings offsets."},
+  {n:"Tourism & downtown",v:4246175,d:"Santa Monica Travel & Tourism contract, Downtown Santa Monica ambassadors, and Reed Park ambassadors."},
+  {n:"Insurance",v:3296641,d:"Citywide property insurance and special (crime bond) insurance."},
+  {n:"Other citywide",v:1254244,d:"Airport Ave land-swap reimbursements to the Airport Fund, assessments on city-owned property, and small Council-directed items."}
+];
+/* Interfund transfers booked under Non-Departmental (Budget Plan year 2) - footnote only; net is near zero. */
+const NONDEPT_XFER={in:16319872,out:16392240,net:72368};
+
 /* Debt appendix: FY 2025-27 Adopted Biennial Budget. Outstanding as of June 30, 2024; service = FY 2026-27 schedule. */
 const DEBT={
   asOf:'June 30, 2024',
@@ -929,6 +1098,7 @@ const SANKEY_REV_ALL=[["Transfers + charges for services",363045641],["Other Tax
   ["Investment / Rent",18374854],["Other",18052801],["Fines & Forfeitures",14288919]];
 const TREND={
   years:["FY22-23","FY23-24","FY24-25","FY25-26","FY26-27"],
+  kinds:["Actual","Actual","Revised","Plan","This year"],
   all:{rev:[951875011,868021692,871464925,929944964,1036039730],exp:[1048737401,844829306,886277832,911959736,1026393096]},
   gf:{rev:[434712713,448992417,455956016,473481147,509508423],exp:[496794143,432674918,466663780,484271594,545070499]}
 };
@@ -958,15 +1128,16 @@ const DIR=[
   {n:"Transportation",e:"🚦",t:"gf",cat:"everyday",b:19893423,bPrev:27637417,fte:null,d:"Traffic signals, parking, and street planning. The General Fund side of getting around. The buses are budgeted separately."},
   {n:"Housing & Human Services",e:"🏠",t:"gf",cat:"community",b:26179813,bPrev:23548510,fte:null,d:"Housing programs, homelessness outreach, and grants to the nonprofits that handle food, health, and social services."},
   {n:"Community Development",e:"🏗️",t:"gf",cat:"growth",b:19556164,bPrev:19771851,fte:null,d:"Building permits, plan checks, and zoning. If anyone is putting up a building, this department signs off on it."},
-  {n:"City Attorney",e:"⚖️",t:"gf",cat:"admin",b:17009890,bPrev:15385987,fte:null,d:"The city's lawyers. Advises Council and staff, defends the city when it gets sued, and prosecutes misdemeanors."},
+  {n:"City Attorney's Office",e:"⚖️",t:"gf",cat:"admin",b:17009890,bPrev:15385987,fte:null,d:"The city's legal department: attorneys, support staff, and case costs. Advises Council and staff, defends the city when sued, and prosecutes misdemeanors. Not one person's salary."},
   {n:"Information Services",e:"💻",t:"gf",cat:"admin",b:14639824,bPrev:13205023,fte:null,d:"City computers, networks, and cybersecurity, plus the public website and the online services behind it."},
   {n:"Finance",e:"💰",t:"gf",cat:"admin",b:14359632,bPrev:13109272,fte:null,d:"Budgeting, accounting, billing, business licenses, and collecting the taxes and fees. Writes the book this site is built on."},
-  {n:"City Manager",e:"🏛️",t:"gf",cat:"admin",b:16523666,bPrev:12980293,fte:null,d:"The city's chief executive and staff. Carries out what Council decides and runs the departments day to day."},
+  {n:"City Manager's Office",e:"🏛️",t:"gf",cat:"admin",b:16523666,bPrev:12980293,fte:null,d:"The full office budget: Administration, Emergency Management, dozens of staff, programs, and benefits. The City Manager's own salary (~$411k) is one Permanent Employees line inside this total, not the $16.5M figure."},
   {n:"Library",e:"📚",t:"gf",cat:"community",b:14068683,bPrev:11730813,fte:null,d:"The Main Library and the branches. Books, computers, wifi, programs, and public meeting space."},
   {n:"Recreation & Arts",e:"🎭",t:"gf",cat:"community",b:11595483,bPrev:10972806,fte:null,d:"Parks programs, rec classes, pools, youth and senior activities, and the city's arts and cultural events."},
   {n:"Human Resources",e:"👥",t:"gf",cat:"admin",b:9154298,bPrev:6765189,fte:null,d:"Hiring, benefits, training, and labor relations for the city's workforce."},
   {n:"Records & Elections",e:"🗳️",t:"gf",cat:"admin",b:3792698,bPrev:2627935,fte:null,d:"The City Clerk's office. Runs city elections, keeps the official records, posts Council agendas, and fills public-records requests."},
-  {n:"City Council",e:"🏛️",t:"gf",cat:"admin",b:954498,bPrev:896475,fte:2,d:"The elected officials who set policy, pass ordinances, and vote the budget through. This line is the Council's own office."},
+  {n:"City Council Office",e:"🏛️",t:"gf",cat:"admin",b:954498,bPrev:896475,fte:2,d:"The Council's own office budget: elected members plus staff support. Sets policy, passes ordinances, and adopts the budget. Not one councilmember's pay."},
+  {n:"Non-Departmental",e:"📋",t:"gf",cat:"admin",b:43536064,bPrev:48929334,fte:null,d:"Citywide costs not assigned to one department: mostly school payments (SMMUSD), benefits contingencies, tourism contracts, and insurance. Debt service and General Fund capital are separate lines."},
   {n:"Big Blue Bus",e:"🚌",t:"ent",cat:"everyday",b:128881676,bPrev:100899616,rev:188771931,fte:null,d:"The city-owned bus system, running across Santa Monica and much of the Westside on fares, grants, and dedicated transit money."},
   {n:"Water",e:"💧",t:"ent",cat:"everyday",b:57378808,bPrev:50056013,rev:62353747,fte:null,d:"Wells, pipes, treatment, and what comes out of the tap. Paid for on your water bill, not by taxes."},
   {n:"Resource Recovery & Recycling",e:"♻️",t:"ent",cat:"everyday",b:48319594,bPrev:45691217,rev:48089644,fte:null,d:"Trash, recycling, and organics pickup, plus the city's waste programs. Paid for through collection fees."},
@@ -986,7 +1157,13 @@ const SYN={trash:"recycling",garbage:"recycling",recycle:"recycling",recycling:"
   parks:"recreation",park:"recreation",pool:"recreation",arts:"recreation",books:"library",
   permit:"community development",permits:"community development",building:"community development",zoning:"community development",
   taxes:"finance",tax:"finance",billing:"finance",water:"water",beach:"beach",pier:"pier",airport:"airport",
-  elections:"records",vote:"records",voting:"records",clerk:"records"};
+  elections:"records",vote:"records",voting:"records",clerk:"records",
+  "city manager":"city manager's office",manager:"city manager's office",
+  "city attorney":"city attorney's office",attorney:"city attorney's office",
+  "city council":"city council office",council:"city council office",
+  debt:"debt service",bond:"debt service",bonds:"debt service",
+  schools:"non-departmental",smmusd:"non-departmental","non-departmental":"non-departmental",
+  insurance:"non-departmental",tourism:"non-departmental",capital:"general fund capital",cip:"general fund capital"};
 
 const GLOSSARY=[["Fund","A walled-off account for one purpose. Money in a fund generally cannot be spent on anything else, no matter what the city needs elsewhere."],
   ["General Fund","The main account, and the only large one Council can spend more or less freely. It pays for police, fire, parks, and libraries."],
@@ -999,6 +1176,7 @@ const GLOSSARY=[["Fund","A walled-off account for one purpose. Money in a fund g
   ["Capital Improvement Program (CIP)","The construction list: streets, pipes, buildings, parks. Kept apart from the day-to-day operating budget because the spending is one-time."],
   ["Per-capita","A total divided by the 91,535 people who live here (2023 Census ACS estimate in the City budget book). An average, not what any one person pays."],
   ["Adopted vs. actual","'Adopted' is the budget the Council approved as a plan; 'actual' is what really gets spent. This tool shows adopted figures."],
+  ["Department / office budget","A spending line for a whole department or office: staff salaries and benefits, programs, contracts, and overhead. It is not one person's paycheck. Example: City Manager's Office (~$16.5M) vs. the City Manager's salary (~$411k)."],
   ["Fiscal year (FY)","The 12-month budgeting period. Santa Monica's runs July 1 to June 30, so 'FY 2026-27' (this year) means July 2026 through June 2027."],
   ["All funds","Every city account added up: the General Fund plus the enterprise, grant, and restricted funds. Thirty-one of them this year."],
   ["Interfund transfer","Money moved from one city fund to another. Gross charts count both sides; net totals remove the double-count (~$118M this year)."],
@@ -1178,11 +1356,15 @@ function shortBarLabel(label, chartW){
   if(!label||chartW>=420)return label;
   const short={
     'Resource Recovery & Recycling':'Recycling & trash',
-    'Non-Departmental / transfers':'Non-dept / transfers',
+    'Non-Departmental':'Non-Departmental',
+    'General Fund capital':'GF capital',
     'Debt service':'Debt service',
     'Housing & Human Services':'Housing & HHS',
     'Community Development':'Community Dev.',
     'Information Services':'Info. Services',
+    'City Manager\'s Office':'City Manager\'s Ofc.',
+    'City Attorney\'s Office':'City Attorney\'s Ofc.',
+    'City Council Office':'Council Office',
     'Records & Elections':'Records & Elections',
     'Recreation & Arts':'Recreation & Arts',
     'Workers\' Comp Insurance':'Workers\' comp',
@@ -1197,8 +1379,9 @@ function shortBarLabel(label, chartW){
   return short[label]||(label.length>22?label.replace(' & ',' &\n'):label);
 }
 const SPEND_EXPLAIN={
-  'Debt service':'Scheduled principal and interest on General Fund-backed lease revenue bonds for this year.',
-  'Non-Departmental / transfers':'Citywide costs that are not one department: insurance pools, transfers to other funds, and other shared costs. Debt service is broken out on its own line.',
+  'Debt service':'Scheduled principal and interest on General Fund-backed lease revenue bonds for this year. See the Debt section for the full breakdown.',
+  'Non-Departmental':'Citywide operating costs not assigned to one department: mostly school payments, benefits contingencies, tourism contracts, and insurance. Open “What’s inside Non-Departmental” for an estimated mix of those pieces.',
+  'General Fund capital':'General Fund capital projects for this year (streets, facilities, and other CIP). This used to be folded into the Non-Departmental bar.',
   'Measure GS':'Real-estate transfer tax on high-value sales. First $10M/year goes to Santa Monica-Malibu schools; the next $40M to affordable housing and homelessness prevention (above $50M: 80% housing, 20% schools).',
   'Workers\' Comp Insurance':'The internal fund that pays worker injury claims and related costs across city departments.',
   'Stormwater':'Storm drains, runoff projects, and water-quality work, mostly from dedicated stormwater fees and grants.',
@@ -1251,7 +1434,7 @@ function renderSpend(){
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,r.gf?'General Fund':'Other fund',fmt(r.v),pct(r.v,total),y?y.text:'-'];})
         .concat([['Total','',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
-    if(sn) sn.innerHTML='Tap or hover a row for what each line covers. Both the gross chart and the net headline are correct; they answer different questions.';
+    if(sn) sn.innerHTML='Tap or hover a row for what each line covers. General Fund citywide costs are split into Debt service, Non-Departmental, and General Fund capital; open the Non-Departmental breakdown below for the estimated mix. Both the gross chart and the net headline are correct; they answer different questions.';
     const snBox=document.getElementById('spendNote');
     if(snBox){snBox.classList.remove('warn');const ic=snBox.querySelector('.ic');if(ic)ic.textContent='💡';}
   }else{
@@ -1261,14 +1444,16 @@ function renderSpend(){
     fullRows=rows;
     total=rows.reduce((s,r)=>s+r.v,0);
     document.getElementById('spendTitle').textContent='General Fund · '+abbr(total);
-    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Tap or hover a row for what each department covers.';
-    fillTable('spendTable',[{t:'Department'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
+    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Each bar is a <strong>department or office total</strong> (staff, programs, benefits), not one person\'s salary. Tap or hover a row for what it covers.';
+    fillTable('spendTable',[{t:'Department / office'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
-    if(sn) sn.innerHTML='"Debt service" is scheduled principal and interest on General Fund-backed bonds. "Non-Departmental / transfers" is the rest of the citywide costs and money moved to other funds - not one department.';
+    if(sn) sn.innerHTML='Citywide costs used to be one lump. They are now three lines: <strong>Debt service</strong>, <strong>Non-Departmental</strong> (schools, benefits, tourism, insurance), and <strong>General Fund capital</strong>. Open the breakdown below for an <strong>estimated</strong> Non-Departmental mix. Titles like City Manager\'s Office are full office budgets, not individual pay.';
     const snBox=document.getElementById('spendNote');
     if(snBox){snBox.classList.remove('warn');const ic=snBox.querySelector('.ic');if(ic)ic.textContent='💡';}
   }
+
+  renderNonDeptPanel();
 
   const rowColor=(r,i)=>CAT[(i+1)%CAT.length];
   const mosaic=rows.map((r,i)=>{
@@ -1306,9 +1491,14 @@ function renderSpend(){
   const showTip=(i,anchor)=>{
     const r=rows[i];if(!r||!tipEl)return;
     const kind=r.gf===true?'General Fund':(r.gf===false?'Other fund':'');
+    const cta=r.n==='Non-Departmental'
+      ?`<button type="button" class="st-cta" onclick="revealNonDept(event)">See what's inside ↓</button>`
+      :(r.n==='Debt service'
+        ?`<button type="button" class="st-cta" onclick="document.getElementById('debt')?.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})">Open Debt section ↓</button>`
+        :'');
     tipEl.innerHTML=`
       <p class="st-name">${r.n}${kind?` · ${kind}`:''}</p>
-      <p class="st-blurb">${spendExplain(r.n)}</p>`;
+      <p class="st-blurb">${spendExplain(r.n)}</p>${cta}`;
     tipEl.classList.add('show');
     const boxRect=box.getBoundingClientRect();
     const aRect=anchor.getBoundingClientRect();
@@ -1325,6 +1515,38 @@ function renderSpend(){
   };
   bindRowTips(box, tipEl, showTip, document.getElementById('spendMosaic'), document.getElementById('spendList'));
 }
+function renderNonDeptPanel(){
+  const panel=document.getElementById('nonDeptPanel');
+  const amtEl=document.getElementById('nonDeptSumAmt');
+  const body=document.getElementById('nonDeptBody');
+  if(!panel||!body||!amtEl)return;
+  amtEl.textContent=abbr(NONDEPT_TOTAL);
+  const total=NONDEPT_TOTAL;
+  const list=NONDEPT_BUCKETS.map(b=>{
+    const share=pct(b.v,total);
+    return `<li>
+      <span class="nd-name">${b.n}</span>
+      <span class="nd-amt">~${abbr(b.v)}</span>
+      <span class="nd-share">${share}</span>
+      <span class="nd-track" aria-hidden="true"><i style="width:${(b.v/total)*100}%"></i></span>
+      <p class="nd-blurb">${b.d}</p>
+    </li>`;
+  }).join('');
+  body.innerHTML=`
+    <p class="nd-callout">Estimated mix. Bucket dollars are approximate: they take the City’s Operating Budget Line-Item (Budget Plan) shares and scale them to this year’s adopted Non-Departmental total of ${abbr(NONDEPT_TOTAL)}. The ${abbr(NONDEPT_TOTAL)} total itself is exact (Attachment D, after debt service is shown separately).</p>
+    <p class="nd-cap">Citywide General Fund operating costs that are not one department: schools, benefits contingencies, tourism contracts, insurance, and other shared items.</p>
+    <ul class="nondept-list">${list}</ul>
+    <p class="nd-foot"><strong>Also split out nearby:</strong> Debt service (${abbr(DEBT.gf.total)}) and General Fund capital (${abbr(19898500)}), both from adopted figures. Interfund transfers under Non-Departmental (also from the Budget Plan) are roughly ${abbr(NONDEPT_XFER.in)} in and ${abbr(NONDEPT_XFER.out)} out (net ~${abbr(NONDEPT_XFER.net)}); near a wash, so they are not a spend bucket here.</p>`;
+}
+window.revealNonDept=function(e){
+  if(e){e.preventDefault();e.stopPropagation();}
+  const panel=document.getElementById('nonDeptPanel');
+  const tip=document.getElementById('spendTip');
+  if(tip) tip.classList.remove('show');
+  if(!panel)return;
+  panel.open=true;
+  panel.scrollIntoView({behavior:RM?'auto':'smooth',block:'nearest'});
+};
 function renderTrend(){
   const t=TREND[view];
   const canvas=document.getElementById('trendChart');
@@ -1370,6 +1592,128 @@ function renderTrend(){
   canvasSummary(canvas,'Five-year revenue versus spending. FY25-26 and FY26-27 are plans (dotted). This year gap: '+signedAbbr(thisGap)+'; last year plan gap: '+signedAbbr(lastGap)+'.');
   fillTable('trendTable',[{t:'Year'},{t:'Type'},{t:'Revenue',n:1},{t:'Spending',n:1},{t:'Gap',n:1}],
     TREND.years.map((y,i)=>[y,i===4?'This year (plan)':(i===3?'Last year (plan)':(i>=3?'Plan':'History')),fmt(t.rev[i]),fmt(t.exp[i]),signedAbbr(t.rev[i]-t.exp[i])]));
+}
+
+/* ===================== OVER TIME (mirror bars) ===================== */
+let otActive=4;
+function renderOverTime(){
+  const sec=document.getElementById('over-time');
+  const svg=document.getElementById('otChart');
+  const readout=document.getElementById('otReadout');
+  if(!sec||!svg||!readout)return;
+  const t=TREND[view];
+  const kinds=TREND.kinds;
+  const W=1120,H=460,midY=210,topPad=36,botPad=78,barMax=midY-topPad-8;
+  const maxVal=Math.max(...t.rev,...t.exp);
+  const scale=v=>Math.max(4,(v/maxVal)*barMax);
+  const n=TREND.years.length;
+  const colW=W/n;
+  const barW=42,gap=7;
+
+  const gapColor=g=>g>=0?'#FCD98A':'#F0A39A';
+  const gapWord=(g)=>g>=0?'Ahead by ':'Short by ';
+
+  const paintReadout=i=>{
+    const rev=t.rev[i],exp=t.exp[i],g=rev-exp;
+    readout.innerHTML=
+      `<div class="yr-block">
+        <p class="yr-label">${view==='all'?'Whole city':'General Fund'}</p>
+        <p class="yr-name">${TREND.years[i]}</p>
+        <span class="yr-kind">${kinds[i]}${i===4?' · adopted June 23, 2026':''}</span>
+      </div>
+      <div class="stat in"><p class="l">Money in</p><p class="v">${abbr(rev)}</p></div>
+      <div class="stat out"><p class="l">Money out</p><p class="v">${abbr(exp)}</p></div>
+      <div class="stat gap"><p class="l">${g>=0?'Surplus':'Gap'}</p><p class="v ${g>=0?'pos':'neg'}">${gapWord(g)}${abbr(Math.abs(g))}</p></div>`;
+  };
+
+  let defs=
+    `<defs>
+      <linearGradient id="otInGrad" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#1E7A46"/><stop offset="1" stop-color="#5BC48A"/>
+      </linearGradient>
+      <linearGradient id="otOutGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#B3261E"/><stop offset="1" stop-color="#E07A72"/>
+      </linearGradient>
+      <filter id="otGlow" x="-40%" y="-20%" width="180%" height="140%">
+        <feGaussianBlur stdDeviation="4" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>`;
+
+  let grid=`<line class="ot-mid" x1="24" y1="${midY}" x2="${W-24}" y2="${midY}"/>
+    <text class="ot-axis-label" x="28" y="${topPad+2}">In</text>
+    <text class="ot-axis-label" x="28" y="${H-botPad+28}">Out</text>`;
+
+  let cols='';
+  TREND.years.forEach((y,i)=>{
+    const cx=colW*i+colW/2;
+    const rh=scale(t.rev[i]),eh=scale(t.exp[i]);
+    const inX=cx-barW-gap/2,outX=cx+gap/2;
+    const inY=midY-rh,outY=midY;
+    const g=t.rev[i]-t.exp[i];
+    const active=i===otActive?' is-active':'';
+    const tipIn=midY-rh-8,tipOut=midY+eh+14;
+    cols+=`<g class="ot-col${active}" data-i="${i}" tabindex="0" role="button"
+      aria-pressed="${i===otActive?'true':'false'}"
+      aria-label="${y}, ${kinds[i]}. Money in ${abbr(t.rev[i])}, money out ${abbr(t.exp[i])}, ${gapWord(g)}${abbr(Math.abs(g))}">
+      <rect class="ot-hit" x="${colW*i+8}" y="8" width="${colW-16}" height="${H-16}" rx="10"/>
+      <rect class="ot-bar in" x="${inX}" y="${inY}" width="${barW}" height="${rh}" rx="7"
+        fill="url(#otInGrad)" ${i===otActive?'filter="url(#otGlow)"':''}/>
+      <rect class="ot-bar out" x="${outX}" y="${outY}" width="${barW}" height="${eh}" rx="7"
+        fill="url(#otOutGrad)" ${i===otActive?'filter="url(#otGlow)"':''}/>
+      <circle class="ot-gap-dot" cx="${cx}" cy="${midY}" r="4.5" fill="${gapColor(g)}" stroke="#0E2A3A"/>
+      <text class="ot-tip" x="${inX+barW/2}" y="${tipIn}" text-anchor="middle">${abbr(t.rev[i])}</text>
+      <text class="ot-tip" x="${outX+barW/2}" y="${tipOut}" text-anchor="middle">${abbr(t.exp[i])}</text>
+      <text class="ot-year" x="${cx}" y="${H-42}" text-anchor="middle">${y}</text>
+      <text class="ot-kind" x="${cx}" y="${H-24}" text-anchor="middle">${kinds[i].toUpperCase()}</text>
+    </g>`;
+  });
+
+  svg.innerHTML=defs+grid+cols;
+  paintReadout(otActive);
+  document.getElementById('otCap').textContent=view==='all'
+    ?'Gross totals from the five-year schedules (before stripping interfund transfers). FY 2026-27 uses the June 23, 2026 adoption.'
+    :'General Fund from the five-year schedules. FY 2026-27 uses the June 23, 2026 adoption (operating + capital).';
+  svg.setAttribute('aria-label',
+    `Money in versus money out for ${view==='all'?'the whole city':'the General Fund'} across five fiscal years. Selected ${TREND.years[otActive]}: in ${abbr(t.rev[otActive])}, out ${abbr(t.exp[otActive])}.`);
+  fillTable('otTable',[{t:'Year'},{t:'Type'},{t:'Money in',n:1},{t:'Money out',n:1},{t:'Gap',n:1}],
+    TREND.years.map((y,i)=>[y,kinds[i],fmt(t.rev[i]),fmt(t.exp[i]),signedAbbr(t.rev[i]-t.exp[i])]));
+
+  const activate=i=>{
+    otActive=i;
+    svg.querySelectorAll('.ot-col').forEach(g=>{
+      const on=+g.dataset.i===i;
+      g.classList.toggle('is-active',on);
+      g.setAttribute('aria-pressed',on?'true':'false');
+      const bars=g.querySelectorAll('.ot-bar');
+      bars.forEach(b=>{if(on)b.setAttribute('filter','url(#otGlow)');else b.removeAttribute('filter');});
+    });
+    paintReadout(i);
+  };
+  svg.querySelectorAll('.ot-col').forEach(g=>{
+    g.addEventListener('click',()=>activate(+g.dataset.i));
+    g.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(+g.dataset.i);}
+      if(e.key==='ArrowRight'){e.preventDefault();activate(Math.min(n-1,otActive+1));svg.querySelector(`.ot-col[data-i="${otActive}"]`)?.focus();}
+      if(e.key==='ArrowLeft'){e.preventDefault();activate(Math.max(0,otActive-1));svg.querySelector(`.ot-col[data-i="${otActive}"]`)?.focus();}
+    });
+  });
+
+  if(!sec._otIO){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          sec.classList.add('is-ready');
+          window.setTimeout(()=>sec.classList.add('is-settled'),1100);
+          io.disconnect();
+        }
+      });
+    },{threshold:.25});
+    io.observe(sec);
+    sec._otIO=io;
+  } else if(sec.classList.contains('is-ready')){
+    sec.classList.add('is-settled');
+  }
 }
 
 /* ===================== SANKEY ===================== */
@@ -1422,7 +1766,7 @@ function renderSankey(){
     ?abbr(hub)+' gross · ~$'+Math.round(XFER_NET/1e6)+'M is transfers · headline is $908.8M net'
     :'In on the left, departments on the right.');
   // Mobile list alternative
-  const shortN=n=>n.replace('Transfers + charges for services','Transfers + fees').replace('Non-Departmental / transfers','Non-Dept / transfers'); const rowHtml=(arr)=>arr.map(([n,v])=>`<div class="skm-row"><span class="n">${shortN(n)}</span><span class="v">${abbr(v)}</span></div>`).join('');
+  const shortN=n=>n.replace('Transfers + charges for services','Transfers + fees').replace('Non-Departmental','Non-Dept').replace('General Fund capital','GF capital'); const rowHtml=(arr)=>arr.map(([n,v])=>`<div class="skm-row"><span class="n">${shortN(n)}</span><span class="v">${abbr(v)}</span></div>`).join('');
   document.getElementById('sankeyMobile').innerHTML=
     `<div class="skm-col"><div class="skm-h">Money in</div>${rowHtml(sources)}</div>`+
     `<div class="skm-hub"><div class="big">${hubSub}</div><div style="opacity:.75;font-size:.85rem;margin-top:4px">${hubLabel}</div></div>`+
@@ -1603,7 +1947,7 @@ function setView(v, push=true){
   if(push){
     try{const u=new URL(location.href);u.searchParams.set('view',v);history.replaceState(null,'',u);}catch(e){}
   }
-  renderKPIs();renderSankey();renderRevenue();renderSpend();renderTrend();renderDebt();
+  renderKPIs();renderSankey();renderRevenue();renderSpend();renderTrend();renderDebt();renderOverTime();
 }
 Chart.register(centerText);
 Chart.defaults.font.family=getFont();Chart.defaults.color='#5E6E79';
