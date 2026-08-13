@@ -100,6 +100,7 @@ a{color:var(--brand);}
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;}
 .brand .mark{width:30px;height:30px;flex:none;border-radius:8px;}
 .fy-pill{font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:var(--r-pill);}
+html{scroll-padding-top:120px;}
 .subnav{position:sticky;top:60px;z-index:40;background:var(--card);border-bottom:1px solid var(--bd);isolation:isolate;}
 .subnav .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
 .subnav .wrap::-webkit-scrollbar{display:none;}
@@ -107,6 +108,7 @@ a{color:var(--brand);}
   border-bottom:3px solid transparent;white-space:nowrap;transition:color var(--dur),background var(--dur);}
 .subnav a:hover{color:var(--tx);background:var(--subtle);}
 .subnav a[aria-current="true"]{color:var(--brand);border-bottom-color:var(--coastal);}
+.subnav .nav-short{display:none;}
 
 /* hero */
 .hero{background:linear-gradient(150deg,#12354B 0%,#1B4965 45%,#276e86 100%);color:#fff;padding:36px 0 28px;position:relative;overflow:hidden;}
@@ -231,6 +233,7 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .nondept-panel > summary:hover{background:rgba(16,42,64,.03);}
 .nondept-panel .nd-sum-amt{font-variant-numeric:tabular-nums;color:var(--brand);font-weight:800;}
 .nondept-panel .nd-est{font-weight:600;color:var(--tx-mute);font-size:.88em;}
+.nondept-panel .nd-sum-short{display:none;}
 .nondept-panel .nd-body{padding:0 16px 16px;}
 .nondept-panel .nd-cap{margin:0 0 12px;font-size:.9rem;color:var(--tx2);line-height:1.5;}
 .nondept-panel .nd-callout{
@@ -252,6 +255,12 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
 .nondept-list .nd-blurb{grid-column:1/-1;margin:-2px 0 4px;font-size:.84rem;color:var(--tx-mute);line-height:1.45;}
 .nondept-panel .nd-foot{margin:12px 0 0;font-size:.82rem;color:var(--tx-mute);line-height:1.5;}
 @media(max-width:560px){
+  .nondept-panel > summary{position:relative;padding-right:36px;align-items:flex-start;gap:6px;}
+  .nondept-panel > summary > span:first-child{flex:1 1 auto;min-width:0;line-height:1.35;}
+  .nondept-panel > summary::after{position:absolute;right:14px;top:14px;}
+  .nondept-panel .nd-sum-amt{width:100%;order:2;font-size:.95rem;}
+  .nondept-panel .nd-sum-full{display:none;}
+  .nondept-panel .nd-sum-short{display:inline;}
   .nondept-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;}
   .nondept-list .nd-name{grid-area:name;}
   .nondept-list .nd-share{grid-area:share;}
@@ -268,8 +277,8 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
   .spend-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
   .spend-list .track{grid-area:track;}
   .spend-tip{max-width:min(280px,calc(100vw - 40px));}
-  .spend-mosaic{height:36px;}
-  .spend-mosaic > button{min-width:8px;}
+  .spend-mosaic{height:40px;}
+  .spend-mosaic > button{min-width:12px;}
 }
 .rev-tip{
   position:absolute;z-index:8;min-width:240px;max-width:320px;
@@ -293,8 +302,8 @@ section{padding:18px 0 2px;scroll-margin-top:130px;}#overview{scroll-margin-top:
   .rev-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
   .rev-list .track{grid-area:track;}
   .rev-tip{max-width:min(280px,calc(100vw - 40px));}
-  .rev-mosaic{height:36px;}
-  .rev-mosaic > button{min-width:8px;}
+  .rev-mosaic{height:40px;}
+  .rev-mosaic > button{min-width:12px;}
 }
 .chart-box{position:relative;width:100%;min-width:0;}
 .h-tall{height:460px;}.h-med{height:360px;}.h-sm{height:300px;}
@@ -525,7 +534,8 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .hero h1{font-size:32px;}
   .kpi{padding:12px 12px;}
   .kpi .v{font-size:clamp(1.35rem,6.5vw,1.85rem);}
-  .indie-banner{font-size:.8rem;padding:7px 0;}
+  .indie-banner{font-size:.78rem;padding:5px 0;line-height:1.35;}
+  .indie-banner button.about-trigger{min-height:0;padding:2px 0;display:inline;vertical-align:baseline;}
   .view-explain{margin-top:6px;padding:0;background:transparent;border:0;border-left:0;box-shadow:none;}
   .view-explain > summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;padding:14px 16px;background:var(--view-soft);border:1px solid color-mix(in srgb, var(--view-accent) 28%, #fff);border-left:4px solid var(--view-accent);border-radius:var(--r-md);font-size:1rem;font-weight:700;color:var(--view-accent-deep);}
   .view-explain > summary::-webkit-details-marker{display:none;}
@@ -541,6 +551,12 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .cover-list{display:block;}
   .chip{min-height:44px;padding:10px 14px;}
   .chips{position:relative;}
+  .subnav a{font-size:.84rem;padding:12px 11px;}
+  .subnav .nav-full{display:none;}
+  .subnav .nav-short{display:inline;}
+  main{padding-bottom:96px;}
+  .rev-list,.spend-list,.debt-grid,.nondept-list,.cover-list{padding-right:8px;}
+  .rev-list .share,.spend-list .share{padding-right:2px;}
 }
 @media(min-width:761px){
   .view-explain > summary{display:none;}
@@ -554,6 +570,11 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .indie-banner{background:#FBF0D9;color:#5C3D00;border-bottom:1px solid #E8C97A;font-size:.88rem;padding:9px 0;text-align:center;font-weight:600;}
 .indie-banner strong{font-weight:800;}
 .indie-banner a{color:#5C3D00;text-decoration:underline;}
+.indie-banner .indie-short{display:none;}
+@media(max-width:760px){
+  .indie-banner .indie-full{display:none;}
+  .indie-banner .indie-short{display:inline;}
+}
 
 /* floating feedback + tip */
 .fab-stack{position:fixed;right:0;top:50%;z-index:60;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
@@ -568,14 +589,14 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .fab-stack.is-hidden{opacity:0;pointer-events:none;}
 .fab-stack{transition:opacity .2s ease;}
 @media(max-width:760px){
-  .fab-stack{top:auto;bottom:18px;right:14px;transform:none;flex-direction:column-reverse;gap:10px;}
+  .fab-stack{top:auto;bottom:14px;right:12px;transform:none;flex-direction:column-reverse;gap:8px;}
   .fb-fab,.tip-fab{
     writing-mode:horizontal-tb;transform:none;
-    width:48px;height:48px;min-width:48px;min-height:48px;padding:0;
+    width:44px;height:44px;min-width:44px;min-height:44px;padding:0;
     border-radius:50%;box-shadow:var(--sh3);font-size:0;letter-spacing:0;
   }
-  .fb-fab::before{content:"💬";font-size:1.25rem;line-height:1;}
-  .tip-fab::before{content:"☕";font-size:1.25rem;line-height:1;}
+  .fb-fab::before{content:"💬";font-size:1.15rem;line-height:1;}
+  .tip-fab::before{content:"☕";font-size:1.15rem;line-height:1;}
 }
 .feedback-modal{border:0;padding:0;max-width:min(420px,calc(100vw - 32px));width:100%;border-radius:var(--r-lg);box-shadow:var(--sh3);background:var(--card);color:var(--tx);}
 .feedback-modal::backdrop{background:rgba(18,53,75,.55);backdrop-filter:blur(2px);}
@@ -630,7 +651,10 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .sankey-mobile{display:block;}
   .sankey-hint{display:block;}
   .flow-cap{display:none;}
-  .subnav::after{display:block;}
+  .subnav::after{display:block;width:52px;opacity:var(--subnav-end-fade,1);}
+  .subnav::before{content:"";position:absolute;top:0;left:0;bottom:0;width:28px;pointer-events:none;z-index:1;
+    background:linear-gradient(270deg,transparent,var(--card));opacity:0;transition:opacity .2s;}
+  .subnav.is-scrolled::before{opacity:1;}
 }
 @media(min-width:761px){
   .subnav::after{display:none;}
@@ -669,7 +693,11 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
   </div>
 </header>
 <div class="indie-banner" role="note">
-  <div class="wrap">Independent community project · <strong>not</strong> an official City of Santa Monica website · <button type="button" class="about-trigger" onclick="openAbout()">About the numbers</button></div>
+  <div class="wrap">
+    <span class="indie-full">Independent community project · <strong>not</strong> an official City of Santa Monica website · </span>
+    <span class="indie-short">Independent · <strong>not</strong> City Hall · </span>
+    <button type="button" class="about-trigger" onclick="openAbout()">About the numbers</button>
+  </div>
 </div>
 
 <nav class="subnav" aria-label="Section navigation">
@@ -677,12 +705,12 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
     <a href="#overview" aria-current="true">Overview</a>
     <a href="#money-in">Money in</a>
     <a href="#money-out">Money out</a>
-    <a href="#balanced">Balanced?</a>
+    <a href="#balanced"><span class="nav-full">Balanced?</span><span class="nav-short">Balance</span></a>
     <a href="#flow">Flow</a>
     <a href="#debt">Debt</a>
     <a href="#services">Services</a>
     <a href="#engage">Engage</a>
-    <a href="#over-time">Over time</a>
+    <a href="#over-time"><span class="nav-full">Over time</span><span class="nav-short">Trend</span></a>
   </div>
 </nav>
 
@@ -747,7 +775,7 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
       <div id="spendChart" class="spend-viz" role="img" aria-label="Spending breakdown"></div>
       <p class="spend-rollup" id="spendRollup" hidden></p>
       <details class="nondept-panel" id="nonDeptPanel">
-        <summary><span>What’s inside Non-Departmental <span class="nd-est">(estimated mix)</span></span><span class="nd-sum-amt" id="nonDeptSumAmt"></span></summary>
+        <summary><span><span class="nd-sum-full">What’s inside Non-Departmental <span class="nd-est">(estimated mix)</span></span><span class="nd-sum-short">Non-Departmental mix <span class="nd-est">(est.)</span></span></span><span class="nd-sum-amt" id="nonDeptSumAmt"></span></summary>
         <div class="nd-body" id="nonDeptBody"></div>
       </details>
       <details class="chart-table"><summary>Table</summary><div class="tbl-wrap" id="spendTable"></div></details>
@@ -1213,6 +1241,11 @@ function fillTable(id,headers,rows){
 }
 function canvasSummary(canvas,text){if(canvas)canvas.setAttribute('aria-label',text);}
 function finePointer(){return window.matchMedia('(hover:hover) and (pointer:fine)').matches;}
+function tipHint(extra){
+  const touch=!finePointer()||window.matchMedia('(max-width:760px)').matches;
+  const lead=touch?'Tap a row':'Tap or hover a row';
+  return extra?lead+' '+extra:lead+' for what each line means.';
+}
 function bindRowTips(box, tipEl, showTip, ...targets){
   if(!box||!tipEl)return;
   if(box._tipCleanup) box._tipCleanup();
@@ -1348,8 +1381,8 @@ function renderRevenue(){
   const tip=document.getElementById('revTaxTip');
   if(tip) tip.hidden=view!=='gf';
   document.getElementById('revCap').innerHTML=(view==='all'
-    ?'All funds, net of transfers. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. Tap or hover a row for what each line means.'
-    :'General Fund by source. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. Tap or hover a row for what each line means.');
+    ?'All funds, net of transfers. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. '+tipHint()
+    :'General Fund by source. Category splits are estimated from the prior plan’s mix, scaled to this year’s adopted totals. Treat individual dollars and year-over-year changes as approximate. '+tipHint());
 }
 /* Break General Fund into colored stack segments for the all-funds chart */
 function shortBarLabel(label, chartW){
@@ -1434,7 +1467,7 @@ function renderSpend(){
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,r.gf?'General Fund':'Other fund',fmt(r.v),pct(r.v,total),y?y.text:'-'];})
         .concat([['Total','',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
-    if(sn) sn.innerHTML='Tap or hover a row for what each line covers. General Fund citywide costs are split into Debt service, Non-Departmental, and General Fund capital; open the Non-Departmental breakdown below for the estimated mix. Both the gross chart and the net headline are correct; they answer different questions.';
+    if(sn) sn.innerHTML=tipHint('for what each line covers.')+' General Fund citywide costs are split into Debt service, Non-Departmental, and General Fund capital; open the Non-Departmental breakdown below for the estimated mix. Both the gross chart and the net headline are correct; they answer different questions.';
     const snBox=document.getElementById('spendNote');
     if(snBox){snBox.classList.remove('warn');const ic=snBox.querySelector('.ic');if(ic)ic.textContent='💡';}
   }else{
@@ -1444,7 +1477,7 @@ function renderSpend(){
     fullRows=rows;
     total=rows.reduce((s,r)=>s+r.v,0);
     document.getElementById('spendTitle').textContent='General Fund · '+abbr(total);
-    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Each bar is a <strong>department or office total</strong> (staff, programs, benefits), not one person\'s salary. Tap or hover a row for what it covers.';
+    document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Each bar is a <strong>department or office total</strong> (staff, programs, benefits), not one person\'s salary. '+tipHint('for what it covers.');
     fillTable('spendTable',[{t:'Department / office'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
       fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
@@ -2047,37 +2080,73 @@ fbForm.addEventListener('submit',async e=>{
   }
 });
 
-/* scrollspy */
-if('IntersectionObserver' in window){
+/* scrollspy: last section whose top has crossed just below the sticky subnav.
+   Mid-viewport IntersectionObserver missed #overview (short hero sits above that band). */
+(function(){
   const navLinks=[...document.querySelectorAll('.subnav a[href^="#"]')];
-  const secs=navLinks.map(a=>document.querySelector(a.getAttribute('href')));
-  const spy=new IntersectionObserver(es=>{
-    es.forEach(e=>{
-      if(!e.isIntersecting)return;
-      const id='#'+e.target.id;
-      navLinks.forEach(a=>{
-        const on=a.getAttribute('href')===id;
-        if(on){a.setAttribute('aria-current','true');a.scrollIntoView({inline:'center',block:'nearest',behavior:RM?'auto':'smooth'});}
-        else a.removeAttribute('aria-current');
-      });
+  const secs=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if(!secs.length)return;
+  const subnav=document.querySelector('.subnav');
+  const wrap=document.getElementById('subnav');
+  let currentHref=null, ticking=false;
+  const setCurrent=href=>{
+    if(href===currentHref)return;
+    currentHref=href;
+    navLinks.forEach(a=>{
+      const on=a.getAttribute('href')===href;
+      if(on) a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
     });
-  },{rootMargin:'-45% 0px -50% 0px'});
-  secs.forEach(s=>s&&spy.observe(s));
-}
-/* hide FABs while scrolling down on phones */
+    const a=navLinks.find(x=>x.getAttribute('href')===href);
+    if(a&&wrap){
+      const ar=a.getBoundingClientRect(), wr=wrap.getBoundingClientRect();
+      const delta=(ar.left+ar.right)/2-(wr.left+wr.right)/2;
+      wrap.scrollTo({left:wrap.scrollLeft+delta,behavior:RM?'auto':'smooth'});
+    }
+  };
+  const probe=()=>{
+    const navBottom=subnav?subnav.getBoundingClientRect().bottom:110;
+    const line=navBottom+32;
+    let active=secs[0];
+    for(const s of secs){if(s.getBoundingClientRect().top<=line)active=s;}
+    setCurrent('#'+active.id);
+  };
+  const onScroll=()=>{
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(()=>{ticking=false;probe();});
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  probe();
+})();
+/* hide FABs while scrolling down on phones; show again only on scroll up */
 (function(){
   const stack=document.getElementById('fabStack');
   if(!stack)return;
-  let lastY=window.scrollY, hideT=null;
+  let lastY=window.scrollY;
   window.addEventListener('scroll',()=>{
     if(!window.matchMedia('(max-width:760px)').matches){stack.classList.remove('is-hidden');return;}
     const y=window.scrollY, down=y>lastY+8, up=y<lastY-8;
     lastY=y;
     if(down && y>120) stack.classList.add('is-hidden');
     else if(up||y<80) stack.classList.remove('is-hidden');
-    clearTimeout(hideT);
-    hideT=setTimeout(()=>stack.classList.remove('is-hidden'),1600);
   },{passive:true});
+})();
+/* subnav edge fades when horizontally scrolled */
+(function(){
+  const nav=document.querySelector('.subnav');
+  const wrap=document.getElementById('subnav');
+  if(!nav||!wrap)return;
+  const sync=()=>{
+    if(!window.matchMedia('(max-width:760px)').matches){nav.classList.remove('is-scrolled');return;}
+    nav.classList.toggle('is-scrolled', wrap.scrollLeft>8);
+    const atEnd=wrap.scrollLeft+wrap.clientWidth>=wrap.scrollWidth-8;
+    nav.style.setProperty('--subnav-end-fade', atEnd?'0':'1');
+  };
+  wrap.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
 })();
 </script>
 </body>
