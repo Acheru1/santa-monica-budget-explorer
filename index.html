@@ -97,9 +97,10 @@ a{color:var(--brand);}
 /* app bar + nav */
 .appbar{position:sticky;top:0;z-index:50;background:var(--brand);color:var(--tx-dark);box-shadow:var(--sh1);}
 .appbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
-.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;min-width:0;}
 .brand .mark{width:30px;height:30px;flex:none;border-radius:8px;}
-.fy-pill{font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:var(--r-pill);}
+.brand .brand-short{display:none;}
+.fy-pill{flex:none;font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:var(--r-pill);white-space:nowrap;line-height:1.2;}
 html{scroll-padding-top:112px;}
 .subnav{position:sticky;top:60px;z-index:40;background:var(--card);border-bottom:1px solid var(--bd);isolation:isolate;}
 .subnav .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
@@ -269,13 +270,17 @@ section{padding:18px 0 2px;}
   .nondept-list .nd-blurb{grid-column:1/-1;}
 }
 @media(max-width:560px){
-  .spend-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;padding:12px 8px;}
+  .spend-list li{
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"name name" "amt share" "track track";
+    gap:4px 12px;padding:14px 10px;
+  }
   .spend-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
-  .spend-list .name .label{flex:1 1 auto;min-width:0;}
-  .spend-list .name .yoy{display:block;width:100%;margin:2px 0 0 20px;}
-  .spend-list .share{grid-area:share;}
-  .spend-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
-  .spend-list .track{grid-area:track;}
+  .spend-list .name .label{flex:1 1 auto;min-width:0;font-size:1.02rem;}
+  .spend-list .name .yoy{display:block;width:100%;margin:3px 0 0 20px;}
+  .spend-list .share{grid-area:share;align-self:end;font-size:.95rem;}
+  .spend-list .amt{grid-area:amt;text-align:left;font-size:1.08rem;font-weight:800;color:var(--tx);}
+  .spend-list .track{grid-area:track;height:8px;margin-top:2px;}
   .spend-tip{max-width:min(280px,calc(100vw - 40px));}
   .spend-mosaic{height:40px;}
   .spend-mosaic > button{min-width:12px;}
@@ -294,13 +299,17 @@ section{padding:18px 0 2px;}
 .rev-tip .rt-blurb{margin:0;color:rgba(244,248,251,.88);font-size:.86rem;line-height:1.45;font-weight:500;}
 .rev-tip .rt-note{margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font-size:.8rem;color:rgba(244,248,251,.7);}
 @media(max-width:560px){
-  .rev-list li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name share" "amt track";gap:6px 10px;padding:12px 8px;}
+  .rev-list li{
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"name name" "amt share" "track track";
+    gap:4px 12px;padding:14px 10px;
+  }
   .rev-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
-  .rev-list .name .label{flex:1 1 auto;min-width:0;}
-  .rev-list .name .yoy{display:block;width:100%;margin:2px 0 0 20px;}
-  .rev-list .share{grid-area:share;}
-  .rev-list .amt{grid-area:amt;text-align:left;font-size:.92rem;color:var(--tx2);}
-  .rev-list .track{grid-area:track;}
+  .rev-list .name .label{flex:1 1 auto;min-width:0;font-size:1.02rem;}
+  .rev-list .name .yoy{display:block;width:100%;margin:3px 0 0 20px;}
+  .rev-list .share{grid-area:share;align-self:end;font-size:.95rem;}
+  .rev-list .amt{grid-area:amt;text-align:left;font-size:1.08rem;font-weight:800;color:var(--tx);}
+  .rev-list .track{grid-area:track;height:8px;margin-top:2px;}
   .rev-tip{max-width:min(280px,calc(100vw - 40px));}
   .rev-mosaic{height:40px;}
   .rev-mosaic > button{min-width:12px;}
@@ -542,17 +551,34 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .view-explain[open] > summary{border-radius:var(--r-md) var(--r-md) 0 0;border-bottom-color:transparent;}
   .view-explain[open] > summary::after{content:"▴";}
   .view-explain .ve-body{padding:16px 18px 18px;background:var(--view-soft);border:1px solid color-mix(in srgb, var(--view-accent) 28%, #fff);border-left:4px solid var(--view-accent);border-top:0;border-radius:0 0 var(--r-md) var(--r-md);display:grid;gap:14px;}
-  .chart-table .tbl-wrap{max-height:none;}
+  .chart-table .tbl-wrap{max-height:none;overflow-x:visible;}
   .cover-chart-wrap{display:none;}
   .cover-list{display:block;}
   .chip{min-height:44px;padding:10px 14px;}
-  .subnav a{font-size:.84rem;padding:12px 8px;}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{flex:none;}
+  .subnav a{font-size:.84rem;padding:12px 10px;}
   .engage-step a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;margin:-12px 0;vertical-align:middle;border-radius:4px;}
   .subnav .nav-full{display:none;}
   .subnav .nav-short{display:inline;}
-  main{padding-bottom:96px;}
-  .rev-list,.spend-list,.debt-grid,.nondept-list,.cover-list,.kpis{padding-right:52px;}
-  .rev-list .share,.spend-list .share{padding-right:2px;}
+  .brand{font-size:.92rem;gap:8px;}
+  .brand .mark{width:26px;height:26px;}
+  .brand .brand-full{display:none;}
+  .brand .brand-short{display:inline;}
+  .fy-pill{font-size:.72rem;padding:5px 10px;}
+  main{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));}
+  /* stacked mobile tables */
+  .chart-table table{width:100%;}
+  .chart-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+  .chart-table tbody{display:grid;gap:8px;}
+  .chart-table tr{display:grid;gap:4px;padding:12px 14px;border:1px solid var(--bd);border-radius:var(--r-sm);background:var(--card);box-shadow:var(--sh1);}
+  .chart-table td{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:2px 0;border:0;font-size:.92rem;text-align:right;}
+  .chart-table td::before{content:attr(data-label);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx-mute);text-align:left;flex:none;max-width:42%;}
+  .chart-table td:first-child{display:block;font-weight:800;font-size:1.02rem;color:var(--tx);text-align:left;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--bd);}
+  .chart-table td:first-child::before{display:none;}
+  .chart-table td.n{text-align:right;}
+  .chart-table tr.trow, .chart-table .trow{border-color:var(--brand);background:var(--subtle);}
 }
 @media(min-width:761px){
   .view-explain > summary{display:none;}
@@ -574,7 +600,7 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
   .indie-banner button.about-trigger{min-height:0;padding:2px 0;display:inline;vertical-align:baseline;}
 }
 
-/* floating feedback + tip */
+/* floating feedback + tip (desktop side tabs; mobile bottom dock) */
 .fab-stack{position:fixed;right:0;top:50%;z-index:60;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
 .fb-fab,.tip-fab{writing-mode:vertical-rl;transform:rotate(180deg);
   border:0;border-radius:var(--r-sm) 0 0 var(--r-sm);color:#fff;font:inherit;font-weight:700;font-size:.9rem;
@@ -586,15 +612,25 @@ footer .cite{color:rgba(255,255,255,.7);margin:4px 0;}
 .fb-fab:focus-visible,.tip-fab:focus-visible{outline:3px solid #FCD98A;outline-offset:2px;}
 .fab-stack.is-hidden{opacity:0;pointer-events:none;}
 .fab-stack{transition:opacity .2s ease;}
+.fab-ico{display:none;}
 @media(max-width:760px){
-  .fab-stack{top:auto;bottom:14px;right:12px;transform:none;flex-direction:column-reverse;gap:8px;}
-  .fb-fab,.tip-fab{
-    writing-mode:horizontal-tb;transform:none;
-    width:44px;height:44px;min-width:44px;min-height:44px;padding:0;
-    border-radius:50%;box-shadow:var(--sh3);font-size:0;letter-spacing:0;
+  .fab-stack{
+    top:auto;bottom:0;left:0;right:0;transform:none;
+    flex-direction:row;gap:8px;align-items:stretch;
+    background:var(--card);border-top:1px solid var(--bd);
+    box-shadow:0 -6px 24px rgba(16,42,64,.12);
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));
   }
-  .fb-fab::before{content:"💬";font-size:1.15rem;line-height:1;}
-  .tip-fab::before{content:"☕";font-size:1.15rem;line-height:1;}
+  .fb-fab,.tip-fab{
+    writing-mode:horizontal-tb;transform:none;flex:1;
+    width:auto;height:auto;min-width:0;min-height:48px;padding:10px 12px;
+    border-radius:var(--r-sm);box-shadow:none;font-size:.88rem;letter-spacing:0;
+    flex-direction:row;align-items:center;justify-content:center;gap:8px;
+  }
+  .fb-fab{order:1;border-radius:var(--r-sm);}
+  .tip-fab{order:2;border-radius:var(--r-sm);}
+  .fab-ico{display:inline;font-size:1.05rem;line-height:1;}
+  .fab-stack.is-hidden{opacity:1;pointer-events:auto;}
 }
 .feedback-modal{border:0;padding:0;max-width:min(420px,calc(100vw - 32px));width:100%;border-radius:var(--r-lg);box-shadow:var(--sh3);background:var(--card);color:var(--tx);}
 .feedback-modal::backdrop{background:rgba(18,53,75,.55);backdrop-filter:blur(2px);}
@@ -684,7 +720,8 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
   <div class="wrap">
     <span class="brand">
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#276e86"/><path d="M8 26 Q14 20 20 26 T32 26" stroke="#FCD98A" stroke-width="2.5" fill="none"/><circle cx="28" cy="14" r="4" fill="#A9DCEA"/></svg>
-      Santa Monica Budget Explorer
+      <span class="brand-full">Santa Monica Budget Explorer</span>
+      <span class="brand-short">SM Budget Explorer</span>
     </span>
     <span class="fy-pill">FY 2026-27</span>
   </div>
@@ -700,8 +737,8 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
 <nav class="subnav" aria-label="Section navigation">
   <div class="wrap" id="subnav">
     <a href="#overview" aria-current="true">Overview</a>
-    <a href="#money-in" aria-label="Money in"><span class="nav-full">Money in</span><span class="nav-short">In</span></a>
-    <a href="#money-out" aria-label="Money out"><span class="nav-full">Money out</span><span class="nav-short">Out</span></a>
+    <a href="#money-in">Money in</a>
+    <a href="#money-out">Money out</a>
     <a href="#balanced"><span class="nav-full">Balanced?</span><span class="nav-short">Balance</span></a>
     <a href="#flow">Flow</a>
     <a href="#debt">Debt</a>
@@ -959,16 +996,16 @@ footer .cite .about-trigger,footer .cite a{display:inline-flex;align-items:cente
           <details open><summary>What year &amp; basis?</summary><div class="gbody">These are <strong>adopted</strong> figures for this fiscal year (July 1, 2026 through June 30, 2027), as Council approved on June 23, 2026 - compared to last year's adopted plan (FY 2025-26). They are not actual spending; that will not be known until the books close. Citywide headline totals are <strong>net</strong> of about $118M in transfers between funds, which is the $908.8M (operating $798.4M + capital $110.4M). The fund list, the trend chart, and the flow diagram run on <strong>gross</strong> amounts because they show money each time it moves. Both numbers are correct; they answer different questions.</div></details>
           <details><summary>Why is Water (or the bus) separate?</summary><div class="gbody">Water, sewer, and trash charge their users directly, so the city keeps them in separate <strong>enterprise funds</strong>, walled off from the General Fund that pays for police, fire, parks, and libraries. A surplus in the water fund cannot hire a police officer. Big Blue Bus sits on the same side of that wall, though it leans on grants and dedicated transit money more than on fares.</div></details>
           <details><summary>Source documents</summary><div class="gbody">City of Santa Monica, June 23, 2026 budget adoption (Item 12-A): staff report and Attachment D final schedules; population from the FY 2025-27 Adopted Biennial Budget. Outstanding debt and the debt-service schedule come from that biennial book’s debt appendix (as of June 30, 2024 for amounts still owed). Local copies live under <code>sources/fy2026-27-adoption/</code> and <code>sources/fy2025-27/</code>. <a href="https://www.santamonica.gov/santa-monica-budgets-and-annual-financial-reports" target="_blank" rel="noopener noreferrer">santamonica.gov → Budgets &amp; Annual Financial Reports</a>.</div></details>
-          <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use the <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> button on the right edge of the page, or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener noreferrer">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
+          <details><summary>Corrections &amp; contact</summary><div class="gbody">Found a mistake? Use <button type="button" class="about-trigger" onclick="closeAbout();openFeedback()" style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">Feedback</button> at the bottom of the screen on a phone (or the tab on the right edge on desktop), or open an issue at <a href="https://github.com/Acheru1/santa-monica-budget-explorer" target="_blank" rel="noopener noreferrer">github.com/Acheru1/santa-monica-budget-explorer</a>. This is a resident project, not a City product. Before you cite a figure at a Council meeting or in a story, check it against the City's published budget.</div></details>
         </div>
       </div>
     </div>
   </div>
 </dialog>
 
-<div class="fab-stack" id="fabStack">
-  <a class="tip-fab" id="tipFab" href="https://buymeacoffee.com/santamonicacitizen" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee - tip the builder">Buy me a coffee</a>
-  <button type="button" class="fb-fab" id="fbFab" onclick="openFeedback()" aria-haspopup="dialog" aria-controls="feedbackDialog" aria-label="Send feedback">Feedback</button>
+<div class="fab-stack" id="fabStack" role="navigation" aria-label="Support and feedback">
+  <button type="button" class="fb-fab" id="fbFab" onclick="openFeedback()" aria-haspopup="dialog" aria-controls="feedbackDialog"><span class="fab-ico" aria-hidden="true">💬</span><span class="fab-lbl">Feedback</span></button>
+  <a class="tip-fab" id="tipFab" href="https://buymeacoffee.com/santamonicacitizen" target="_blank" rel="noopener noreferrer"><span class="fab-ico" aria-hidden="true">☕</span><span class="fab-lbl">Buy me a coffee</span></a>
 </div>
 
 <dialog id="feedbackDialog" class="feedback-modal" aria-labelledby="feedbackTitle">
@@ -1234,8 +1271,23 @@ function lookupPrev(name, map){return map[name];}
 let view='all',charts={};
 function fillTable(id,headers,rows){
   const el=document.getElementById(id);if(!el)return;
+  const narrow=window.matchMedia('(max-width:760px)').matches;
   el.innerHTML='<table><thead><tr>'+headers.map(h=>`<th scope="col"${h.n?' class="n"':''}>${h.t||h}</th>`).join('')+
-    '</tr></thead><tbody>'+rows.map(r=>`<tr>${r.map((c,i)=>`<td${headers[i]&&headers[i].n?' class="n"':''}>${c}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+    '</tr></thead><tbody>'+rows.map(r=>{
+      const isTotal=String(r[0]||'').toLowerCase()==='total';
+      return `<tr${isTotal?' class="trow"':''}>`+r.map((c,i)=>{
+        const label=(headers[i]&&(headers[i].t||headers[i]))||'';
+        return `<td${headers[i]&&headers[i].n?' class="n"':''} data-label="${String(label).replace(/"/g,'&quot;')}">${c}</td>`;
+      }).join('')+`</tr>`;
+    }).join('')+'</tbody></table>';
+  if(narrow) el.classList.add('is-mobile-table');
+  else el.classList.remove('is-mobile-table');
+}
+function yoyShort(cur,prev){
+  const y=yoyParts(cur,prev);
+  if(!y) return '-';
+  const p=prev===0||prev==null?null:(100*(cur-prev)/prev);
+  return p==null?signedAbbr(y.d):`${signedAbbr(y.d)} (${y.d>=0?'+':''}${p.toFixed(0)}%)`;
 }
 function canvasSummary(canvas,text){if(canvas)canvas.setAttribute('aria-label',text);}
 function finePointer(){return window.matchMedia('(hover:hover) and (pointer:fine)').matches;}
@@ -1373,9 +1425,17 @@ function renderRevenue(){
     tipEl.style.top=top+'px';
   };
   bindRowTips(box, tipEl, showTip, document.getElementById('revMosaic'), document.getElementById('revList'));
-  fillTable('revTable',[{t:'Source'},{t:'This year (est.)',n:1},{t:'Share',n:1},{t:'vs last year (approx)',n:1}],
-    rows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?'~'+y.text:'-'];})
-      .concat([['Total',fmt(total),'100%','']]));
+  const phone=window.matchMedia('(max-width:760px)').matches;
+  fillTable('revTable',
+    phone
+      ?[{t:'Source'},{t:'Amount',n:1},{t:'Share',n:1},{t:'vs last year',n:1}]
+      :[{t:'Source'},{t:'This year (est.)',n:1},{t:'Share',n:1},{t:'vs last year (approx)',n:1}],
+    rows.map(r=>phone
+      ?[r.n,abbr(r.v),pct(r.v,total),yoyShort(r.v,r.prev)]
+      :[r.n,fmt(r.v),pct(r.v,total),(yoyParts(r.v,r.prev)?'~'+yoyParts(r.v,r.prev).text:'-')])
+      .concat([phone
+        ?['Total',abbr(total),'100%','']
+        :['Total',fmt(total),'100%','']]));
   const tip=document.getElementById('revTaxTip');
   if(tip) tip.hidden=view!=='gf';
   document.getElementById('revCap').innerHTML=(view==='all'
@@ -1441,6 +1501,7 @@ function renderSpend(){
   if(!box)return;
   if(charts.spend){try{charts.spend.destroy();}catch(e){} charts.spend=null;}
   const narrow=window.matchMedia('(max-width:700px)').matches;
+  const phoneSpend=window.matchMedia('(max-width:760px)').matches;
   let rows, fullRows, total;
 
   if(view==='all'){
@@ -1461,9 +1522,16 @@ function renderSpend(){
     document.getElementById('spendTitle').textContent='Biggest lines · '+abbr(total)+' gross';
     const xferM=Math.round(XFER_NET/1e6);
     document.getElementById('spendCap').innerHTML='These bars total about <strong>$1.03B</strong> because transfers between city funds are counted on both sides. The headline <strong>$908.8M</strong> removes ~$'+xferM+'M of that double-count.';
-    fillTable('spendTable',[{t:'Department / fund'},{t:'Type'},{t:'This year',n:1},{t:'Share of gross',n:1},{t:'vs last year',n:1}],
-      fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,r.gf?'General Fund':'Other fund',fmt(r.v),pct(r.v,total),y?y.text:'-'];})
-        .concat([['Total','',fmt(total),'100%','']]));
+    fillTable('spendTable',
+      phoneSpend
+        ?[{t:'Department'},{t:'Amount',n:1},{t:'Share',n:1},{t:'vs last year',n:1}]
+        :[{t:'Department / fund'},{t:'Type'},{t:'This year',n:1},{t:'Share of gross',n:1},{t:'vs last year',n:1}],
+      fullRows.map(r=>phoneSpend
+        ?[r.n,abbr(r.v),pct(r.v,total),yoyShort(r.v,r.prev)]
+        :[r.n,r.gf?'General Fund':'Other fund',fmt(r.v),pct(r.v,total),(yoyParts(r.v,r.prev)?yoyParts(r.v,r.prev).text:'-')])
+        .concat([phoneSpend
+          ?['Total',abbr(total),'100%','']
+          :['Total','',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
     if(sn) sn.innerHTML=tipHint('for what each line covers.')+' General Fund citywide costs are split into Debt service, Non-Departmental, and General Fund capital; open the Non-Departmental breakdown below for the estimated mix. Both the gross chart and the net headline are correct; they answer different questions.';
     const snBox=document.getElementById('spendNote');
@@ -1476,8 +1544,16 @@ function renderSpend(){
     total=rows.reduce((s,r)=>s+r.v,0);
     document.getElementById('spendTitle').textContent='General Fund · '+abbr(total);
     document.getElementById('spendCap').innerHTML='Police alone is about <strong>28%</strong> of this pot; Police and Fire together about <strong>41%</strong>. Each bar is a <strong>department or office total</strong> (staff, programs, benefits), not one person\'s salary. '+tipHint('for what it covers.');
-    fillTable('spendTable',[{t:'Department / office'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
-      fullRows.map(r=>{const y=yoyParts(r.v,r.prev);return [r.n,fmt(r.v),pct(r.v,total),y?y.text:'-'];}).concat([['Total',fmt(total),'100%','']]));
+    fillTable('spendTable',
+      phoneSpend
+        ?[{t:'Department'},{t:'Amount',n:1},{t:'Share',n:1},{t:'vs last year',n:1}]
+        :[{t:'Department / office'},{t:'This year',n:1},{t:'Share',n:1},{t:'vs last year',n:1}],
+      fullRows.map(r=>phoneSpend
+        ?[r.n,abbr(r.v),pct(r.v,total),yoyShort(r.v,r.prev)]
+        :[r.n,fmt(r.v),pct(r.v,total),(yoyParts(r.v,r.prev)?yoyParts(r.v,r.prev).text:'-')])
+        .concat([phoneSpend
+          ?['Total',abbr(total),'100%','']
+          :['Total',fmt(total),'100%','']]));
     const sn=document.getElementById('spendNoteBody');
     if(sn) sn.innerHTML='Citywide costs used to be one lump. They are now three lines: <strong>Debt service</strong>, <strong>Non-Departmental</strong> (schools, benefits, tourism, insurance), and <strong>General Fund capital</strong>. Open the breakdown below for an <strong>estimated</strong> Non-Departmental mix. Titles like City Manager\'s Office are full office budgets, not individual pay.';
     const snBox=document.getElementById('spendNote');
@@ -2135,20 +2211,14 @@ fbForm.addEventListener('submit',async e=>{
   window.addEventListener('resize',onScroll,{passive:true});
   probe();
 })();
-/* hide FABs on the first screen and while scrolling down on phones */
+/* keep desktop side tabs visible; mobile uses the always-on bottom dock */
 (function(){
   const stack=document.getElementById('fabStack');
   if(!stack)return;
-  let lastY=window.scrollY;
   const sync=()=>{
-    if(!window.matchMedia('(max-width:760px)').matches){stack.classList.remove('is-hidden');return;}
-    const y=window.scrollY, down=y>lastY+8, up=y<lastY-8;
-    lastY=y;
-    if(y<240) stack.classList.add('is-hidden');
-    else if(down) stack.classList.add('is-hidden');
-    else if(up) stack.classList.remove('is-hidden');
+    if(window.matchMedia('(max-width:760px)').matches) stack.classList.remove('is-hidden');
   };
-  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
   sync();
 })();
 /* subnav edge fades when horizontally scrolled */
