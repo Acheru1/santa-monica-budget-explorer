@@ -271,16 +271,20 @@ section{padding:18px 0 2px;}
 }
 @media(max-width:560px){
   .spend-list li{
-    grid-template-columns:minmax(0,1fr) auto;
-    grid-template-areas:"name name" "amt share" "track track";
-    gap:4px 12px;padding:14px 10px;
+    grid-template-columns:10px minmax(0,1fr) auto;
+    grid-template-areas:
+      "dot label share"
+      ". amt yoy"
+      ". track track";
+    column-gap:10px;row-gap:5px;padding:14px 8px;align-items:baseline;
   }
-  .spend-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
-  .spend-list .name .label{flex:1 1 auto;min-width:0;font-size:1.02rem;}
-  .spend-list .name .yoy{display:block;width:100%;margin:3px 0 0 20px;}
-  .spend-list .share{grid-area:share;align-self:end;font-size:.95rem;}
-  .spend-list .amt{grid-area:amt;text-align:left;font-size:1.08rem;font-weight:800;color:var(--tx);}
-  .spend-list .track{grid-area:track;height:8px;margin-top:2px;}
+  .spend-list .name{display:contents;}
+  .spend-list .dot{grid-area:dot;align-self:center;margin:0;}
+  .spend-list .label{grid-area:label;min-width:0;font-size:1.02rem;font-weight:600;line-height:1.3;}
+  .spend-list .yoy{grid-area:yoy;display:inline;width:auto;margin:0;justify-self:end;align-self:baseline;font-size:.8rem;}
+  .spend-list .share{grid-area:share;align-self:baseline;font-size:.95rem;line-height:1.3;}
+  .spend-list .amt{grid-area:amt;text-align:left;font-size:1.12rem;font-weight:800;color:var(--tx);line-height:1.2;}
+  .spend-list .track{grid-area:track;height:8px;margin:2px 0 0;}
   .spend-tip{max-width:min(280px,calc(100vw - 40px));}
   .spend-mosaic{height:40px;}
   .spend-mosaic > button{min-width:12px;}
@@ -300,16 +304,20 @@ section{padding:18px 0 2px;}
 .rev-tip .rt-note{margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font-size:.8rem;color:rgba(244,248,251,.7);}
 @media(max-width:560px){
   .rev-list li{
-    grid-template-columns:minmax(0,1fr) auto;
-    grid-template-areas:"name name" "amt share" "track track";
-    gap:4px 12px;padding:14px 10px;
+    grid-template-columns:10px minmax(0,1fr) auto;
+    grid-template-areas:
+      "dot label share"
+      ". amt yoy"
+      ". track track";
+    column-gap:10px;row-gap:5px;padding:14px 8px;align-items:baseline;
   }
-  .rev-list .name{grid-area:name;flex-wrap:wrap;align-items:flex-start;}
-  .rev-list .name .label{flex:1 1 auto;min-width:0;font-size:1.02rem;}
-  .rev-list .name .yoy{display:block;width:100%;margin:3px 0 0 20px;}
-  .rev-list .share{grid-area:share;align-self:end;font-size:.95rem;}
-  .rev-list .amt{grid-area:amt;text-align:left;font-size:1.08rem;font-weight:800;color:var(--tx);}
-  .rev-list .track{grid-area:track;height:8px;margin-top:2px;}
+  .rev-list .name{display:contents;}
+  .rev-list .dot{grid-area:dot;align-self:center;margin:0;}
+  .rev-list .label{grid-area:label;min-width:0;font-size:1.02rem;font-weight:600;line-height:1.3;}
+  .rev-list .yoy{grid-area:yoy;display:inline;width:auto;margin:0;justify-self:end;align-self:baseline;font-size:.8rem;}
+  .rev-list .share{grid-area:share;align-self:baseline;font-size:.95rem;line-height:1.3;}
+  .rev-list .amt{grid-area:amt;text-align:left;font-size:1.12rem;font-weight:800;color:var(--tx);line-height:1.2;}
+  .rev-list .track{grid-area:track;height:8px;margin:2px 0 0;}
   .rev-tip{max-width:min(280px,calc(100vw - 40px));}
   .rev-mosaic{height:40px;}
   .rev-mosaic > button{min-width:12px;}
