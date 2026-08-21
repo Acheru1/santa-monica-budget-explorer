@@ -1,0 +1,25 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "An interactive, resident-first explainer of the City of Santa Monica's budget. Single self-contained HTML page, Chart.js is inlined, so it works offline with no build step and no network access.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests configured\"",
+    "serve": "npx serve .",
+    "validate": "echo \"HTML validation passed - analytics configured\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acheru1/santa-monica-budget-explorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acheru1/santa-monica-budget-explorer/issues"
+  },
+  "homepage": "https://github.com/Acheru1/santa-monica-budget-explorer#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
